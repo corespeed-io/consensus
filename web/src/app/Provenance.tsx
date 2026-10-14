@@ -1,6 +1,6 @@
 import { computeStats } from '../../../skills/consensus/scripts/result.mjs';
 import { useI18n, type I18n } from './i18n';
-import { RednoteMark, RedditMark, XMark } from './icons';
+import { CoreSpeedMark, RednoteMark, RedditMark, XMark } from './icons';
 
 /** A result file (skills/consensus/references/result-format.md). Only fields the viewer reads are typed. */
 export interface ResultFile {
@@ -185,7 +185,10 @@ export function Provenance({ result: r, issues }: { result: ResultFile; issues: 
         </div>
 
         <div className="prov-block">
-          <h2 className="eyebrow">{t('usage_title')}</h2>
+          <h2 className="eyebrow cs-heading">
+            <CoreSpeedMark size={10} />
+            {t('usage_title')}
+          </h2>
           <p className="cost-line">{s.mixedRates ? t('cost_line_mixed', { requests: r.usage.requests, credits: s.credits }) : t('cost_line', { requests: r.usage.requests, rate: r.usage.credits_per_request, credits: s.credits })}</p>
           {r.usage.budget ? <p className="muted small">{t('budget', { budget: r.usage.budget })}</p> : null}
           {split ? <p className="muted small">{t('budget_split', { split })}</p> : null}

@@ -2,8 +2,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReddit, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import type { Source } from './api';
 
-export const RedditMark = ({ size = 16 }: { size?: number }) => <FontAwesomeIcon icon={faReddit} style={{ width: size, height: size, color: '#FF4500' }} />;
-export const XMark = ({ size = 15 }: { size?: number }) => <FontAwesomeIcon icon={faXTwitter} style={{ width: size, height: size }} />;
+/** Reddit's mark in the same orange its data uses on this page (var(--reddit)), so the legend matches the chart. */
+export const RedditMark = ({ size = 16 }: { size?: number }) => <FontAwesomeIcon icon={faReddit} className="mark-reddit" style={{ width: size, height: size }} />;
+/** X is black. On the dark theme it sits on a light tile (CSS .mark-x) so the black mark stays visible. */
+export const XMark = ({ size = 15 }: { size?: number }) => (
+  <span className="mark-x">
+    <FontAwesomeIcon icon={faXTwitter} style={{ width: size, height: size }} />
+  </span>
+);
 
 /** The Consensus mark: three bars, same artwork as the favicon, drawn in the current text colour. */
 export const LogoMark = ({ size = 24, className }: { size?: number; className?: string }) => (
@@ -31,3 +37,15 @@ export function SourceIcon({ source, size = 14 }: { source: Source; size?: numbe
   if (source === 'x') return <XMark size={Math.round(size * 0.85)} />;
   return <RednoteMark size={size} />;
 }
+
+/**
+ * CoreSpeed's mark, the path from its public site icon (corespeed.io/icon.svg), drawn in the current text colour so it
+ * reads black on white and white on black. Shown wherever the page names CoreSpeed as a label.
+ */
+const CORESPEED_MARK =
+  'M0.904696 32.1043L11.2458 26.1357C14.5083 24.2549 18.5342 24.4999 21.6332 26.636C22.9076 27.5124 24.2992 28.1938 25.7548 28.6657C28.1936 29.4606 30.8205 29.6558 33.3943 29.1979C35.1551 28.8821 36.8911 28.2684 38.5276 27.3208C43.7711 24.2941 46.6252 18.7157 46.4228 13.0558C46.4868 8.03475 48.4535 4.07104 51.6874 1.13291L51.7834 1.05487C52.3442 0.593533 51.7409 -0.27596 51.1124 0.0859256L40.3382 6.3029C37.1183 7.95671 33.121 7.77554 30.0786 5.87011C28.861 5.05748 27.5403 4.42579 26.163 3.98218C23.7242 3.18751 21.097 2.99229 18.5233 3.44994C16.7625 3.76579 15.0267 4.3832 13.3902 5.32705C8.2036 8.3186 5.3564 13.8047 5.48785 19.3971C5.4913 23.893 3.73044 27.7147 0.223099 31.1248C-0.341346 31.5932 0.269255 32.4696 0.90115 32.1006L0.904696 32.1043ZM32.2761 13.9997L39.0212 10.1071C39.7346 9.69547 40.6683 10.0502 40.8884 10.8486C42.0457 15.0927 40.4517 19.7235 36.7562 22.321C36.497 22.5056 36.2272 22.6794 35.9433 22.8426C34.2393 23.8256 32.3827 24.2832 30.5473 24.2655C27.2636 24.2443 24.0686 22.6937 22.0379 19.9116C22.0379 19.9116 21.7255 19.4148 21.4094 18.8683C21.0156 18.194 20.1493 17.9634 19.4713 18.3538L12.886 22.1543C12.0978 22.6085 11.0932 22.1649 10.9016 21.2777C10.0105 17.1827 11.6222 12.8288 15.1651 10.3377C15.4243 10.1531 15.6941 9.97931 15.9779 9.81609C17.6819 8.83311 19.5388 8.37523 21.374 8.39318C24.5479 8.41436 27.6326 9.86214 29.6704 12.4667C29.6704 12.4667 30.0929 12.9849 30.487 13.5846C30.8809 14.1843 31.6619 14.3581 32.2761 14.0033V13.9997Z';
+export const CoreSpeedMark = ({ size = 14 }: { size?: number }) => (
+  <svg className="cs-mark" width={Math.round(size * 1.6)} height={size} viewBox="-0.5 -0.5 53 33.2" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d={CORESPEED_MARK} />
+  </svg>
+);

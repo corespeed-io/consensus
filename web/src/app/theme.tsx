@@ -8,7 +8,7 @@ const THEMES: { id: Theme; key: 'theme_light' | 'theme_dark'; Icon: typeof Sun }
   { id: 'day', key: 'theme_light', Icon: Sun },
   { id: 'night', key: 'theme_dark', Icon: Moon },
 ];
-const META_COLOR: Record<Theme, string> = { day: '#e3f1fc', night: '#0b1520' };
+const META_COLOR: Record<Theme, string> = { day: '#ffffff', night: '#000000' };
 export const THEME_KEY = 'consensus.theme';
 
 const Ctx = createContext<{ theme: Theme; setTheme: (t: Theme) => void }>({ theme: 'day', setTheme: () => {} });

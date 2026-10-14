@@ -1,14 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowRight, Download, Languages } from 'lucide-react';
+import { ArrowUpRight, Download, Languages } from 'lucide-react';
 import { toViewerState, validateResult } from '../../../skills/consensus/scripts/result.mjs';
 import { download, headline, slug, toCsv } from './format';
 import { I18nProvider, LanguageSelect, matchLocale, NATIVE_NAME, useI18n } from './i18n';
-import { LogoMark } from './icons';
+import { CoreSpeedMark, LogoMark } from './icons';
 import { Provenance, type Issue, type ResultFile } from './Provenance';
 import { Results } from './Results';
 import { ThemeProvider, ThemeSwitch } from './theme';
 import type { SearchState } from './useSearch';
-import './app.css';
 import './viewer.css';
 
 /*
@@ -64,58 +63,63 @@ function exportCsv(r: ResultFile) {
   download(`${slug(r.question)}.csv`, toCsv(rows));
 }
 
-/** Upstream's sponsor strip slot, now an honest attribution: what CoreSpeed did for this page. */
+/** Upstream's sponsor strip slot, now an honest attribution: what CoreSpeed did for this page (it read the posts). */
 function PoweredStrip() {
   const { t } = useI18n();
   return (
     <a className="powered" href={CORESPEED} target="_blank" rel="noopener noreferrer" aria-label={t('strip_aria')}>
-      <span className="pw-by">
-        <span className="pw-pre">{t('strip_pre')}</span>
-        <b className="pw-name">CoreSpeed</b>
-      </span>
-      <span className="pw-mid">
-        <span className="pw-offer">{t('strip_offer')}</span>
-        <span className="pw-note">{t('strip_note')}</span>
-      </span>
-      <span className="pw-cta">
-        {t('strip_cta')} <ArrowRight size={14} aria-hidden="true" />
-      </span>
+      <span>{t('strip_pre')}</span>
+      <b>
+        <CoreSpeedMark size={11} />
+        CoreSpeed
+      </b>
+      <ArrowUpRight size={13} aria-hidden="true" />
     </a>
   );
 }
 
+/** Upstream's frame: the strip, then a full-width top bar (no search here), then the results. */
 function Shell({ children, right }: { children: React.ReactNode; right?: React.ReactNode }) {
   const { t, tx } = useI18n();
   return (
     <div className="canvas">
-      <div className="sky" aria-hidden="true" />
       <PoweredStrip />
-      <div className="app">
-        <header className="topbar">
-          <div className="topbar-in">
-            <span className="wordmark" aria-label="Consensus">
-              <LogoMark className="wordmark-logo" size={22} />
-              <span className="wordmark-full">Consensus</span>
-            </span>
-            <span className="edition-tag">{t('edition')}</span>
-            <span className="top-actions">
-              {right}
-              <LanguageSelect />
-              <ThemeSwitch />
-            </span>
-          </div>
-        </header>
-        <main>{children}</main>
-        <footer className="viewer-foot">
-          <p>
-            {tx('foot_made', {
-              skill: <a href={REPO}>{t('foot_skill')}</a>,
-              consensus: <a href="https://github.com/Straitly-ai/consensus">Consensus</a>,
-            })}
-          </p>
-          <p>{tx('foot_run', { corespeed: <a href={CORESPEED}>CoreSpeed</a> })}</p>
-        </footer>
-      </div>
+      <header className="topbar">
+        <div className="topbar-in">
+          <span className="wordmark" aria-label="Consensus">
+            <LogoMark className="wordmark-logo" size={22} />
+            <span className="wordmark-full">Consensus</span>
+          </span>
+          <span className="edition-tag">
+            <CoreSpeedMark size={10} />
+            {t('edition')}
+          </span>
+          <span className="top-actions">
+            {right}
+            <LanguageSelect />
+            <ThemeSwitch />
+          </span>
+        </div>
+      </header>
+      <main className="app">{children}</main>
+      <footer className="viewer-foot">
+        <p>
+          {tx('foot_made', {
+            skill: <a href={REPO}>{t('foot_skill')}</a>,
+            consensus: <a href="https://github.com/Straitly-ai/consensus">Consensus</a>,
+          })}
+        </p>
+        <p>
+          {tx('foot_run', {
+            corespeed: (
+              <a href={CORESPEED} className="cs-link">
+                <CoreSpeedMark size={10} />
+                CoreSpeed
+              </a>
+            ),
+          })}
+        </p>
+      </footer>
     </div>
   );
 }
@@ -175,20 +179,24 @@ function App() {
 
   const { result, state } = loaded;
   const lang = result.language || undefined;
+  const counted = state.poll?.total_opinions ?? 0;
   return (
     <Shell right={<span className="snapshot-tag">{t('snapshot', { date: i.date(result.created_at) })}</span>}>
-      {result.summary && (
-        <section className="summary-band" aria-label={t('summary_aria')}>
-          <p lang={lang}>{result.summary}</p>
-          <span className="summary-meta">{tp('summary_meta', state.poll?.total_opinions ?? 0)}</span>
-          <ReportLanguageNote language={lang} />
-        </section>
-      )}
-      {!result.summary && <ReportLanguageNote language={lang} />}
       <Results
         state={state}
         query={result.question}
         reportLang={lang}
+        finding={
+          <>
+            {result.summary && (
+              <section className="finding" aria-label={t('summary_aria')}>
+                <p lang={lang}>{result.summary}</p>
+                <span className="summary-meta">{tp('summary_meta', counted)}</span>
+              </section>
+            )}
+            <ReportLanguageNote language={lang} />
+          </>
+        }
         tools={
           <button className="icon-btn tool" onClick={() => exportCsv(result)} data-tip={t('csv_tip')} aria-label={t('csv')}>
             <Download size={16} />

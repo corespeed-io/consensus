@@ -193,21 +193,25 @@ All are recorded snapshots, not live results.
 
 ## What the viewer shows
 
-The original Consensus results screen: the answer donut, a "why" summary per
-answer, themes that filter the posts, and every post with its author, date,
-score and a link to the original. CoreSpeed additions:
+The original Consensus results screen, in its original layout: a poll column
+(the question, the answers with their shares, a "why" summary per answer, and
+themes that filter the posts) beside every post with its author, date, score
+and a link to the original. CoreSpeed additions:
 
 - source switches narrow the whole page to the sources you tick. They only
   filter posts already in the file: nothing is fetched, nothing is charged,
   and a source the run did not collect is never shown as having results;
-- counts per source, and every share labelled as a share of the opinions
-  counted in the selected sources' sample;
+- counts per source: a ring of counted opinions by platform, a bar per answer
+  split by platform, and a per-source table. Every share is labelled as a
+  share of the opinions counted in the selected sources' sample;
 - below 15 counted opinions, shares are hidden and the sample is called thin;
 - the interface in English, 简体中文, 日本語 and 한국어, from dictionaries built
   into the page. Switching costs no model tokens. The report itself stays in
   the one language your agent wrote it in, and the page says so when the two
   differ; posts are always shown as written;
-- light and dark themes, in Vercel's Geist type with a light sky-blue accent;
+- light and dark themes on plain white or black, in Vercel's Geist type. The
+  only colours are the platforms' own (Reddit orange, X black, Rednote red),
+  and they mark platform data only; answers are told apart by their labels;
 - a panel lists what was read, what it cost, the queries run, and the limits;
 - there is no search box: the page is a snapshot, so follow-ups go through
   your agent.
@@ -290,4 +294,6 @@ system font instead.
 
 Platform marks label where each post came from. The Reddit and X marks come
 from Font Awesome Free (icons under CC BY 4.0). The Rednote (小红书) wordmark
-comes from Simple Icons (CC0 1.0). Each mark is a trademark of its owner.
+comes from Simple Icons (CC0 1.0). The CoreSpeed mark beside CoreSpeed labels
+is CoreSpeed's own logo, taken from its public site. Each mark is a trademark
+of its owner.
