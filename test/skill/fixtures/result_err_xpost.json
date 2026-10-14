@@ -1,0 +1,16 @@
+{
+ "content": [
+  {
+   "type": "text",
+   "text": "Error: social upstream error (HTTP 400)"
+  }
+ ],
+ "structuredContent": {
+  "error": {
+   "code": "upstream_error",
+   "status": 400,
+   "request_id": "9ca352ed-a9d1-4d7b-9e71-9a2727a7322b"
+  }
+ },
+ "isError": true
+}

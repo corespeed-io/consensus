@@ -1,0 +1,9 @@
+{
+ "content": [
+  {
+   "type": "text",
+   "text": "Input validation error: Invalid arguments for tool social__reddit_search: search_type: Invalid option: expected one of \"post\"|\"community\"|\"comment\"|\"media\"|\"people\""
+  }
+ ],
+ "isError": true
+}

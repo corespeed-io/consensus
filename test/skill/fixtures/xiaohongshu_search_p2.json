@@ -1,0 +1,370 @@
+{
+ "code": 0,
+ "success": true,
+ "data": {
+  "request_dqa_instant": false,
+  "ai_mode_enable": false,
+  "items": [
+   {
+    "mix_track_id": "NOTE__684e724b000000000303b720__7f74ab78c5e6421f__Claude Code 和 Cursor",
+    "new_help_style": false,
+    "model_type": "note",
+    "note": {
+     "advanced_widgets_groups": {
+      "groups": [
+       {
+        "mode": 1,
+        "fetch_types": [
+         "guos_test",
+         "note_next_step",
+         "second_jump_bar",
+         "cooperate_binds",
+         "note_collection",
+         "rec_next_infos",
+         "image_stickers",
+         "image_filters",
+         "product_review",
+         "related_search",
+         "cooperate_comment_component",
+         "image_goods_cards",
+         "ads_goods_cards",
+         "ads_comment_component",
+         "goods_card_v2",
+         "image_template",
+         "buyable_goods_card_v2",
+         "ads_engage_bar",
+         "challenge_card",
+         "cooperate_engage_bar",
+         "guide_post",
+         "pgy_comment_component",
+         "pgy_engage_bar",
+         "bar_below_image",
+         "aigc_collection",
+         "co_produce",
+         "widgets_ndb",
+         "next_note_guide",
+         "pgy_bbc_exp",
+         "async_group",
+         "super_activity",
+         "widgets_enhance",
+         "music_player",
+         "soundtrack_player"
+        ]
+       },
+       {
+        "mode": 0,
+        "fetch_types": [
+         "guos_test",
+         "vote_stickers",
+         "bullet_comment_lead",
+         "note_search_box",
+         "interact_pk",
+         "interact_vote",
+         "guide_heuristic",
+         "share_to_msg",
+         "follow_guide",
+         "note_share_prompt_v1",
+         "sync_group",
+         "group_share",
+         "share_guide_bubble",
+         "widgets_share",
+         "guide_navigator"
+        ]
+       }
+      ]
+     },
+     "geo_info": {
+      "distance": ""
+     },
+     "liked": false,
+     "title": "再见cursor！claude code太强了",
+     "click_score": 0,
+     "result_from": "",
+     "collected_count": 1106,
+     "collected": false,
+     "comments_count": 46,
+     "nice_count": 0,
+     "niced": false,
+     "cover_image_index": 0,
+     "tag_info": {
+      "title": "",
+      "type": ""
+     },
+     "type": "normal",
+     "note_attributes": [],
+     "images_list": [
+      {
+       "fileid": "notes_pre_post/1040g3k031io9m6vv1gdg48qd86bce1rvm6pn1qg",
+       "height": 1290,
+       "need_load_original_image": false,
+       "width": 2350,
+       "original": "",
+       "url_size_large": "https://sns-na-i11.xhscdn.com/notes_pre_post/1040g3k031io9m6vv1gdg48qd86bce1rvm6pn1qg?imageView2/2/w/1440/format/webp&ap=5&sc=SRH_DTL&sign=79430b9f0effdcb545dc6f7b9f305d15&t=6acf47cf",
+       "trace_id": "notes_pre_post/1040g3k031io9m6vv1gdg48qd86bce1rvm6pn1qg",
+       "url": "https://sns-na-i11.xhscdn.com/notes_pre_post/1040g3k031io9m6vv1gdg48qd86bce1rvm6pn1qg?imageView2/2/w/576/format/webp/q/87%7CimageMogr2/strip&redImage/frame/0&ap=5&sc=SRH_PRV&sign=79430b9f0effdcb545dc6f7b9f305d15&t=6acf47cf"
+      }
+     ],
+     "id": "684e724b000000000303b720",
+     "user": {
+      "userid": "581456c782ec39633651077f",
+      "red_id": "103443655",
+      "track_duration": 0,
+      "nickname": "mason木子君",
+      "red_official_verify_type": 0,
+      "show_red_official_verify_icon": false,
+      "followed": false,
+      "images": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31cj64ia5gs6g48qd86bce1rv0h40t70?imageView2/2/w/80/format/jpg",
+      "red_official_verified": false
+     },
+     "corner_tag_info": [
+      {
+       "text_en": "",
+       "icon": "",
+       "style": 0,
+       "type": "ubt_sig_token",
+       "location": -1,
+       "text": "RAc131B409f5C8F/vmGCfFM10Fp3EjW6z+9Kb4141pD/eA/wX+cq8vfu11/CUBRvtcPBFBcjcm8BxWghe7oObQhbTgRxYMLv15"
+      }
+     ],
+     "timestamp": 1749971531,
+     "extract_text_enabled": 0,
+     "debug_info_str": "",
+     "xsec_token": "YBf2vhdOrse_y2vFEvN7pryMY0RypIaD2NWdq_sbaaNTE=",
+     "widgets_context": "{\"flags\":{},\"author_id\":\"581456c782ec39633651077f\",\"author_name\":\"mason木子君\"}",
+     "interaction_area": {
+      "type": 1,
+      "status": false,
+      "text": "973"
+     },
+     "update_time": 1750002414000,
+     "liked_count": 973,
+     "desc": "最近高强度使用claude code之后，就再也没用过cursor了，claude code比cursor自信得多，开发",
+     "shared_count": 188,
+     "last_update_time": 0,
+     "has_music": false
+    }
+   },
+   {
+    "mix_track_id": "NOTE__69cde0d80000000022028bea__7f74ab78c5e6421f__Claude Code 和 Cursor",
+    "new_help_style": false,
+    "model_type": "note",
+    "note": {
+     "shared_count": 322,
+     "geo_info": {
+      "distance": ""
+     },
+     "liked": false,
+     "title": "每天拆解一个AI产品No.01：Cursor",
+     "click_score": 0,
+     "result_from": "",
+     "collected_count": 1300,
+     "collected": false,
+     "nice_count": 0,
+     "comments_count": 32,
+     "niced": false,
+     "cover_image_index": 0,
+     "note_attributes": [],
+     "type": "normal",
+     "tag_info": {
+      "title": "",
+      "type": ""
+     },
+     "images_list": [
+      {
+       "fileid": "spectrum/1040g0k031uens4pm36005oe1661k1aol7tlna98",
+       "height": 1660,
+       "url": "https://sns-na-i11.xhscdn.com/spectrum/1040g0k031uens4pm36005oe1661k1aol7tlna98?imageView2/2/w/576/format/webp/q/87%7CimageMogr2/strip&redImage/frame/0&ap=5&sc=SRH_PRV&sign=8a085cb36ab546ae6f1148eaf101b6d1&t=6acf47cf",
+       "width": 1242,
+       "original": "",
+       "url_size_large": "https://sns-na-i11.xhscdn.com/spectrum/1040g0k031uens4pm36005oe1661k1aol7tlna98?imageView2/2/w/1440/format/webp&ap=5&sc=SRH_DTL&sign=8a085cb36ab546ae6f1148eaf101b6d1&t=6acf47cf",
+       "trace_id": "spectrum/1040g0k031uens4pm36005oe1661k1aol7tlna98",
+       "need_load_original_image": false
+      },
+      {
+       "fileid": "spectrum/1040g0k031uens4pm360g5oe1661k1aolo6dclh0",
+       "height": 1660,
+       "url": "",
+       "width": 1242,
+       "original": "",
+       "url_size_large": "https://sns-na-i11.xhscdn.com/spectrum/1040g0k031uens4pm360g5oe1661k1aolo6dclh0?imageView2/2/w/1440/format/webp&ap=5&sc=SRH_DTL&sign=0521836e05f1b66e1448b6b0bd3cba6b&t=6acf47cf",
+       "trace_id": "spectrum/1040g0k031uens4pm360g5oe1661k1aolo6dclh0",
+       "need_load_original_image": false
+      },
+      {
+       "need_load_original_image": false,
+       "fileid": "spectrum/1040g0k031uens4pm36105oe1661k1aol68aa2fo",
+       "height": 1660,
+       "width": 1242,
+       "original": "",
+       "url_size_large": "https://sns-na-i11.xhscdn.com/spectrum/1040g0k031uens4pm36105oe1661k1aol68aa2fo?imageView2/2/w/1440/format/webp&ap=5&sc=SRH_DTL&sign=18a4dde75dc0e6386861f1c8c71ddda5&t=6acf47cf",
+       "trace_id": "spectrum/1040g0k031uens4pm36105oe1661k1aol68aa2fo",
+       "url": ""
+      },
+      {
+       "fileid": "spectrum/1040g0k031uens4pm361g5oe1661k1aol8aj1g08",
+       "height": 1660,
+       "url": "",
+       "width": 1242,
+       "original": "",
+       "url_size_large": "https://sns-na-i11.xhscdn.com/spectrum/1040g0k031uens4pm361g5oe1661k1aol8aj1g08?imageView2/2/w/1440/format/webp&ap=5&sc=SRH_DTL&sign=cc4262db1cf645ab0afd705cd7b305c4&t=6acf47cf",
+       "trace_id": "spectrum/1040g0k031uens4pm361g5oe1661k1aol8aj1g08",
+       "need_load_original_image": false
+      },
+      {
+       "fileid": "spectrum/1040g0k031uens4pm36205oe1661k1aol66qau1g",
+       "height": 1660,
+       "url": "",
+       "width": 1242,
+       "original": "",
+       "url_size_large": "https://sns-na-i11.xhscdn.com/spectrum/1040g0k031uens4pm36205oe1661k1aol66qau1g?imageView2/2/w/1440/format/webp&ap=5&sc=SRH_DTL&sign=5f7b6fef1b1e4785fa375cc830d78d85&t=6acf47cf",
+       "trace_id": "spectrum/1040g0k031uens4pm36205oe1661k1aol66qau1g",
+       "need_load_original_image": false
+      },
+      {
+       "need_load_original_image": false,
+       "fileid": "spectrum/1040g0k031uens4pm362g5oe1661k1aol352lo7o",
+       "height": 1660,
+       "width": 1242,
+       "original": "",
+       "url_size_large": "https://sns-na-i11.xhscdn.com/spectrum/1040g0k031uens4pm362g5oe1661k1aol352lo7o?imageView2/2/w/1440/format/webp&ap=5&sc=SRH_DTL&sign=77431afc34de4c4a76638c0e9aa6f59d&t=6acf47cf",
+       "trace_id": "spectrum/1040g0k031uens4pm362g5oe1661k1aol352lo7o",
+       "url": ""
+      }
+     ],
+     "id": "69cde0d80000000022028bea",
+     "user": {
+      "red_id": "6948231701",
+      "red_official_verified": false,
+      "userid": "61c13183000000001000ab15",
+      "nickname": "兰斯AI",
+      "red_official_verify_type": 0,
+      "followed": false,
+      "images": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31u13o8240o005oe1661k1aoljn0ksso?imageView2/2/w/80/format/jpg",
+      "show_red_official_verify_icon": false,
+      "track_duration": 0
+     },
+     "corner_tag_info": [
+      {
+       "text_en": "",
+       "icon": "",
+       "style": 0,
+       "type": "ubt_sig_token",
+       "location": -1,
+       "text": "RAgnumC75breT2MgHBhE6MDWwsAVGe2ddt67DgrVmKkr6PwSDDP9Vhi0QSH7AdXAzJ22SBy8oqy5Iixbnv0RNIGJ0ifUULTpUd"
+      }
+     ],
+     "timestamp": 1775100120,
+     "extract_text_enabled": 0,
+     "interaction_area": {
+      "type": 1,
+      "status": false,
+      "text": "1627"
+     },
+     "xsec_token": "YBDF8EDNmVjMMKNxChODm18Ai9dj-KawdbLeEUXOHvCKc=",
+     "widgets_context": "{\"flags\":{},\"author_id\":\"61c13183000000001000ab15\",\"author_name\":\"兰斯AI\"}",
+     "liked_count": 1627,
+     "update_time": 1775100592000,
+     "desc": "📌 今日产品：Cursor 🏷 一句话：AI 原生的代码编辑器，不只是补全，是你的编程搭档",
+     "debug_info_str": "",
+     "last_update_time": 0,
+     "advanced_widgets_groups": {
+      "groups": [
+       {
+        "mode": 1,
+        "fetch_types": [
+         "guos_test",
+         "note_next_step",
+         "second_jump_bar",
+         "cooperate_binds",
+         "note_collection",
+         "rec_next_infos",
+         "image_stickers",
+         "image_filters",
+         "product_review",
+         "related_search",
+         "cooperate_comment_component",
+         "image_goods_cards",
+         "ads_goods_cards",
+         "ads_comment_component",
+         "goods_card_v2",
+         "image_template",
+         "buyable_goods_card_v2",
+         "ads_engage_bar",
+         "challenge_card",
+         "cooperate_engage_bar",
+         "guide_post",
+         "pgy_comment_component",
+         "pgy_engage_bar",
+         "bar_below_image",
+         "aigc_collection",
+         "co_produce",
+         "widgets_ndb",
+         "next_note_guide",
+         "pgy_bbc_exp",
+         "async_group",
+         "super_activity",
+         "widgets_enhance",
+         "music_player",
+         "soundtrack_player"
+        ]
+       },
+       {
+        "mode": 0,
+        "fetch_types": [
+         "guos_test",
+         "vote_stickers",
+         "bullet_comment_lead",
+         "note_search_box",
+         "interact_pk",
+         "interact_vote",
+         "guide_heuristic",
+         "share_to_msg",
+         "follow_guide",
+         "note_share_prompt_v1",
+         "sync_group",
+         "group_share",
+         "share_guide_bubble",
+         "widgets_share",
+         "guide_navigator"
+        ]
+       }
+      ]
+     },
+     "has_music": false
+    }
+   }
+  ],
+  "search_dqa_new_page_exp": 1,
+  "can_cut": false,
+  "strategy_info": {
+   "query_average_impression_count": 19,
+   "query_can_guide_to_feed": true
+  },
+  "cur_cut_number": 0,
+  "request_dqa": 0,
+  "query_type": 0,
+  "taxonomy1": "5ab094be481d26b8ef904606",
+  "is_broad_query": true,
+  "show_single_col": false,
+  "video_intent_grade_v3": 1,
+  "query_debug_info": {
+   "is_forbidden": false
+  },
+  "query_intent": {
+   "search_ask_intent": false,
+   "low_supply_intent": false,
+   "goodsIntent": 1
+  },
+  "service_status": "{\"filter\":\"not_required\",\"note\":\"success\",\"onebox\":\"not_required\",\"cost\":{\"all\":524,\"zone\":\"rcsh1\"}}",
+  "extra_info": {
+   "atmosphere_v3_enable": "0"
+  },
+  "search_pull_down_opt_exp": 1,
+  "dqa_authorized_user_by_shared": false
+ },
+ "msg": "成功",
+ "search_id": "7f74ab78c5e6421f",
+ "search_session_id": "6feae529ecff4652896dc4be863f7143",
+ "page": 2,
+ "next_page": 3
+}

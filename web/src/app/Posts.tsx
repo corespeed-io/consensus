@@ -1,19 +1,14 @@
 import { memo, useState } from 'react';
-import { ArrowBigUp, ArrowRight, ArrowUpRight, Check, Copy, Heart, MessageCircle, MessageSquare, Repeat2 } from 'lucide-react';
-import type { AuthorProfile, Community, Intent, Post } from './api';
-import { compact, INTENT_META, timeAgo } from './format';
-import { RedditMark, XMark } from './icons';
+import { ArrowBigUp, ArrowUpRight, Heart, MessageCircle, MessageSquare, Repeat2 } from 'lucide-react';
+import type { AuthorProfile, Community, Post } from './api';
+import { useI18n } from './i18n';
+import { RedditMark, SourceIcon } from './icons';
 import { cleanPostText } from './postText';
 
-export function useCopy(): [string | null, (key: string, text: string) => void] {
-  const [copied, setCopied] = useState<string | null>(null);
-  const copy = (key: string, text: string) => {
-    void navigator.clipboard?.writeText(text).catch(() => {});
-    setCopied(key);
-    setTimeout(() => setCopied((c) => (c === key ? null : c)), 1400);
-  };
-  return [copied, copy];
-}
+/*
+ * One post, verbatim. Interface text around it (metrics, dates, buttons) follows the reader's language; the post's
+ * own words never change. dir="auto" lets right-to-left posts lay out correctly whatever the interface language.
+ */
 
 function Img({ src, className, fallback, bg, lazy }: { src: string | null | undefined; className: string; fallback: React.ReactNode; bg?: string | null; lazy?: boolean }) {
   const [bad, setBad] = useState(false);
@@ -73,61 +68,82 @@ function SubTag({ name, community }: { name: string; community?: Community }) {
   );
 }
 
-export function IntentPill({ intent }: { intent: Intent | null }) {
-  if (!intent) return null;
-  const m = INTENT_META[intent];
+/** The post's own date, absolute: a snapshot read months later must not say "3d ago". */
+function PostDate({ iso }: { iso: string | null }) {
+  const { date, dateTime } = useI18n();
+  if (!iso) return null;
   return (
-    <span className={`intent intent-${intent}`} style={{ ['--c' as string]: m.color }}>
-      {m.label}
-    </span>
+    <time className="by-sub by-age" dateTime={iso} title={dateTime(iso)}>
+      {date(iso)}
+    </time>
   );
 }
 
 function Byline({ post, community }: { post: Post; community?: Community }) {
-  const age = timeAgo(post.created_at);
+  const { tp, compact } = useI18n();
   if (post.source === 'reddit') {
     const h = post.author.handle;
     return (
       <div className="byline">
         <strong className="by-main">{deletedUser(h) ? '[deleted]' : `u/${h}`}</strong>
         {post.community && <SubTag name={post.community} community={community} />}
-        {age && <span className="by-sub by-age">{age}</span>}
+        <PostDate iso={post.created_at} />
       </div>
     );
   }
+  if (post.source === 'rednote')
+    return (
+      <div className="byline">
+        <strong className="by-main">{post.author.name || post.author.handle}</strong>
+        <PostDate iso={post.created_at} />
+      </div>
+    );
   return (
     <div className="byline">
       <strong className="by-main">{post.author.name || `@${post.author.handle}`}</strong>
       {post.author.name && <span className="by-sub by-handle">@{post.author.handle}</span>}
-      {post.author.followers ? <span className="by-sub by-followers">{compact(post.author.followers)} followers</span> : null}
-      {age && <span className="by-sub by-age">{age}</span>}
+      {post.author.followers ? <span className="by-sub by-followers">{tp('followers', post.author.followers, { count: compact(post.author.followers) })}</span> : null}
+      <PostDate iso={post.created_at} />
     </div>
   );
 }
 
+/** A metric with its name for screen readers and a tooltip; the icon alone is decoration. */
+function Metric({ name, value, children }: { name: string; value: string; children: React.ReactNode }) {
+  return (
+    <span data-tip={name}>
+      <span aria-hidden="true">{children}</span> <span className="sr-only">{name}: </span>
+      {value}
+    </span>
+  );
+}
+
 export function Engagement({ post }: { post: Post }) {
+  const { t, compact } = useI18n();
   if (post.source === 'reddit')
     return (
       <div className="engage">
-        <span data-tip="Upvotes">
-          <ArrowBigUp size={16} /> {compact(post.score)}
-        </span>
-        <span data-tip="Replies">
-          <MessageSquare size={14} /> {compact(post.replies ?? 0)}
-        </span>
+        <Metric name={t('upvotes')} value={compact(post.score)}>
+          <ArrowBigUp size={16} />
+        </Metric>
+        <Metric name={t('replies')} value={compact(post.replies ?? 0)}>
+          <MessageSquare size={14} />
+        </Metric>
       </div>
     );
   return (
     <div className="engage">
-      <span data-tip="Likes">
-        <Heart size={14} /> {compact(post.score)}
-      </span>
-      <span data-tip="Replies">
-        <MessageCircle size={14} /> {compact(post.replies ?? 0)}
-      </span>
-      <span data-tip="Reposts">
-        <Repeat2 size={15} /> {compact(post.reposts ?? 0)}
-      </span>
+      <Metric name={t('likes')} value={compact(post.score)}>
+        <Heart size={14} />
+      </Metric>
+      <Metric name={t('replies')} value={compact(post.replies ?? 0)}>
+        <MessageCircle size={14} />
+      </Metric>
+      {post.source === 'x' && post.reposts != null && (
+        <Metric name={t('reposts')} value={compact(post.reposts)}>
+          <Repeat2 size={15} />
+        </Metric>
+      )}
     </div>
   );
 }
@@ -144,42 +160,43 @@ export const PostRow = memo(function PostRow({
   post,
   community,
   author,
-  lead,
-  copied,
-  onCopy,
   tag,
 }: {
   post: Post;
   community?: Community;
   author?: AuthorProfile;
-  lead?: boolean;
-  copied?: boolean;
-  onCopy?: (p: Post) => void;
   /** The answer this post counts toward, shown in the All opinions view. */
-  tag?: { title: string; color: string };
+  tag?: { title: string; color: string; lang?: string };
 }) {
+  const { t } = useI18n();
   const [open, setOpen] = useState(false);
   const { title, body } = cleanText(post);
   const flat = body.replace(/\s+/g, ' ');
   const long = (title?.length ?? 0) + flat.length > 260;
+  const where = t(`open_${post.source}`);
   return (
     <article className="post">
       <PostIcon post={post} author={author} />
       <div className="post-main">
         <div className="post-top">
           <Byline post={post} community={community} />
-          <a className="post-src" href={post.url} target="_blank" rel="noreferrer" data-tip={post.source === 'reddit' ? 'Open on Reddit' : 'Open on X'} aria-label="Open original">
-            {post.source === 'reddit' ? <RedditMark size={16} /> : <XMark size={13} />}
-            <ArrowUpRight size={15} className="post-ext" />
+          <a className="post-src" href={post.url} target="_blank" rel="noreferrer" data-tip={where} aria-label={where}>
+            <SourceIcon source={post.source} size={post.source === 'x' ? 15 : 16} />
+            <ArrowUpRight size={15} className="post-ext" aria-hidden="true" />
           </a>
         </div>
-        <div className={`post-text ${open ? 'open' : ''}`}>
+        <div className={`post-text ${open ? 'open' : ''}`} dir="auto">
           {title && <strong className="post-title">{title} </strong>}
           {open ? body : flat}
+          {post.excerpt && (
+            <span className="excerpt-mark" title={t('excerpt_tip')}>
+              {' '}…<span className="sr-only"> ({t('excerpt_tip')})</span>
+            </span>
+          )}
         </div>
         {long && (
-          <button className="link-btn more" onClick={() => setOpen((o) => !o)}>
-            {open ? 'Show less' : 'Show more'}
+          <button className="link-btn more" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
+            {open ? t('show_less') : t('show_more')}
           </button>
         )}
         <div className="post-foot">
@@ -188,19 +205,8 @@ export const PostRow = memo(function PostRow({
             {tag && (
               <span className="opt-tag" style={{ ['--c' as string]: tag.color }} title={tag.title}>
                 <i />
-                <span>{tag.title}</span>
+                <span lang={tag.lang}>{tag.title}</span>
               </span>
-            )}
-            <IntentPill intent={post.intent} />
-            {lead && (
-              <>
-                <a className="btn tiny ghost" href={post.url} target="_blank" rel="noreferrer">
-                  Open <ArrowUpRight size={13} />
-                </a>
-                <button className="icon-btn small" onClick={() => onCopy?.(post)} aria-label="Copy link" data-tip={copied ? 'Copied' : 'Copy link'}>
-                  {copied ? <Check size={15} /> : <Copy size={14} />}
-                </button>
-              </>
             )}
           </div>
         </div>
@@ -208,70 +214,3 @@ export const PostRow = memo(function PostRow({
     </article>
   );
 });
-
-/** Desktop leads: one dense, scannable table row per lead. */
-export function LeadsTable({
-  posts,
-  communities,
-  authors,
-  copied,
-  onCopy,
-}: {
-  posts: Post[];
-  communities: Record<string, Community>;
-  authors: Record<string, AuthorProfile>;
-  copied: string | null;
-  onCopy: (p: Post) => void;
-}) {
-  return (
-    <div className="leads-table" role="table">
-      <div className="lt-row lt-head" role="row">
-        <span>Source</span>
-        <span>Author</span>
-        <span>Quote</span>
-        <span>Intent</span>
-        <span>Engagement</span>
-        <span>Age</span>
-        <span />
-      </div>
-      {posts.map((p) => {
-        const karma = p.source === 'reddit' ? authors[p.author.handle]?.karma : null;
-        return (
-          <div className="lt-row" role="row" key={p.id}>
-            <span className="lt-src">
-              <PostIcon post={p} author={p.source === 'reddit' ? authors[p.author.handle] : undefined} />
-            </span>
-            <span className="lt-author">
-              <a href={p.author.profile_url ?? p.url} target="_blank" rel="noreferrer">
-                <strong>{p.source === 'reddit' ? `u/${p.author.handle}` : p.author.name || `@${p.author.handle}`}</strong>
-              </a>
-              <span>
-                {p.source === 'reddit' ? p.community ?? 'Reddit' : `@${p.author.handle}`}
-                {p.source === 'x' && p.author.followers ? ` · ${compact(p.author.followers)}` : ''}
-                {karma ? ` · ${compact(karma)} karma` : ''}
-              </span>
-            </span>
-            <span className="lt-quote" title={cleanPostText(p.text)}>
-              {cleanPostText(p.text)}
-            </span>
-            <span>
-              <IntentPill intent={p.intent} />
-            </span>
-            <span className="lt-engage">
-              <Engagement post={p} />
-            </span>
-            <span className="lt-age">{timeAgo(p.created_at).replace(' ago', '')}</span>
-            <span className="lt-actions">
-              <button className="icon-btn small" onClick={() => onCopy(p)} aria-label="Copy link" data-tip={copied === p.id ? 'Copied' : 'Copy link'}>
-                {copied === p.id ? <Check size={15} /> : <Copy size={14} />}
-              </button>
-              <a className="icon-btn small" href={p.url} target="_blank" rel="noreferrer" aria-label="Open" data-tip="Open">
-                <ArrowRight size={16} />
-              </a>
-            </span>
-          </div>
-        );
-      })}
-    </div>
-  );
-}

@@ -1,93 +1,111 @@
-/* Consensus: "Riso newsroom". Paper background, ink type, spot-color poll. Three themes via [data-theme]. */
+/*
+ * Consensus, CoreSpeed edition: a research report on a sky. A pale sky-blue canvas at the top fades into a neutral
+ * surface; black type, hairlines, modest corners, one dark primary action. Two themes via [data-theme]: day, night.
+ * (Upstream's three "Riso newsroom" themes are replaced; the layout and components below are upstream's.)
+ */
 
-/* Sunshine (day): warm ivory paper, butter-yellow light, tangerine and cobalt spot colors. */
 :root,
 [data-theme='day'] {
-  --bg: #fbf7ee;
-  --bg-2: #f5efe1;
-  --surface: #fffdf8;
-  --ink: #17140f;
-  --ink-2: #3d372d;
-  --muted: #716a5d;
-  --faint: #a69e8f;
-  --line: #ebe3d1;
-  --line-2: #ddd3bd;
-  --hover: rgba(23, 20, 15, 0.045);
-  --seg-on: #17140f;
-  --seg-on-ink: #fffdf8;
-  --accent: #2f6bff;
-  --pop: #ff7a1a;
-  --sun: #ffd23f;
-  --glow: rgba(255, 205, 64, 0.22);
-  --sk: #efe8d8;
-  --sk-hi: #f8f3e8;
-  --shadow: 0 1px 2px rgba(60, 40, 0, 0.05), 0 10px 30px rgba(120, 80, 0, 0.09);
-  --grain: 0.045;
+  --bg: #f7f9fb;
+  --bg-2: #eef2f6;
+  --surface: #ffffff;
+  --ink: #0a0d12;
+  --ink-2: #283240;
+  --muted: #566273;
+  --faint: #8d99a8;
+  --line: #e1e7ee;
+  --line-2: #cdd6e1;
+  --hover: rgba(10, 13, 18, 0.04);
+  --seg-on: #0a0d12;
+  --seg-on-ink: #ffffff;
+  --accent: #1d6bc9;
+  --pop: #1d6bc9;
+  --sun: #8fc6f5;
+  --glow: rgba(120, 186, 245, 0.18);
+  --sk: #e9eef4;
+  --sk-hi: #f4f7fa;
+  --shadow: 0 1px 2px rgba(16, 32, 56, 0.05), 0 8px 24px rgba(16, 52, 96, 0.07);
+  --sky-1: #cfe5fa;
+  --sky-2: #e4f0fc;
+  --cloud: rgba(255, 255, 255, 0.8);
+  --dots: rgba(29, 107, 201, 0.16);
+  /* Answer colours, fixed order, validated for colour-vision deficiency on #ffffff. */
+  --o0: #2a78d6;
+  --o1: #eb6834;
+  --o2: #1baf7a;
+  --o3: #eda100;
+  --o4: #e87ba4;
+  --o5: #008300;
+  --o6: #6250d6;
+  --o7: #e34948;
+  --o-other: #9aa5b1;
+  --grain: 0;
   color-scheme: light;
 }
 
-/* Golden hour: peach sky, coral and rose, plum ink. */
-[data-theme='sunset'] {
-  --bg: #fff0e4;
-  --bg-2: #ffe3d1;
-  --surface: #fff9f3;
-  --ink: #2b1328;
-  --ink-2: #4c2a45;
-  --muted: #8a5a6c;
-  --faint: #b98f97;
-  --line: #f6d3bf;
-  --line-2: #eebfa7;
-  --hover: rgba(43, 19, 40, 0.05);
-  --seg-on: #2b1328;
-  --seg-on-ink: #fff9f3;
-  --accent: #e8366f;
-  --pop: #ff5a4e;
-  --sun: #ffb347;
-  --glow: rgba(255, 150, 90, 0.26);
-  --sk: #fadbc9;
-  --sk-hi: #fff0e6;
-  --shadow: 0 1px 2px rgba(80, 20, 30, 0.07), 0 12px 32px rgba(190, 70, 70, 0.13);
-  --grain: 0.05;
-  color-scheme: light;
-}
-
-/* Midnight: inky plum, champagne gold highlights. */
 [data-theme='night'] {
-  --bg: #100e14;
-  --bg-2: #17141c;
-  --surface: #1a1720;
-  --ink: #f6f0e6;
-  --ink-2: #d6cfc3;
-  --muted: #a097a3;
-  --faint: #6c6470;
-  --line: #29242f;
-  --line-2: #393240;
-  --hover: rgba(246, 240, 230, 0.05);
-  --seg-on: #f6f0e6;
-  --seg-on-ink: #100e14;
-  --accent: #7aa0ff;
-  --pop: #f4c15d;
-  --sun: #f4c15d;
-  --glow: rgba(244, 193, 93, 0.1);
-  --sk: #221e28;
-  --sk-hi: #2d2833;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.5);
-  --grain: 0.035;
+  --bg: #0b131c;
+  --bg-2: #101b27;
+  --surface: #0f1a26;
+  --ink: #eef4fa;
+  --ink-2: #c4d0dd;
+  --muted: #8d9cad;
+  --faint: #5e6c7c;
+  --line: #1c2a39;
+  --line-2: #2a3b4e;
+  --hover: rgba(238, 244, 250, 0.05);
+  --seg-on: #e8f2fc;
+  --seg-on-ink: #0b131c;
+  --accent: #66b3ff;
+  --pop: #66b3ff;
+  --sun: #66b3ff;
+  --glow: rgba(102, 179, 255, 0.1);
+  --sk: #142231;
+  --sk-hi: #1b2b3c;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 28px rgba(0, 0, 0, 0.45);
+  --sky-1: #11304d;
+  --sky-2: #0e2236;
+  --cloud: rgba(140, 200, 255, 0.08);
+  --dots: rgba(130, 195, 255, 0.14);
+  /* The same hues, stepped for a dark surface and validated on #0f1a26. */
+  --o0: #3987e5;
+  --o1: #d95926;
+  --o2: #199e70;
+  --o3: #c98500;
+  --o4: #d55181;
+  --o5: #008300;
+  --o6: #9085e9;
+  --o7: #e66767;
+  --o-other: #6b7887;
+  --grain: 0;
   color-scheme: dark;
 }
 
 :root {
-  --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-  --sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --r: 8px;
-  --r-sm: 6px;
+  --latin: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  --sans: var(--latin);
+  --mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --r: 6px;
+  --r-sm: 4px;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --sp: 36px;
 }
-@media (max-width: 860px) {
-  :root {
-    --sp: 34px;
-  }
+/* Han characters differ by language, so each CJK interface gets fonts drawn for it. Report text marked lang="en"
+   (or any other language) goes back to the Latin stack. */
+:lang(zh) {
+  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Noto Sans SC', 'Source Han Sans SC', sans-serif;
+}
+:lang(ja) {
+  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo', 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+}
+:lang(ko) {
+  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans CJK KR', 'Noto Sans KR', sans-serif;
+}
+[lang]:not(:lang(zh)):not(:lang(ja)):not(:lang(ko)) {
+  --sans: var(--latin);
+}
+[lang] {
+  font-family: var(--sans);
 }
 
 *,
@@ -107,15 +125,6 @@ body {
   font: 15px/1.5 var(--sans);
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.35s var(--ease), color 0.35s var(--ease);
-}
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: var(--grain);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 #root {
   position: relative;
@@ -321,7 +330,7 @@ img {
   padding: 0 24px 0 28px;
 }
 .wordmark {
-  font: 700 25px/1 var(--serif);
+  font: 700 25px/1 var(--sans);
   flex: none;
   display: inline-flex;
   align-items: center;
@@ -793,7 +802,7 @@ img {
   }
 }
 .landing-mark {
-  font: 700 76px/1 var(--serif);
+  font: 700 76px/1 var(--sans);
   margin: 0;
   display: inline-flex;
   align-items: center;
@@ -895,7 +904,7 @@ img {
   font-weight: 700;
 }
 .q-title {
-  font: 700 34px/1.12 var(--serif);
+  font: 700 34px/1.12 var(--sans);
   margin: 0 0 8px;
   overflow-wrap: anywhere;
   animation: rise 0.45s var(--ease) both;
@@ -976,7 +985,7 @@ img {
   justify-content: center;
 }
 .donut-center strong {
-  font: 700 42px/1 var(--serif);
+  font: 700 42px/1 var(--sans);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -1216,7 +1225,7 @@ button.legend-row:hover,
 }
 .why-quote {
   margin: 0;
-  font: 500 18.5px/1.4 var(--serif);
+  font: 500 18.5px/1.4 var(--sans);
   animation: fade 0.35s var(--ease);
 }
 .why-none {
@@ -1762,7 +1771,7 @@ img.post-icon.snoo[src*='/snoovatar/'] {
 }
 .state-panel h2 {
   margin: 6px 0 0;
-  font: 700 28px/1.2 var(--serif);
+  font: 700 28px/1.2 var(--sans);
   color: var(--ink);
 }
 .state-panel p {
@@ -2417,7 +2426,7 @@ img.post-icon.snoo[src*='/snoovatar/'] {
   background: var(--hover);
 }
 .ex-title {
-  font: 600 19px/1.25 var(--serif);
+  font: 600 19px/1.25 var(--sans);
   overflow-wrap: anywhere;
 }
 .ex:hover .ex-title {
@@ -2588,10 +2597,10 @@ img.post-icon.snoo[src*='/snoovatar/'] {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font: 700 12.5px/1 var(--serif);
+  font: 700 12.5px/1 var(--sans);
 }
 .share-card-title {
-  font: 700 15.5px/1.25 var(--serif);
+  font: 700 15.5px/1.25 var(--sans);
 }
 .share-card-bar {
   display: flex;
@@ -2692,7 +2701,7 @@ img.post-icon.snoo[src*='/snoovatar/'] {
   animation: fade 0.25s var(--ease);
 }
 .th-quote-text {
-  font: 400 14px/1.45 var(--serif);
+  font: 400 14px/1.45 var(--sans);
   color: var(--ink-2);
   overflow-wrap: anywhere;
 }
