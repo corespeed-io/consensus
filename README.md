@@ -198,7 +198,7 @@ score and a link to the original. CoreSpeed additions:
   into the page. Switching costs no model tokens. The report itself stays in
   the one language your agent wrote it in, and the page says so when the two
   differ; posts are always shown as written;
-- light and dark themes;
+- light and dark themes, in Vercel's Geist type with a light sky-blue accent;
 - a panel lists what was read, what it cost, the queries run, and the limits;
 - there is no search box: the page is a snapshot, so follow-ups go through
   your agent.
@@ -272,3 +272,9 @@ never build anything.
 ## Licence
 
 MIT. See [LICENSE](LICENSE); the original copyright notice is kept unchanged.
+
+The viewer embeds the Geist Sans font by Vercel, under the SIL Open Font
+License 1.1. Its licence is in
+[`skills/consensus/viewer/GEIST-FONT-LICENSE.txt`](skills/consensus/viewer/GEIST-FONT-LICENSE.txt)
+and inside every rendered page. Readers whose browser cannot use it see the
+system font instead.

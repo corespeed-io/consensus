@@ -6,29 +6,33 @@
 
 :root,
 [data-theme='day'] {
-  --bg: #f7f9fb;
-  --bg-2: #eef2f6;
+  --bg: #fafbfc;
+  --bg-2: #f3f5f7;
   --surface: #ffffff;
-  --ink: #0a0d12;
-  --ink-2: #283240;
-  --muted: #566273;
-  --faint: #8d99a8;
-  --line: #e1e7ee;
-  --line-2: #cdd6e1;
-  --hover: rgba(10, 13, 18, 0.04);
-  --seg-on: #0a0d12;
+  --ink: #0a0a0a;
+  --ink-2: #333a44;
+  --muted: #5d6673;
+  --faint: #959ca6;
+  --line: #e9ecef;
+  --line-2: #d9dee4;
+  --hover: rgba(10, 10, 10, 0.035);
+  --seg-on: #0a0a0a;
   --seg-on-ink: #ffffff;
-  --accent: #1d6bc9;
+  --accent: #0b6bcb;
+  --accent-soft: #eaf4fe;
+  --accent-ring: #b9dbfb;
   --pop: #1d6bc9;
   --sun: #8fc6f5;
   --glow: rgba(120, 186, 245, 0.18);
   --sk: #e9eef4;
   --sk-hi: #f4f7fa;
   --shadow: 0 1px 2px rgba(16, 32, 56, 0.05), 0 8px 24px rgba(16, 52, 96, 0.07);
-  --sky-1: #cfe5fa;
-  --sky-2: #e4f0fc;
-  --cloud: rgba(255, 255, 255, 0.8);
-  --dots: rgba(29, 107, 201, 0.16);
+  --sky-1: #d9ecfd;
+  --sky-2: #edf5fe;
+  --cloud: rgba(255, 255, 255, 0.85);
+  --dots: rgba(11, 107, 203, 0.13);
+  --card-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 1px rgba(15, 23, 42, 0.02);
+  --pop-shadow: 0 8px 28px rgba(15, 23, 42, 0.12), 0 1px 3px rgba(15, 23, 42, 0.08);
   /* Answer colours, fixed order, validated for colour-vision deficiency on #ffffff. */
   --o0: #2a78d6;
   --o1: #eb6834;
@@ -44,29 +48,33 @@
 }
 
 [data-theme='night'] {
-  --bg: #0b131c;
-  --bg-2: #101b27;
-  --surface: #0f1a26;
-  --ink: #eef4fa;
-  --ink-2: #c4d0dd;
-  --muted: #8d9cad;
-  --faint: #5e6c7c;
-  --line: #1c2a39;
-  --line-2: #2a3b4e;
-  --hover: rgba(238, 244, 250, 0.05);
-  --seg-on: #e8f2fc;
-  --seg-on-ink: #0b131c;
-  --accent: #66b3ff;
+  --bg: #0a0e13;
+  --bg-2: #121820;
+  --surface: #0f141b;
+  --ink: #eef2f6;
+  --ink-2: #c6ced8;
+  --muted: #8e99a6;
+  --faint: #5f6a77;
+  --line: #1d2530;
+  --line-2: #2a3441;
+  --hover: rgba(238, 242, 246, 0.05);
+  --seg-on: #eef2f6;
+  --seg-on-ink: #0a0e13;
+  --accent: #5aaeff;
+  --accent-soft: rgba(90, 174, 255, 0.12);
+  --accent-ring: rgba(90, 174, 255, 0.4);
   --pop: #66b3ff;
   --sun: #66b3ff;
   --glow: rgba(102, 179, 255, 0.1);
   --sk: #142231;
   --sk-hi: #1b2b3c;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 28px rgba(0, 0, 0, 0.45);
-  --sky-1: #11304d;
-  --sky-2: #0e2236;
-  --cloud: rgba(140, 200, 255, 0.08);
-  --dots: rgba(130, 195, 255, 0.14);
+  --sky-1: #0f2740;
+  --sky-2: #0c1a2a;
+  --cloud: rgba(140, 200, 255, 0.07);
+  --dots: rgba(130, 195, 255, 0.12);
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --pop-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
   /* The same hues, stepped for a dark surface and validated on #0f1a26. */
   --o0: #3987e5;
   --o1: #d95926;
@@ -82,30 +90,40 @@
 }
 
 :root {
-  --latin: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  --latin: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   --sans: var(--latin);
   --mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
-  --r: 6px;
-  --r-sm: 4px;
+  --r: 8px;
+  --r-sm: 6px;
+  --r-lg: 12px;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --sp: 36px;
 }
 /* Han characters differ by language, so each CJK interface gets fonts drawn for it. Report text marked lang="en"
    (or any other language) goes back to the Latin stack. */
 :lang(zh) {
-  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Noto Sans SC', 'Source Han Sans SC', sans-serif;
+  --sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Noto Sans SC', 'Source Han Sans SC', sans-serif;
 }
 :lang(ja) {
-  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo', 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  --sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo', 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
 }
 :lang(ko) {
-  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans CJK KR', 'Noto Sans KR', sans-serif;
+  --sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans CJK KR', 'Noto Sans KR', sans-serif;
 }
 [lang]:not(:lang(zh)):not(:lang(ja)):not(:lang(ko)) {
   --sans: var(--latin);
 }
 [lang] {
   font-family: var(--sans);
+}
+
+/* Geist Sans by Vercel (SIL Open Font License 1.1, fonts/Geist-OFL.txt). Built into the page; no font is fetched. */
+@font-face {
+  font-family: 'Geist';
+  src: url('./fonts/Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 *,
@@ -122,7 +140,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font: 15px/1.5 var(--sans);
+  font: 14px/1.5 var(--sans);
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.35s var(--ease), color 0.35s var(--ease);
 }

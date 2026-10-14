@@ -66,12 +66,14 @@ test("every validator issue code has interface text", () => {
   for (const c of codes) assert.ok(messages.en[`issue_${c}`] != null, `issue_${c} has no text`);
 });
 
-test("the built viewer: four dictionaries inside, no network, no web fonts", () => {
+test("the built viewer: four dictionaries inside, no network, the font and its licence inside", () => {
   const html = readFileSync(new URL("../../skills/consensus/viewer/consensus-viewer.html", import.meta.url), "utf8");
   for (const l of LOCALES) assert.ok(html.includes(messages[l].sources_hint), `${l} dictionary is in the bundle`);
   const csp = html.match(/<meta http-equiv="Content-Security-Policy" content="([^"]+)"/)?.[1] ?? "";
   assert.match(csp, /connect-src 'none'/);
-  assert.doesNotMatch(csp, /font-src|fonts\.g/);
+  assert.match(csp, /font-src data:(;|$)/, "fonts come only from inside the page");
+  assert.match(html, /@font-face\{font-family:Geist;src:url\(data:font\/woff2;base64,/, "Geist is inlined");
+  assert.match(html, /<!--\s*Geist Sans, built into this page:\s*Copyright \(c\) 2023 Vercel[\s\S]*SIL OPEN FONT LICENSE Version 1\.1/, "the font licence travels with the page");
   assert.match(csp, /img-src data: [^;]*xhscdn\.com[^;]*rednotecdn\.com/);
   assert.doesNotMatch(html, /fonts\.googleapis|fonts\.gstatic/);
   assert.doesNotMatch(html, /<link [^>]*href="https?:/, "no external stylesheet or preconnect");
