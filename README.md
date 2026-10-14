@@ -283,3 +283,7 @@ License 1.1. Its licence is in
 [`skills/consensus/viewer/GEIST-FONT-LICENSE.txt`](skills/consensus/viewer/GEIST-FONT-LICENSE.txt)
 and inside every rendered page. Readers whose browser cannot use it see the
 system font instead.
+
+Platform marks label where each post came from. The Reddit and X marks come
+from Font Awesome Free (icons under CC BY 4.0). The Rednote (小红书) wordmark
+comes from Simple Icons (CC0 1.0). Each mark is a trademark of its owner.
