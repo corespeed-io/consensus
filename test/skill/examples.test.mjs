@@ -13,20 +13,24 @@ test("every example validates with no errors", () => {
 test("the AI-ad showcase: one English report, three sources, counts and cost as the README states", () => {
   const r = ex("ai-ads-would-you-still-buy.json");
   const v = validateResult(r);
+  assert.deepEqual(v.errors, []);
   assert.deepEqual(v.warnings, []);
   assert.equal(r.language, "en");
   assert.equal(r.question, "Would you still buy the product if you knew the ad was AI-generated?");
   assert.deepEqual(r.sources, ["reddit", "x", "rednote"]);
   const s = computeStats(r);
-  assert.equal(s.counted, 33);
-  assert.equal(s.read, 391);
-  assert.deepEqual({ reddit: s.bySource.reddit.counted, x: s.bySource.x.counted, rednote: s.bySource.rednote.counted }, { reddit: 8, x: 15, rednote: 10 });
-  assert.deepEqual(Object.fromEntries(s.options.filter((o) => o.count).map((o) => [o.id, o.count])), { "wont-buy": 20, "not-if-shows-product": 9, depends: 2, "still-buy": 2 });
-  // 18 Reddit and 14 X requests at 1.5, 5 Rednote requests at 15; nothing failed, so there is no range.
-  assert.equal(s.credits, 123);
-  assert.equal(s.creditsMax, 123);
-  assert.equal(r.usage.requests, 37);
-  assert.equal(r.usage.failed, 0);
+  assert.equal(s.counted, 162);
+  assert.ok(s.counted >= 133, "at least 100 more than the first 33-opinion version");
+  assert.equal(s.read, 1217);
+  assert.deepEqual({ reddit: s.bySource.reddit.counted, x: s.bySource.x.counted, rednote: s.bySource.rednote.counted }, { reddit: 51, x: 20, rednote: 91 });
+  assert.deepEqual(Object.fromEntries(s.options.filter((o) => o.count).map((o) => [o.id, o.count])), { "not-if-shows-product": 67, "wont-buy": 50, depends: 24, "still-buy": 21 });
+  // 111 successful requests at each tool's stated rate (Reddit and X 1.5, Rednote 15); 2 Rednote tool errors, which
+  // are never charged, and no request with an unknown outcome, so there is no range.
+  assert.equal(s.credits, 598.5);
+  assert.equal(s.creditsMax, 598.5);
+  assert.equal(r.usage.requests, 111);
+  assert.equal(r.usage.failed, 2);
+  assert.equal(r.usage.unknown_charge, 0);
 });
 
 test("the AI-ad showcase: one vote per author, and trust-only posts are not counted as answers", () => {
@@ -37,4 +41,5 @@ test("the AI-ad showcase: one vote per author, and trust-only posts are not coun
   const trustOnly = r.posts.find((p) => p.id === "t1_p84xe98");
   assert.equal(trustOnly.label, "none", "\"I lose respect for brands…\" says nothing about buying");
   assert.ok(r.coverage.notes.some((n) => /Trust without a buying statement is not counted/.test(n)));
+  for (const o of r.options) for (const q of o.quotes) assert.ok(q.text.trim().split(/\s+/).length <= 25, q.text);
 });

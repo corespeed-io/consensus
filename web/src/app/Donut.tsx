@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { optionColor } from './format';
+import { MIN_FOR_SHARES, optionColor } from './format';
 import { useI18n } from './i18n';
 
 /** Eases a number toward its target so live counts roll instead of jumping. */
@@ -141,7 +141,7 @@ export function Donut({
           <i />
           <span className="dt-title">{tipSlice.title}</span>
           <span className="dt-num">
-            {pct(tipSlice.count / sum)} · {num(tipSlice.count)}
+            {total >= MIN_FOR_SHARES ? `${pct(tipSlice.count / sum)} · ${num(tipSlice.count)}` : num(tipSlice.count)}
           </span>
         </div>
       )}

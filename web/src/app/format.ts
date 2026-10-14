@@ -4,6 +4,9 @@
  */
 export const OPTION_SLOTS = 8;
 
+/** Below this many counted opinions a share means little, so the legend and the donut show counts only. */
+export const MIN_FOR_SHARES = 15;
+
 export function optionColor(id: string | null | undefined): string {
   if (!id || id === 'other') return 'var(--o-other)';
   const n = parseInt(id.replace(/\D/g, ''), 10) || 0;

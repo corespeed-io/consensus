@@ -153,25 +153,29 @@ main one asks **"Would you still buy the product if you knew the ad was
 AI-generated?"** (asked as 知道一条广告是 AI 做的，你还会买吗？), on Reddit, X and
 Rednote, for the 12 months to 2026-10-14:
 
-- 37 successful CoreSpeed requests, none failed: Reddit 18 and X 14 at 1.5
-  credits, Rednote 5 at 15, so 123 credits at the stated rates.
-- 391 posts read, 30 dropped before sorting, 361 sorted, 33 opinions counted,
-  each from a different author.
+- 113 CoreSpeed requests. 111 succeeded: Reddit 53 and X 26 at 1.5 credits,
+  Rednote 32 at 15, so 598.5 credits at the stated rates. Two more Rednote
+  requests failed with an upstream error, which is not charged. No request had
+  an unknown outcome.
+- 1,217 posts read, 99 dropped before sorting, 1,118 sorted, **162 opinions
+  counted**, each from a different author.
 
-| Answer (of 33 opinions counted in this sample) | Reddit | X | Rednote | All |
+| Answer (of 162 opinions counted in this sample) | Reddit | X | Rednote | All |
 | --- | ---: | ---: | ---: | ---: |
-| Won't buy, or less likely to | 5 | 11 | 4 | 20 |
-| Not if AI shows the product itself | 2 | 2 | 5 | 9 |
-| Depends on honesty, not on AI | 1 | 1 | 0 | 2 |
-| Still buys; judges the product | 0 | 1 | 1 | 2 |
+| Not if AI shows the product itself | 15 | 4 | 48 | 67 |
+| Won't buy, or less likely to | 26 | 14 | 10 | 50 |
+| Depends on how AI is used | 7 | 1 | 16 | 24 |
+| Still buys; judges the product | 3 | 1 | 17 | 21 |
 
-Many objections are about AI standing in for the product itself (clothes on
-AI models, AI food photos, AI demos), not about AI in ads as such. Another 21
-posts spoke only of trust (Reddit 10, Rednote 11) and 140 X posts were sellers
-of AI ads; neither is counted as an answer, and the page says so. The searches
-and the Rednote notes read lean towards people who object, and the page lists
-that bias per source. It is one report, in English; the interface around it
-also comes in 简体中文, 日本語 and 한국어.
+The largest group objects when AI stands in for the product itself: clothes on
+AI models, AI food photos, AI demos. About a quarter would still buy, if AI is
+used honestly or because the product, not the ad, decides. Another 61 posts
+spoke only of trust, and 304 were promotion or off-topic (mostly sellers of
+AI ads on X); neither is counted as an answer, and the page says so. Rednote
+supplies over half the counted opinions, mostly about clothing on shopping
+apps, and the searches and threads read lean towards people who object; the
+page lists that bias per source. It is one report, in English; the interface
+around it also comes in 简体中文, 日本語 and 한국어.
 
 Two earlier runs are kept as well:
 

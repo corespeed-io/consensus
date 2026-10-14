@@ -21,6 +21,7 @@ const isObj = (v) => !!v && typeof v === "object" && !Array.isArray(v);
 const isStr = (v) => typeof v === "string" && v.trim().length > 0;
 const isDay = (v) => typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v) && !Number.isNaN(Date.parse(`${v}T00:00:00Z`));
 const isTime = (v) => typeof v === "string" && !Number.isNaN(Date.parse(v));
+const isTextList = (v) => Array.isArray(v) && v.every((x) => typeof x === "string");
 
 // ---------------------------------------------------------------- links
 
@@ -34,6 +35,7 @@ const XHS_ID = /^[0-9A-Za-z]{8,40}$/;
 /** Why this post's link is not acceptable, or null. Checks form and id match only. */
 export function linkProblem(post) {
   const url = post?.url;
+  if (typeof post?.id !== "string") return "the post id must be text";
   if (typeof url !== "string") return "url is missing";
   if (url.length > 2048) return "url is too long";
   if (post.source === "x") {
@@ -220,6 +222,8 @@ export function validateResult(r) {
     if (q.created_at == null) note("missing_date", { id: String(q.id ?? i) }, `${at}.created_at: is missing; the post cannot be checked against the window`);
     if (q.score != null && !Number.isFinite(q.score)) err(`${at}.score`, "must be a number");
     if (q.excerpt != null && typeof q.excerpt !== "boolean") err(`${at}.excerpt`, "must be true or false");
+    for (const k of ["author_name", "author_avatar", "community", "thread_title", "thread_url", "parent_text", "kind"]) if (q[k] != null && typeof q[k] !== "string") err(`${at}.${k}`, "must be text");
+    if (q.replies != null && !Number.isFinite(q.replies)) err(`${at}.replies`, "must be a number");
     if (q.author_avatar != null && !safeLink(q.author_avatar, IMAGE_HOSTS)) note("avatar_unsafe", { id: String(q.id ?? i) }, `${at}.author_avatar: is not an https image from X, Reddit or Rednote; it will not be shown`);
     if (!labels.has(q.label)) err(`${at}.label`, `must be one of: ${[...labels].join(", ")}`);
     const voted = optionIds.has(q.label) || q.label === "other";
@@ -274,6 +278,9 @@ export function validateResult(r) {
       else if (Number.isInteger(u.budget) && Object.values(u.budget_by_source).reduce((a, b) => a + b, 0) !== u.budget) err("usage.budget_by_source", `must add up to the total budget (${u.budget}): the split divides one budget, it never adds to it`);
       else if (Object.keys(u.budget_by_source).some((k) => !sources.includes(k))) err("usage.budget_by_source", "names a source that is not in sources");
     }
+    // Counts are whole, non-negative numbers: a negative or fractional count would make a negative or false cost.
+    if (u.by_tool != null && (!isObj(u.by_tool) || Object.values(u.by_tool).some((n) => !Number.isInteger(n) || n < 0))) err("usage.by_tool", "must map tools to whole numbers of successful requests");
+    if (u.failures != null && (!isObj(u.failures) || Object.values(u.failures).some((n) => !Number.isInteger(n) || n < 0))) err("usage.failures", "must map error codes to whole numbers");
     if (isObj(u.by_tool) && Number.isInteger(u.requests)) {
       const sum = Object.values(u.by_tool).reduce((a, b) => a + (Number(b) || 0), 0);
       if (sum !== u.requests) err("usage.by_tool", `adds up to ${sum}, but requests is ${u.requests}`);
@@ -281,14 +288,25 @@ export function validateResult(r) {
   }
   if (!isObj(r.coverage)) err("coverage", "is required");
   else {
-    if (r.coverage.notes != null && !Array.isArray(r.coverage.notes)) err("coverage.notes", "must be a list of sentences");
+    if (r.coverage.notes != null && !isTextList(r.coverage.notes)) err("coverage.notes", "must be a list of sentences");
     const d = r.coverage.dropped_before_sorting;
-    if (d != null && (!isObj(d) || !Number.isInteger(d.count) || d.count < 0 || (d.reasons != null && !Array.isArray(d.reasons))))
-      err("coverage.dropped_before_sorting", "must be { count, reasons: [...] } with a whole-number count");
+    if (d != null && (!isObj(d) || !Number.isInteger(d.count) || d.count < 0 || (d.reasons != null && !isTextList(d.reasons))))
+      err("coverage.dropped_before_sorting", "must be { count, reasons: [...] } with a whole-number count and sentences as reasons");
+    for (const src of SOURCES) {
+      const c = r.coverage[src];
+      if (c != null && (!isObj(c) || Object.values(c).some((n) => !Number.isInteger(n) || n < 0))) err(`coverage.${src}`, "must map each count to a whole number");
+    }
     if (r.coverage.posts_read != null && (!Number.isInteger(r.coverage.posts_read) || r.coverage.posts_read < 0)) err("coverage.posts_read", "must be a whole number");
   }
-  if (r.limits != null && !Array.isArray(r.limits)) err("limits", "must be a list of sentences");
-  if (r.other?.also_mentioned != null && !Array.isArray(r.other.also_mentioned)) err("other.also_mentioned", "must be a list");
+  // Everything the viewer prints as text must be text, or the page would fail to render.
+  if (r.limits != null && !isTextList(r.limits)) err("limits", "must be a list of sentences");
+  if (r.other != null && !isObj(r.other)) err("other", "must be { why, also_mentioned }");
+  else if (r.other?.why != null && typeof r.other.why !== "string") err("other.why", "must be text");
+  if (r.other?.also_mentioned != null && (!Array.isArray(r.other.also_mentioned) || r.other.also_mentioned.some((b) => !isObj(b) || !isStr(b.title) || !Number.isInteger(b.count) || b.count < 0)))
+    err("other.also_mentioned", "must be a list of { title, count }");
+  if (r.queries != null && (!Array.isArray(r.queries) || r.queries.some((q) => !isObj(q) || !isStr(q.tool) || (q.args != null && !isObj(q.args)) || (q.result != null && typeof q.result !== "string") || (q.items != null && (!Number.isInteger(q.items) || q.items < 0)))))
+    err("queries", "must be a list of { tool, args, result, items }");
+  if (r.analysis != null && (!isObj(r.analysis) || ["by", "model"].some((k) => r.analysis[k] != null && typeof r.analysis[k] !== "string"))) err("analysis", "must be { by, model } as text");
 
   if (errors.length) return { errors, warnings, issues, stats: null };
   const stats = computeStats(r);

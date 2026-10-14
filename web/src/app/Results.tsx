@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { AlertCircle, ArrowUpDown, Check, ChevronDown, ChevronLeft, ChevronRight, SearchX, X as XIcon } from 'lucide-react';
 import { SOURCE_ORDER, type Post, type PollOption, type Source, type Theme } from './api';
 import { Donut } from './Donut';
-import { alpha, headline, optionColor } from './format';
+import { alpha, headline, MIN_FOR_SHARES, optionColor } from './format';
 import { useI18n } from './i18n';
 import { SourceIcon } from './icons';
 import { cleanPostText } from './postText';
@@ -118,9 +118,6 @@ function SortMenu({ value, onChange }: { value: Sort; onChange: (s: Sort) => voi
     </div>
   );
 }
-
-/** Below this many counted opinions a share means little, so the legend shows counts only (CoreSpeed edition). */
-export const MIN_FOR_SHARES = 15;
 
 function Legend({ options, selected, onSelect, hovered, onHover, total, reportLang }: { options: PollOption[]; selected: string | null; onSelect: (id: string) => void; hovered: string | null; onHover: (id: string | null) => void; total: number; reportLang?: string }) {
   const { t, num, pct } = useI18n();
