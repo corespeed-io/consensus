@@ -157,15 +157,15 @@ Rednote, for the 12 months to 2026-10-14:
   Rednote 32 at 15, so 598.5 credits at the stated rates. Two more Rednote
   requests failed with an upstream error, which is not charged. No request had
   an unknown outcome.
-- 1,217 posts read, 99 dropped before sorting, 1,118 sorted, **162 opinions
+- 1,217 posts read, 99 dropped before sorting, 1,118 sorted, **156 opinions
   counted**, each from a different author.
 
-| Answer (of 162 opinions counted in this sample) | Reddit | X | Rednote | All |
+| Answer (of 156 opinions counted in this sample) | Reddit | X | Rednote | All |
 | --- | ---: | ---: | ---: | ---: |
-| Not if AI shows the product itself | 15 | 4 | 48 | 67 |
-| Won't buy, or less likely to | 26 | 14 | 10 | 50 |
+| Not if AI shows the product itself | 15 | 4 | 47 | 66 |
+| Won't buy, or less likely to | 24 | 14 | 10 | 48 |
 | Depends on how AI is used | 7 | 1 | 16 | 24 |
-| Still buys; judges the product | 3 | 1 | 17 | 21 |
+| Still buys; judges the product | 3 | 1 | 14 | 18 |
 
 The largest group objects when AI stands in for the product itself: clothes on
 AI models, AI food photos, AI demos. About a quarter would still buy, if AI is

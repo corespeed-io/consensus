@@ -3,8 +3,8 @@
  "question": "Would you still buy the product if you knew the ad was AI-generated?",
  "question_type": "yes_no",
  "language": "en",
- "summary": "In this sample of 162 counted opinions, most say an AI-made ad puts them off buying, and the largest group objects when AI shows the product itself, such as clothes on AI models. About a quarter would still buy, if AI is used honestly or because the product, not the ad, decides.",
- "created_at": "2026-10-14T10:23:43Z",
+ "summary": "In this sample of 156 counted opinions, most say an AI-made ad puts them off buying, and the largest group objects when AI shows the product itself, such as clothes on AI models. About a quarter would still buy, if AI is used honestly or because the product, not the ad, decides.",
+ "created_at": "2026-10-14T10:33:40Z",
  "window": {
   "since": "2025-10-14",
   "until": "2026-10-14"
@@ -3141,8 +3141,8 @@
    "replies": 1,
    "thread_title": "AI带货已经让我开始反向筛品牌了",
    "thread_url": "https://www.xiaohongshu.com/explore/6ac225c0000000001b030580?xsec_token=YB8b4-O9lJVlu4vLvfPwxY8VmBCK7xyn6OHQHSBhmwTMs%3D",
-   "label": "not-if-shows-product",
-   "strength": 2
+   "label": "none",
+   "strength": 0
   },
   {
    "id": "xhsc_6ac226c50000000003031289",
@@ -12667,7 +12667,7 @@
    "thread_title": "女装购物避雷 ai带货",
    "thread_url": "https://www.xiaohongshu.com/explore/6abfd022000000000a022d49?xsec_token=YBqmMKmfBPIellIL4Bt5cgKbAR_wW89bYiwbtT3P_To3k%3D",
    "label": "not-if-shows-product",
-   "strength": 2
+   "strength": 1
   },
   {
    "id": "xhsc_6ac0508e000000001103e078",
@@ -13616,8 +13616,8 @@
    "community": "r/GenZ",
    "parent_text": "yeah i mean if they are cheaping out on something as simple as their logo what does it say about their product?",
    "thread_url": "https://www.reddit.com/r/GenZ/comments/1ube3rz/does_anyone_else_refuse_to_buy_from_a_business/",
-   "label": "wont-buy",
-   "strength": 1
+   "label": "none",
+   "strength": 0
   },
   {
    "id": "t1_otlz9xf",
@@ -14190,8 +14190,8 @@
    "replies": 1,
    "thread_title": "想知道消费者看到AI的电商图还会买嘛，尤其是外国人[皱眉R] #跨境电商 #AI",
    "thread_url": "https://www.xiaohongshu.com/explore/695364fc0000000022009d30?xsec_token=YB7CrOzXqwTIZLnu8d6K-AO_46WiVLiwSP62H7T0o_TjA%3D",
-   "label": "still-buy",
-   "strength": 1
+   "label": "none",
+   "strength": 0
   },
   {
    "id": "xhsc_6961cf99000000001d01c53e",
@@ -16244,11 +16244,8 @@
    "replies": 0,
    "thread_title": "现在卖衣服上身图都开始ai了吗",
    "thread_url": "https://www.xiaohongshu.com/explore/6a9870f20000000026020fed?xsec_token=YBFSGDKDHOqg1Dacn8Z7Lztz-81bJ822otjDQDQC2zPpc%3D",
-   "label": "still-buy",
-   "strength": 1,
-   "themes": [
-    "returns-if-wrong"
-   ]
+   "label": "none",
+   "strength": 0
   },
   {
    "id": "t3_1x2etnh",
@@ -17454,11 +17451,8 @@
    "community": "r/GenZ",
    "parent_text": "If it’s something like a marketing firm, or t shirts and such yes. But I’m lenient with restaurants and small business that are ran by older people. ",
    "thread_url": "https://www.reddit.com/r/GenZ/comments/1ube3rz/does_anyone_else_refuse_to_buy_from_a_business/",
-   "label": "wont-buy",
-   "strength": 1,
-   "themes": [
-    "cuts-corners"
-   ]
+   "label": "none",
+   "strength": 0
   },
   {
    "id": "t1_oswbuwo",
@@ -18023,8 +18017,8 @@
    "score": 0,
    "replies": 0,
    "thread_url": "https://www.xiaohongshu.com/explore/69a7af4f000000000e03e952?xsec_token=YBStUd2MhQkOljQEqMUjCsZgW0IfNLG29WOkp8b6ebNYU%3D",
-   "label": "still-buy",
-   "strength": 1
+   "label": "none",
+   "strength": 0
   },
   {
    "id": "xhsc_69aa4fa70000000008030874",
@@ -18754,7 +18748,8 @@
    "Also not counted: dislike of AI images with no word about buying, debates about AI and creative jobs, sellers and shop staff describing their own shops, and claims about what \"most people\" or \"foreigners\" do.",
    "Reddit: 15 searches; top comments of 30 threads, up to four pages for the busiest direct-question threads.",
    "Rednote: 7 searches, and comment pages under 20 notes, chosen for their many comments; several are direct questions (\"想知道消费者看到AI的电商图还会买嘛\", \"当电商平台上全是ai图 你会有购买欲望吗\") and most are about clothing.",
-   "X: 26 searches, first result pages only, no reply threads; most results were sellers of AI ads."
+   "X: 26 searches, first result pages only, no reply threads; most results were sellers of AI ads.",
+   "Units: each query's item count is what that call returned (Reddit comments without \"load more\" stubs; Rednote comments with their loaded replies), before de-duplication and checks. The coverage counts above are posts kept after them, so the two totals differ."
   ]
  },
  "usage": {
@@ -18891,7 +18886,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 10
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -18911,7 +18906,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 11
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -18921,7 +18916,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 11
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -18931,7 +18926,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -18941,7 +18936,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -18961,7 +18956,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -18971,7 +18966,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -18981,7 +18976,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 10
+   "items": 14
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19001,7 +18996,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 10
+   "items": 18
   },
   {
    "tool": "social__xiaohongshu_search_notes",
@@ -19118,7 +19113,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 10
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19128,7 +19123,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 10
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19138,7 +19133,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 12
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19149,7 +19144,7 @@
     "after": "(from the previous page)"
    },
    "result": "ok",
-   "items": 11
+   "items": 8
   },
   {
    "tool": "social__reddit_search",
@@ -19232,7 +19227,7 @@
     "after": "(from the previous page)"
    },
    "result": "ok",
-   "items": 10
+   "items": 8
   },
   {
    "tool": "social__x_search",
@@ -19358,7 +19353,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 11
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19368,7 +19363,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 12
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19378,7 +19373,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 12
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19388,7 +19383,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19398,7 +19393,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19408,7 +19403,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 10
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19418,7 +19413,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 10
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19428,7 +19423,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19438,7 +19433,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19448,7 +19443,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19468,7 +19463,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19478,7 +19473,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19488,7 +19483,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 10
+   "items": 8
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19498,7 +19493,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 10
+   "items": 17
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19508,7 +19503,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 10
+   "items": 17
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19518,7 +19513,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 10
+   "items": 15
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19528,7 +19523,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 10
+   "items": 19
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19538,7 +19533,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 10
+   "items": 14
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19548,7 +19543,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 10
+   "items": 12
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19558,7 +19553,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 10
+   "items": 13
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19568,7 +19563,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 9
+   "items": 15
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19579,7 +19574,7 @@
     "after": "(from the previous page)"
    },
    "result": "ok",
-   "items": 10
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19590,7 +19585,7 @@
     "after": "(from the previous page)"
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19601,7 +19596,7 @@
     "after": "(from the previous page)"
    },
    "result": "ok",
-   "items": 10
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19612,7 +19607,7 @@
     "after": "(from the previous page)"
    },
    "result": "ok",
-   "items": 12
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19623,7 +19618,7 @@
     "after": "(from the previous page)"
    },
    "result": "ok",
-   "items": 10
+   "items": 8
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19634,7 +19629,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 15
+   "items": 22
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19644,7 +19639,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 10
+   "items": 15
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19655,7 +19650,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 15
+   "items": 18
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19665,7 +19660,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 10
+   "items": 12
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19675,7 +19670,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 10
+   "items": 15
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19685,7 +19680,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 7
+   "items": 11
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19695,7 +19690,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 4
+   "items": 5
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19714,7 +19709,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 8
+   "items": 10
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19724,7 +19719,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 9
+   "items": 10
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19734,7 +19729,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 5
+   "items": 7
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19744,7 +19739,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 9
+   "items": 14
   },
   {
    "tool": "social__reddit_search",
@@ -19838,7 +19833,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19848,7 +19843,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 10
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19858,7 +19853,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19868,7 +19863,7 @@
     "need_format": true
    },
    "result": "ok",
-   "items": 9
+   "items": 8
   },
   {
    "tool": "social__reddit_post_comments",
@@ -19879,7 +19874,7 @@
     "after": "(from the previous page)"
    },
    "result": "ok",
-   "items": 10
+   "items": 8
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19890,7 +19885,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 15
+   "items": 17
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19912,7 +19907,7 @@
     "max_characters": 600000
    },
    "result": "ok",
-   "items": 15
+   "items": 17
   },
   {
    "tool": "social__xiaohongshu_note_comments",
@@ -19941,8 +19936,8 @@
   "model": "Claude Opus 5.5"
  },
  "limits": [
-  "A sample of public posts found by search, not a poll. Shares are of the 162 opinions counted, not of shoppers.",
-  "Each source is its own sample (counted opinions: Reddit 51, X 20, Rednote 91). Rednote supplies over half, and most Rednote talk is about clothing images on shopping apps, so \"not if AI shows the product itself\" leans on Rednote.",
+  "A sample of public posts found by search, not a poll. Shares are of the 156 opinions counted, not of shoppers.",
+  "Each source is its own sample (counted opinions: Reddit 49, X 20, Rednote 87). Rednote supplies over half, and most Rednote talk is about clothing images on shopping apps, so \"not if AI shows the product itself\" leans on Rednote.",
   "The question is hypothetical. What people say they will buy is not what they buy.",
   "Searches for boycott and \"won't buy\" wording, and threads about backlash, draw out the people most bothered. Searches worded for people who do not mind found fewer such posts.",
   "Several threads were read page after page (the busiest Reddit and Rednote direct-question threads), so their audiences weigh more than one search result each.",
