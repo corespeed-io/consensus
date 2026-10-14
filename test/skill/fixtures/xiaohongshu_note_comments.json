@@ -1,0 +1,463 @@
+{
+ "code": 0,
+ "success": true,
+ "data": {
+  "comments": [
+   {
+    "liked": false,
+    "time": 1791432102,
+    "status": 0,
+    "friend_liked_msg": "",
+    "hidden": false,
+    "downvoted": false,
+    "show_type": "common",
+    "show_tags": [],
+    "note_id": "6ac70dba000000000a023d25",
+    "sub_comment_cursor": "{\"cursor\":\"6ac719c10000000007035d4d\",\"index\":1}",
+    "like_count": 31,
+    "collected": false,
+    "score": 31,
+    "translation_strategy": 9,
+    "sub_comments": [
+     {
+      "friend_liked_msg": "",
+      "time": 1791433153,
+      "status": 0,
+      "liked": false,
+      "hidden": false,
+      "show_type": "common",
+      "downvoted": false,
+      "show_tags": [],
+      "note_id": "6ac70dba000000000a023d25",
+      "like_count": 0,
+      "score": -4,
+      "collected": false,
+      "target_comment": {
+       "id": "6ac715a5000000001001eca1",
+       "status": 0,
+       "user": {
+        "images": "https://sns-avatar-qc.rednotecdn.com/avatar/1040g2jo3232v7itfnkd04buolondsepbs1fh0mo?imageView2/2/w/120/format/jpg",
+        "userid": "a520506b8ba5864ba291203857ef9",
+        "red_id": "548674474",
+        "nickname": "会下金蛋的鹅",
+        "ai_agent": false,
+        "level": {
+         "image": ""
+        },
+        "current_user": "false",
+        "additional_tags": {}
+       }
+      },
+      "translation_strategy": 9,
+      "comment_type": 0,
+      "user": {
+       "images": "https://sns-avatar-qc.rednotecdn.com/avatar/640f4bf52fa7055bf346ba9d.jpg?imageView2/2/w/120/format/jpg",
+       "original_name": "俊哥儿乐____",
+       "userid": "a1f1d9b3a01f3b1099adf140199e2",
+       "nickname": "俊哥儿乐____",
+       "red_id": "420524309",
+       "level": {
+        "image": ""
+       },
+       "ai_agent": false,
+       "current_user": "false",
+       "additional_tags": {}
+      },
+      "id": "6ac719c10000000007035d4d",
+      "ip_location": "Guangdong",
+      "biz_label": {
+       "product_review": false,
+       "group_invite": "false",
+       "rich_text": "unknown"
+      },
+      "share_strategy": 0,
+      "relatable_to_note": false,
+      "at_users": [],
+      "show_tags_v2": [
+       {
+        "style_id": "red",
+        "type": "is_author",
+        "pos": "post_name",
+        "text": "Author"
+       }
+      ],
+      "content": "对，现在方便很多，以前我记得充会员都得海外充？"
+     }
+    ],
+    "comment_type": 0,
+    "track_id": "interaction-service.local",
+    "id": "6ac715a5000000001001eca1",
+    "share_strategy": 0,
+    "biz_label": {
+     "product_review": false,
+     "group_invite": "false",
+     "rich_text": "unknown"
+    },
+    "user": {
+     "red_id": "548674474",
+     "original_name": "会下金蛋的鹅",
+     "userid": "a520506b8ba5864ba291203857ef9",
+     "nickname": "会下金蛋的鹅",
+     "ai_agent": false,
+     "images": "https://sns-avatar-qc.rednotecdn.com/avatar/1040g2jo3232v7itfnkd04buolondsepbs1fh0mo?imageView2/2/w/120/format/jpg",
+     "level": {
+      "image": ""
+     },
+     "current_user": "false",
+     "additional_tags": {}
+    },
+    "relatable_to_note": false,
+    "at_users": [],
+    "ip_location": "Guangdong",
+    "show_tags_v2": [],
+    "invalid": false,
+    "sub_comment_count": 8,
+    "content": "我还在用啊，不用梯子不封号，很好用很方便啊"
+   },
+   {
+    "liked": false,
+    "time": 1791512845,
+    "status": 0,
+    "friend_liked_msg": "",
+    "hidden": false,
+    "downvoted": false,
+    "show_type": "common",
+    "show_tags": [],
+    "note_id": "6ac70dba000000000a023d25",
+    "sub_comment_cursor": "{\"cursor\":\"6ac85180000000001200811d\",\"index\":1}",
+    "like_count": 24,
+    "collected": false,
+    "sub_comments": [
+     {
+      "friend_liked_msg": "",
+      "status": 0,
+      "time": 1791512961,
+      "liked": false,
+      "hidden": false,
+      "show_type": "common",
+      "downvoted": false,
+      "show_tags": [],
+      "note_id": "6ac70dba000000000a023d25",
+      "like_count": 8,
+      "score": -8,
+      "collected": false,
+      "translation_strategy": 9,
+      "target_comment": {
+       "id": "6ac8510d00000000070218ae",
+       "status": 0,
+       "user": {
+        "images": "https://sns-avatar-qc.rednotecdn.com/avatar/1040g2jo31746s2i8jk5g5p2sdjb3oup8si1lks8?imageView2/2/w/120/format/jpg",
+        "red_id": "5508870264",
+        "userid": "a8f7a253bdf11cbeab57eb5047b6b",
+        "nickname": "键韵匠心",
+        "ai_agent": false,
+        "level": {
+         "image": ""
+        },
+        "current_user": "false",
+        "additional_tags": {}
+       }
+      },
+      "comment_type": 0,
+      "user": {
+       "userid": "ab421747d3c3c6ec1aa7ed9da9c6b",
+       "images": "https://sns-avatar-qc.rednotecdn.com/avatar/6441e624062888d4057d7ef9.jpg?imageView2/2/w/120/format/jpg",
+       "original_name": "heliar_mk",
+       "nickname": "heliar_mk",
+       "ai_agent": false,
+       "level": {
+        "image": ""
+       },
+       "red_id": "633010902",
+       "current_user": "false",
+       "additional_tags": {}
+      },
+      "id": "6ac85180000000001200811d",
+      "ip_location": "Zhejiang",
+      "share_strategy": 0,
+      "biz_label": {
+       "product_review": false,
+       "group_invite": "false",
+       "rich_text": "unknown"
+      },
+      "relatable_to_note": false,
+      "at_users": [],
+      "show_tags_v2": [],
+      "content": "[doge]只要人最后还要掌控代码，做着做着他们会越来越像的。不过 codex 这种包袱轻点，从 vscode 改过来的 cursor 包袱比较重"
+     }
+    ],
+    "translation_strategy": 9,
+    "score": 24,
+    "comment_type": 0,
+    "user": {
+     "images": "https://sns-avatar-qc.rednotecdn.com/avatar/1040g2jo31746s2i8jk5g5p2sdjb3oup8si1lks8?imageView2/2/w/120/format/jpg",
+     "original_name": "键韵匠心",
+     "red_id": "5508870264",
+     "nickname": "键韵匠心",
+     "ai_agent": false,
+     "userid": "a8f7a253bdf11cbeab57eb5047b6b",
+     "level": {
+      "image": ""
+     },
+     "current_user": "false",
+     "additional_tags": {}
+    },
+    "id": "6ac8510d00000000070218ae",
+    "share_strategy": 0,
+    "ip_location": "Liaoning",
+    "track_id": "interaction-service.local",
+    "relatable_to_note": false,
+    "at_users": [],
+    "biz_label": {
+     "product_review": false,
+     "group_invite": "false",
+     "rich_text": "unknown"
+    },
+    "show_tags_v2": [],
+    "invalid": false,
+    "content": "cursor我现在感觉最好用的就2点。1.git比codex好用。 2. debug模式 调试bug清晰 准确。 这2点目前无论是codex还是claude都是没有的。 ",
+    "sub_comment_count": 6
+   },
+   {
+    "liked": false,
+    "friend_liked_msg": "",
+    "status": 0,
+    "time": 1791465702,
+    "hidden": false,
+    "downvoted": false,
+    "show_type": "common",
+    "show_tags": [],
+    "note_id": "6ac70dba000000000a023d25",
+    "sub_comments": [
+     {
+      "friend_liked_msg": "",
+      "time": 1791466858,
+      "status": 0,
+      "liked": false,
+      "hidden": false,
+      "downvoted": false,
+      "show_type": "common",
+      "show_tags": [],
+      "note_id": "6ac70dba000000000a023d25",
+      "like_count": 6,
+      "collected": false,
+      "score": -16,
+      "target_comment": {
+       "id": "6ac798e60000000003032c1c",
+       "status": 0,
+       "user": {
+        "userid": "a89cb256af39a391463782de2005a",
+        "images": "https://sns-avatar-qc.rednotecdn.com/avatar/628ccbfa7255a15b07c9795b.jpg?imageView2/2/w/120/format/jpg",
+        "red_id": "6546139356",
+        "nickname": "OpenYk",
+        "ai_agent": false,
+        "level": {
+         "image": ""
+        },
+        "current_user": "false",
+        "additional_tags": {}
+       }
+      },
+      "translation_strategy": 9,
+      "comment_type": 0,
+      "id": "6ac79d6a000000000702d4dd",
+      "user": {
+       "userid": "a1f1d9b3a01f3b1099adf140199e2",
+       "original_name": "俊哥儿乐____",
+       "images": "https://sns-avatar-qc.rednotecdn.com/avatar/640f4bf52fa7055bf346ba9d.jpg?imageView2/2/w/120/format/jpg",
+       "nickname": "俊哥儿乐____",
+       "ai_agent": false,
+       "level": {
+        "image": ""
+       },
+       "red_id": "420524309",
+       "current_user": "false",
+       "additional_tags": {}
+      },
+      "share_strategy": 0,
+      "ip_location": "Guangdong",
+      "biz_label": {
+       "rich_text": "unknown",
+       "group_invite": "false",
+       "product_review": false
+      },
+      "relatable_to_note": false,
+      "at_users": [],
+      "show_tags_v2": [
+       {
+        "style_id": "red",
+        "pos": "post_name",
+        "type": "is_author",
+        "text": "Author"
+       }
+      ],
+      "content": "我感觉还可以啊"
+     }
+    ],
+    "like_count": 15,
+    "score": 15,
+    "sub_comment_cursor": "{\"cursor\":\"6ac79d6a000000000702d4dd\",\"index\":1}",
+    "translation_strategy": 9,
+    "collected": false,
+    "comment_type": 0,
+    "user": {
+     "userid": "a89cb256af39a391463782de2005a",
+     "red_id": "6546139356",
+     "images": "https://sns-avatar-qc.rednotecdn.com/avatar/628ccbfa7255a15b07c9795b.jpg?imageView2/2/w/120/format/jpg",
+     "nickname": "OpenYk",
+     "ai_agent": false,
+     "level": {
+      "image": ""
+     },
+     "original_name": "OpenYk",
+     "current_user": "false",
+     "additional_tags": {}
+    },
+    "id": "6ac798e60000000003032c1c",
+    "share_strategy": 0,
+    "ip_location": "Guangdong",
+    "track_id": "interaction-service.local",
+    "relatable_to_note": false,
+    "at_users": [],
+    "biz_label": {
+     "product_review": false,
+     "group_invite": "false",
+     "rich_text": "unknown"
+    },
+    "show_tags_v2": [],
+    "invalid": false,
+    "content": "cursor两个主模型的输出 可读性都很差[捂脸R]",
+    "sub_comment_count": 5
+   },
+   {
+    "friend_liked_msg": "",
+    "status": 0,
+    "liked": false,
+    "time": 1791451999,
+    "hidden": false,
+    "downvoted": false,
+    "show_type": "common",
+    "show_tags": [],
+    "note_id": "6ac70dba000000000a023d25",
+    "like_count": 15,
+    "score": 15,
+    "collected": false,
+    "sub_comments": [
+     {
+      "friend_liked_msg": "",
+      "time": 1791453760,
+      "liked": false,
+      "status": 0,
+      "hidden": false,
+      "show_type": "common",
+      "downvoted": false,
+      "show_tags": [],
+      "note_id": "6ac70dba000000000a023d25",
+      "like_count": 0,
+      "score": 0,
+      "collected": false,
+      "translation_strategy": 9,
+      "target_comment": {
+       "id": "6ac7635f0000000006013f1a",
+       "user": {
+        "images": "https://sns-avatar-qc.rednotecdn.com/avatar/1040g2jo30qaoql3k7o0040pjvc0d39665o73ld8?imageView2/2/w/120/format/jpg",
+        "userid": "ae9faffbb9bd0d510b1d4a5ba598f",
+        "red_id": "sowee121",
+        "nickname": "喂喂呢",
+        "ai_agent": false,
+        "level": {
+         "image": ""
+        },
+        "current_user": "false",
+        "additional_tags": {}
+       },
+       "status": 0
+      },
+      "comment_type": 0,
+      "id": "6ac76a40000000001103bef1",
+      "user": {
+       "images": "https://sns-avatar-qc.rednotecdn.com/avatar/1040g2jo3262m6nm5566g5o4t5d7gbpqdo2hh08g?imageView2/2/w/120/format/jpg",
+       "original_name": "看完智商+1",
+       "red_id": "1132173287",
+       "nickname": "看完智商+1",
+       "ai_agent": false,
+       "level": {
+        "image": ""
+       },
+       "userid": "ace26a7e8985b23775679196d6536",
+       "current_user": "false",
+       "additional_tags": {}
+      },
+      "ip_location": "Zhejiang",
+      "biz_label": {
+       "product_review": false,
+       "group_invite": "false",
+       "rich_text": "unknown"
+      },
+      "share_strategy": 0,
+      "relatable_to_note": false,
+      "at_users": [],
+      "show_tags_v2": [],
+      "content": "反正也能用cc的模型[微笑R]"
+     }
+    ],
+    "sub_comment_cursor": "{\"cursor\":\"6ac76a40000000001103bef1\",\"index\":1}",
+    "translation_strategy": 9,
+    "comment_type": 0,
+    "id": "6ac7635f0000000006013f1a",
+    "user": {
+     "userid": "ae9faffbb9bd0d510b1d4a5ba598f",
+     "images": "https://sns-avatar-qc.rednotecdn.com/avatar/1040g2jo30qaoql3k7o0040pjvc0d39665o73ld8?imageView2/2/w/120/format/jpg",
+     "red_id": "sowee121",
+     "nickname": "喂喂呢",
+     "ai_agent": false,
+     "level": {
+      "image": ""
+     },
+     "original_name": "喂喂呢",
+     "current_user": "false",
+     "additional_tags": {}
+    },
+    "share_strategy": 0,
+    "biz_label": {
+     "rich_text": "unknown",
+     "product_review": false,
+     "group_invite": "false"
+    },
+    "ip_location": "Hubei",
+    "relatable_to_note": false,
+    "at_users": [],
+    "track_id": "interaction-service.local",
+    "show_tags_v2": [],
+    "invalid": false,
+    "content": "我觉得 cursor 很好用啊 最符合前端开发的习惯",
+    "sub_comment_count": 2
+   }
+  ],
+  "cursor": "{\"contextId\":\"cbce92207d144537bf26026784558e05\",\"cursor\":\"6ac7873c000000001001ebae\",\"index\":2,\"pageArea\":\"ALL\"}",
+  "comment_count_l1": 136,
+  "all_sort_strategies": [
+   {
+    "type": "default",
+    "optional_name": "Default",
+    "suffix_name": ""
+   },
+   {
+    "type": "latest_v2",
+    "optional_name": "Latest",
+    "suffix_name": ""
+   },
+   {
+    "type": "like_count",
+    "optional_name": "Most liked",
+    "suffix_name": ""
+   }
+  ],
+  "current_sort_strategy": "like_count",
+  "user_id": "5a2aa5c011be1001db42dee4",
+  "comment_count": 274,
+  "page_context": "{\"exposed_l1_ids\":\"6ac715a5000000001001eca1,6ac8510d00000000070218ae,6ac798e60000000003032c1c,6ac7635f0000000006013f1a,6ac8ccf000000000070372ff,6ac7b5f10000000008000197,6ac838bd000000000b003ddb,6ac711780000000007012696,6ac7111b00000000080264b5,6ac7873c000000001001ebae\"}",
+  "has_more": true
+ },
+ "msg": ""
+}

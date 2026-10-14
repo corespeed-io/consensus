@@ -1,5 +1,6 @@
-import { useEffect, useId, useRef, useState } from 'react';
-import { optionColor, shade, num } from './format';
+import { useEffect, useRef, useState } from 'react';
+import { MIN_FOR_SHARES, optionColor } from './format';
+import { useI18n } from './i18n';
 
 /** Eases a number toward its target so live counts roll instead of jumping. */
 export function useTween(target: number, ms = 700): number {
@@ -57,7 +58,6 @@ export function Donut({
   onSelect,
   hovered,
   onHover,
-  label = 'opinions',
 }: {
   slices: Slice[];
   total: number;
@@ -65,9 +65,9 @@ export function Donut({
   onSelect: (id: string) => void;
   hovered?: string | null;
   onHover?: (id: string | null) => void;
-  label?: string;
 }) {
-  const uid = useId().replace(/:/g, '');
+  const { num, pct, tp } = useI18n();
+  const label = tp('donut_unit', total);
   const shown = useTween(total);
   const box = useRef<HTMLDivElement>(null);
   const [tip, setTip] = useState<{ id: string; x: number; y: number } | null>(null);
@@ -92,17 +92,6 @@ export function Donut({
   return (
     <div className="donut" ref={box} onPointerLeave={(e) => e.pointerType === 'mouse' && clear()}>
       <svg viewBox="0 0 200 200" role="img" aria-label={`${num(total)} ${label}`}>
-        <defs>
-          {slices.map((s) => {
-            const c = optionColor(s.id);
-            return (
-              <pattern key={s.id} id={`${uid}-${s.id}`} width="4.2" height="4.2" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
-                <rect width="4.2" height="4.2" fill={c} />
-                <circle cx="2.1" cy="2.1" r="0.95" fill={shade(c, 0.72)} opacity="0.55" />
-              </pattern>
-            );
-          })}
-        </defs>
         <circle cx="100" cy="100" r={R} fill="none" className="donut-track" strokeWidth={W} />
         <g transform="rotate(-90 100 100)">
           {slices.map((s) => {
@@ -119,7 +108,7 @@ export function Donut({
                 cy="100"
                 r={R}
                 fill="none"
-                stroke={`url(#${uid}-${s.id})`}
+                style={{ stroke: optionColor(s.id) }}
                 strokeWidth={on ? W_ON : hot ? W_HOT : W}
                 strokeDasharray={`${seg} ${C}`}
                 strokeDashoffset={-off}
@@ -152,28 +141,10 @@ export function Donut({
           <i />
           <span className="dt-title">{tipSlice.title}</span>
           <span className="dt-num">
-            {tipSlice.count > 0 && (tipSlice.count / sum) * 100 < 0.5 ? '<1' : Math.round((tipSlice.count / sum) * 100)}% · {num(tipSlice.count)}
+            {total >= MIN_FOR_SHARES ? `${pct(tipSlice.count / sum)} · ${num(tipSlice.count)}` : num(tipSlice.count)}
           </span>
         </div>
       )}
-    </div>
-  );
-}
-
-export function DonutSkeleton({ found, label }: { found: number; label: string }) {
-  const shown = useTween(found, 900);
-  return (
-    <div className="donut loading">
-      <svg viewBox="0 0 200 200" aria-hidden="true">
-        <circle cx="100" cy="100" r={R} fill="none" className="donut-track" strokeWidth={W} />
-        <circle cx="100" cy="100" r={R} fill="none" className="donut-sweep" strokeWidth={W} strokeDasharray={`${C * 0.22} ${C}`} />
-      </svg>
-      <div className="donut-center" style={{ ['--hole' as string]: HOLE }}>
-        <div className="donut-hole">
-          <strong style={{ fontSize: centerSize(num(Math.round(shown))) }}>{found ? num(Math.round(shown)) : '\u00a0'}</strong>
-          <span>{label}</span>
-        </div>
-      </div>
     </div>
   );
 }

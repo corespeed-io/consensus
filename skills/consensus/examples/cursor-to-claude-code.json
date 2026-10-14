@@ -1,0 +1,1964 @@
+{
+ "format": "consensus-result/1",
+ "question": "Why do developers switch from Cursor to Claude Code?",
+ "question_type": "open",
+ "summary": "In this sample, the reason given most for switching is more usage for the money: Cursor's limits and API-rate pricing versus a flat Claude plan. Better results from Opus and Claude Code's harness comes second. About a third of counted posts argue the other way, partly because one search looked for them.",
+ "created_at": "2026-10-14T08:40:00Z",
+ "language": "en",
+ "window": {
+  "since": "2025-10-14",
+  "until": null
+ },
+ "sources": [
+  "reddit",
+  "x"
+ ],
+ "options": [
+  {
+   "id": "cost",
+   "title": "More usage for the money",
+   "description": "Says a Claude plan goes much further than Cursor's limits or API pricing.",
+   "why": "People hit Cursor's monthly credits or weekly limits within days or weeks, and say a flat Claude Max plan lets them work all day; some note that Claude inside Cursor bills at API rates.",
+   "quotes": [
+    {
+     "post": "t1_oe0zoj0",
+     "text": "I reached limits all the time in Cursor, very rarely in Claude Code."
+    },
+    {
+     "post": "t1_pcki6nt",
+     "text": "Cursor uses api rates, much more expensive than using opus 5.5 in claude code"
+    },
+    {
+     "post": "x_2081841086696177803",
+     "text": "It was so expensive I just switched directly to Claude Code and skipped the middle man."
+    }
+   ]
+  },
+  {
+   "id": "quality",
+   "title": "Better results in Claude Code",
+   "description": "Says Claude Code (Opus and its harness) codes better, or Cursor's models fell behind.",
+   "why": "Switchers credit Opus 5.5 inside Claude Code and its harness, and several say Cursor's own Grok and Composer models have become a pain.",
+   "quotes": [
+    {
+     "post": "t3_1wrx24u",
+     "text": "since Opus 5.5, I don't see one single reason to go back to Cursor."
+    },
+    {
+     "post": "t1_oe02wwt",
+     "text": "You think you have the same models using cursor but you don’t."
+    },
+    {
+     "post": "t1_pffd9ad",
+     "text": "I just cancelled my cursor subscription. Grok just produces slop."
+    }
+   ]
+  },
+  {
+   "id": "no-ide",
+   "title": "No need for Cursor's IDE",
+   "description": "Says a terminal or VS Code extension is enough, or easier.",
+   "why": "A few say editor extensions and the CLI now do the job, so paying for Cursor's IDE no longer makes sense; one non-coder found Claude Code easier to follow.",
+   "quotes": [
+    {
+     "post": "x_2081848519124725952",
+     "text": "I used Cursor but as soon as good VS Cide extensions for Claude and Codex appeared switched."
+    },
+    {
+     "post": "x_2081849744851124621",
+     "text": "Claude Code just talks to me like a patient senior dev. Cursor assumed I already knew my way around."
+    }
+   ]
+  },
+  {
+   "id": "both",
+   "title": "Uses both",
+   "description": "Moved most work to Claude Code but keeps Cursor for reviewing or routing.",
+   "why": "Some keep Cursor open to read diffs or for its model routing, while Claude Code does most of the work.",
+   "quotes": [
+    {
+     "post": "t3_1x3r2hw",
+     "text": "Most of my stuff moved to Claude Code but I still open Cursor when I want to actually look at the diff"
+    }
+   ]
+  },
+  {
+   "id": "stayed",
+   "title": "Stayed with or went back to Cursor",
+   "description": "Says Cursor still fits better: its IDE, its models, or Claude Code's limits and outages.",
+   "why": "The other side values Cursor's integrated IDE and model choice, and several went back after hitting Claude Code limits or outages.",
+   "quotes": [
+    {
+     "post": "t1_pcgo4xg",
+     "text": "You don't use Cursor for the models. You use it for the integrated IDE."
+    },
+    {
+     "post": "x_1981431513712644569",
+     "text": "I hit my weekly limit on Claude code for the first time.. gone back to cursor"
+    }
+   ]
+  }
+ ],
+ "other": {
+  "why": "Left Cursor, but for other tools.",
+  "also_mentioned": [
+   {
+    "title": "Antigravity and Kiro",
+    "count": 1
+   }
+  ]
+ },
+ "themes": [
+  {
+   "id": "limits",
+   "title": "Ran out of Cursor usage too fast",
+   "description": "Hit Cursor's credits or weekly limits within days or weeks."
+  },
+  {
+   "id": "max-plan",
+   "title": "A flat Claude plan goes further",
+   "description": "Says a Max or Pro subscription gives far more usage than Cursor's limits or API-rate pricing."
+  },
+  {
+   "id": "cursor-models",
+   "title": "Cursor's own models fell behind",
+   "description": "Grok and Composer results got worse."
+  },
+  {
+   "id": "harness",
+   "title": "Claude Code's harness works better",
+   "description": "Same model, better results through Claude Code's agent loop."
+  },
+  {
+   "id": "no-ide-needed",
+   "title": "A terminal or extension is enough",
+   "description": "Does not need to pay for Cursor's IDE to use the model."
+  },
+  {
+   "id": "saves-money",
+   "title": "Cancelling Cursor saves money",
+   "description": "Cut a monthly bill by dropping or downgrading Cursor."
+  },
+  {
+   "id": "ide",
+   "title": "Cursor's integrated IDE",
+   "description": "Values reading diffs and editing inside Cursor."
+  },
+  {
+   "id": "cc-limits",
+   "title": "Claude Code limits or outages",
+   "description": "Went back or stayed after hitting Claude Code limits or breakage."
+  }
+ ],
+ "posts": [
+  {
+   "id": "t3_1wrx24u",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/",
+   "text": "1 year of cursor, switched to claude. Best decision ever.\nI used Cursor for 1 year. It used to be great with a lot of usage with models that could challenge current frontier models. But they have fallen behind so much recently, that I switched to Claude 2 weeks ago to try it.\n\nAt first, it was a bit better than Grok and composer, but since Opus 5.5, I don't see one single reason to go back to Cursor.\n\nThat model is straight up so insane. Does everything by itself and I have a very hard time to use all my usage.\n\nI'm sorry but since the SpaceX acquisition, Cursor is way behind its peers and not worth it anymore.",
+   "author": "Unfair_Suspect_7425",
+   "created_at": "2026-09-27T22:03:30Z",
+   "score": 193,
+   "replies": 120,
+   "thread_title": "1 year of cursor, switched to claude. Best decision ever.",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/",
+   "community": "r/cursor",
+   "label": "quality",
+   "strength": 3,
+   "themes": [
+    "cursor-models"
+   ]
+  },
+  {
+   "id": "t3_1saajua",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1saajua/my_experience_after_migrating_from_cursor_to/",
+   "text": "My experience after migrating from Cursor to Claude.\nFirst off let me start by mentioning the reason for this switch-\n\nI wanted unlimited sonnet and opus usage. Opus to build, sonnet for general life tasks. \n\nWith $20 cursor subscription + $100 additional credits, you get nowhere close to unlimited sonnet/opus. After I hit this budget limit (which happens within a single week), I just had to stop building for the month as it would be really expensive for me to continue at that pace. And I only build on Cursor, no regular life stuff.\n\n[…]\n\nDo I miss switching the stack? I definitely don’t miss Cursor. Cursor is way too expensive now that I have a taste of virtually unlimited Opus for $100 a month.",
+   "author": "unvirginate",
+   "created_at": "2026-04-02T07:21:07Z",
+   "score": 60,
+   "replies": 36,
+   "thread_title": "My experience after migrating from Cursor to Claude.",
+   "thread_url": "https://www.reddit.com/r/ClaudeAI/comments/1saajua/my_experience_after_migrating_from_cursor_to/",
+   "community": "r/ClaudeAI",
+   "label": "cost",
+   "strength": 3,
+   "themes": [
+    "limits",
+    "max-plan"
+   ]
+  },
+  {
+   "id": "t3_1rsor2j",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/vibecoding/comments/1rsor2j/moving_from_cursor_to_claude_code_has_been_the/",
+   "text": "Moving from Cursor to Claude Code has been the best decision\nHey guys,\n\nI've been vibe coding with Cursor for quite a while now and I’ve tested pretty much every configuration: different Cursor plans, OpenRouter, and a bunch of external APIs.\n\nCursor is a great tool, but I kept hitting the limits really fast. If you code heavily, you burn through the quotas in no time.\n\n[…]\n\nThen I switched to the **Ultra plan**, and since then I’ve been using **Opus 4.6** on medium-sized projects for hours without hitting limits.",
+   "author": "Spare-Ad-2040",
+   "created_at": "2026-03-13T14:25:19Z",
+   "score": 13,
+   "replies": 19,
+   "thread_title": "Moving from Cursor to Claude Code has been the best decision",
+   "thread_url": "https://www.reddit.com/r/vibecoding/comments/1rsor2j/moving_from_cursor_to_claude_code_has_been_the/",
+   "community": "r/vibecoding",
+   "label": "cost",
+   "strength": 3,
+   "themes": [
+    "limits",
+    "max-plan"
+   ]
+  },
+  {
+   "id": "t3_1tsjhzb",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1tsjhzb/claude_code_has_ruined_cursor_for_me/",
+   "text": "Claude Code has ruined Cursor for me\nBeen using Claude for coding the past couple months and I honestly don’t want to go back to Cursor anymore.\n\nThe context feels better, it thinks cleaner, and I get way less hallucinated stuff.\n\nNow I just paste big chunks in and let it run.\n\nAnyone else fully switched to Claude as their main coding AI?",
+   "author": "Real-Question-3050",
+   "created_at": "2026-05-31T03:07:43Z",
+   "score": 10,
+   "replies": 25,
+   "thread_title": "Claude Code has ruined Cursor for me",
+   "thread_url": "https://www.reddit.com/r/ClaudeCode/comments/1tsjhzb/claude_code_has_ruined_cursor_for_me/",
+   "community": "r/ClaudeCode",
+   "label": "quality",
+   "strength": 3,
+   "themes": [
+    "harness"
+   ]
+  },
+  {
+   "id": "t3_1x3r2hw",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/",
+   "text": "Anyone still using Cursor next to Claude Code?\nMost of my stuff moved to Claude Code but I still open Cursor when I want to actually look at the diff and poke at the code myself. Feels like everyone here is leaving though lol\n\nAre you guys using both or did you fully switch and how?",
+   "author": "bayvo",
+   "created_at": "2026-10-12T03:11:48Z",
+   "score": 23,
+   "replies": 89,
+   "thread_title": "Anyone still using Cursor next to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/",
+   "community": "r/cursor",
+   "label": "both",
+   "strength": 2,
+   "themes": [
+    "ide"
+   ]
+  },
+  {
+   "id": "t3_1wezxz7",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1wezxz7/cursor_vs_claudecode_which_are_you_using/",
+   "text": "Cursor vs ClaudeCode: which are you using?\nFor sprints, or full-send build prompts, it is Claude no doubt, but for tight edits and detailed builds from markdowns, Cursor is on fire.\n\nClaude used to be so much better and I still love Claude but man am I crazy or is Cursor taking the cake right now?\n\nAt least for people who aren’t afraid of an IDE (can we call it that? I’m calling it that).",
+   "author": "qms2go",
+   "created_at": "2026-09-13T06:27:08Z",
+   "score": 0,
+   "replies": 51,
+   "thread_title": "Cursor vs ClaudeCode: which are you using?",
+   "thread_url": "https://www.reddit.com/r/ClaudeCode/comments/1wezxz7/cursor_vs_claudecode_which_are_you_using/",
+   "community": "r/ClaudeCode",
+   "label": "stayed",
+   "strength": 2,
+   "themes": [
+    "ide"
+   ]
+  },
+  {
+   "id": "t3_1sb17do",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "text": "Anyone switched from Cursor to Claude Code?\nThey say Claude Code has the best harness engineering. I've been using Cursor as my primary workstation for a while, it gives me a sense of control that I couldn't get from pure CLI tools. What's your take? Which setup do you prefer?",
+   "author": "tony0525",
+   "created_at": "2026-04-03T02:25:59Z",
+   "score": 113,
+   "replies": 128,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0
+  },
+  {
+   "id": "t3_1vu476x",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/AI_Agents/comments/1vu476x/why_use_claude_code_when_cursor_already_gives_you/",
+   "text": "Why use Claude Code when Cursor already gives you Claude?\nI know it sounds like a cliché, but why should we use Claude when Cursor also provides Claude?  \nWith Cursor, you get Claude models, other models, and a full IDE all in one place. It feels like you get the best of both worlds.  \nSo for people who actually prefer Claude Code over Cursor: **what does it do so much better that makes it worth switching?**  \nWhat am I missing?",
+   "author": "Alishhhh11",
+   "created_at": "2026-08-21T02:54:09Z",
+   "score": 0,
+   "replies": 23,
+   "thread_title": "Why use Claude Code when Cursor already gives you Claude?",
+   "thread_url": "https://www.reddit.com/r/AI_Agents/comments/1vu476x/why_use_claude_code_when_cursor_already_gives_you/",
+   "community": "r/AI_Agents",
+   "label": "none",
+   "strength": 0
+  },
+  {
+   "id": "t3_1wj6sos",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/cursor/comments/1wj6sos/help_moving_from_claude_code_to_cursor/",
+   "text": "Help moving from Claude Code to Cursor\nI'm starting a new role as a remote software developer soon in a great company. [...] The thing is that on my new job, we're only allowed to use Cursor with an API spend limit of around \\~$150 USD monthly.",
+   "author": "dananite",
+   "created_at": "2026-09-17T21:23:36Z",
+   "score": 0,
+   "replies": 9,
+   "thread_title": "Help moving from Claude Code to Cursor",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1wj6sos/help_moving_from_claude_code_to_cursor/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0
+  },
+  {
+   "id": "t3_1ubwbvr",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/cursor/comments/1ubwbvr/does_it_make_sense_to_switch_to_claude_code/",
+   "text": "Does it make sense to switch to claude code instead of cursor?\nRight I am on Ultra cursor plan on 2 accounts because it takes me around 2 weeks to exhaust all of my tokens and for the most part I use claude opus for 99% of my tasks. Will I get more usage from max 20x plan on claude code?",
+   "author": "ThatIsNotIllegal",
+   "created_at": "2026-06-21T17:46:36Z",
+   "score": 7,
+   "replies": 35,
+   "thread_title": "Does it make sense to switch to claude code instead of cursor?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1ubwbvr/does_it_make_sense_to_switch_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0
+  },
+  {
+   "id": "t3_1vcecvt",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/CursorAI/comments/1vcecvt/cursor_or_claude_code/",
+   "text": "Cursor or Claude Code\nI need advice I was not using any tools for coding till now \n\nNeed advice my friends are suggesting to me Claude code as it is the best but on the other hand some co workers suggesting me Cursor as it can last me a month with Composer 2.5 and Grok model now",
+   "author": "thearnabmukherjee",
+   "created_at": "2026-08-01T05:22:18Z",
+   "score": 4,
+   "replies": 23,
+   "thread_title": "Cursor or Claude Code",
+   "thread_url": "https://www.reddit.com/r/CursorAI/comments/1vcecvt/cursor_or_claude_code/",
+   "community": "r/CursorAI",
+   "label": "none",
+   "strength": 0
+  },
+  {
+   "id": "t3_1wouluc",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/cursor/comments/1wouluc/why_do_you_use_cursor_instead_of_chagpt_or_claude/",
+   "text": "Why do you use Cursor instead of ChaGPT or Claude code?\nI use AI everyday to create tools or someterse for me and other customers. Why would I use Cursor instead of GPT or Claude?",
+   "author": "rocasv",
+   "created_at": "2026-09-24T06:56:43Z",
+   "score": 12,
+   "replies": 40,
+   "thread_title": "Why do you use Cursor instead of ChaGPT or Claude code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1wouluc/why_do_you_use_cursor_instead_of_chagpt_or_claude/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0
+  },
+  {
+   "id": "t3_1whtb6c",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/cursor/comments/1whtb6c/whats_better_about_cursor_than_claude_code/",
+   "text": "What’s better about cursor than Claude code?\nApart from models, what is amazing about cursor that Claude code/codex simply lack?\n\nThanks",
+   "author": "Sarlo10",
+   "created_at": "2026-09-16T10:23:05Z",
+   "score": 14,
+   "replies": 32,
+   "thread_title": "What’s better about cursor than Claude code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1whtb6c/whats_better_about_cursor_than_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0
+  },
+  {
+   "id": "t3_1wcvn01",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/cursor/comments/1wcvn01/cursor_or_claude_code/",
+   "text": "Cursor or Claude Code?\nI've been using Claude Code ($20/mon) from within my GitHub repo codespace to work on a few projects (a UX portfolio, along with an iOS app). I'm wondering if I'd get more bang for my buck and a better vibe-coding experience overall, if I switched to Cursor Pro to work on those projects or any future projects.",
+   "author": "IridiumIoN",
+   "created_at": "2026-09-10T20:57:49Z",
+   "score": 9,
+   "replies": 24,
+   "thread_title": "Cursor or Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1wcvn01/cursor_or_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0
+  },
+  {
+   "id": "t3_1wjl2tl",
+   "source": "reddit",
+   "kind": "thread",
+   "url": "https://www.reddit.com/r/AI_Agents/comments/1wjl2tl/i_run_claude_code_codex_and_cursor_on_the_same/",
+   "text": "I run Claude Code, Codex and Cursor on the same project. Here's how I stopped losing context\nmonths of running claude code, codex and cursor on the same project and the tools got smart while the memory stayed dumb. [...] i use vilix ai for it, it's an mcp server so every tool reads the same stuff.",
+   "author": "Asly97",
+   "created_at": "2026-09-18T09:06:57Z",
+   "score": 2,
+   "replies": 19,
+   "thread_title": "I run Claude Code, Codex and Cursor on the same project. Here's how I stopped losing context",
+   "thread_url": "https://www.reddit.com/r/AI_Agents/comments/1wjl2tl/i_run_claude_code_codex_and_cursor_on_the_same/",
+   "community": "r/AI_Agents",
+   "label": "spam",
+   "strength": 0
+  },
+  {
+   "id": "t1_oe02wwt",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/oe02wwt/",
+   "text": "I used cursor from its release till about 2 months ago. Claude Code is a way better product.\n\nYou think you have the same models using cursor but you don’t. \n\nYou don’t lose the auto complete feature but I didn’t use that very often. \n\nI couldn’t be happier with the switch",
+   "author": "Huge_Dragonfruit_864",
+   "created_at": "2026-04-03T02:39:35Z",
+   "score": 57,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "quality",
+   "strength": 3,
+   "replies": 12,
+   "themes": [
+    "harness"
+   ]
+  },
+  {
+   "id": "t1_oe1jhs5",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/oe1jhs5/",
+   "text": "I have the $100 plan. I may hit the limit once a day around noon but I’m constantly running chat, CoWork including some schedules tasks and have 2-3 instances of Claude code up with multiple sessions.\n\nI was on the $60 cursor plan and would run out of credits in the first 2 weeks and the buy up was crazy expensive",
+   "author": "Huge_Dragonfruit_864",
+   "created_at": "2026-04-03T09:35:27Z",
+   "score": 8,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 0
+  },
+  {
+   "id": "t1_oe0zoj0",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/oe0zoj0/",
+   "text": "I reached limits all the time in Cursor, very rarely in Claude Code.",
+   "author": "ehs5",
+   "created_at": "2026-04-03T06:39:02Z",
+   "score": 6,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "cost",
+   "strength": 3,
+   "replies": 1,
+   "themes": [
+    "limits"
+   ]
+  },
+  {
+   "id": "t1_oe4gf2x",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/oe4gf2x/",
+   "text": "Same for me. Cursor was good initially with about 200 requests per month. But when they changed the limits I ran out of prompts too fast - I did not change my subscription. Now using Claude Code with 5x Max (Pro not enough), in my use 5h limit very rarely strikes even when doing work full day.",
+   "author": "mvaranka",
+   "created_at": "2026-04-03T19:00:12Z",
+   "score": 2,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "cost",
+   "strength": 3,
+   "replies": 0,
+   "themes": [
+    "limits",
+    "max-plan"
+   ]
+  },
+  {
+   "id": "t1_oerrh3l",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/oerrh3l/",
+   "text": "Yeah, harness engineering defintely has a big role. I came up with this total-switching idea after the accidental leak of Claude Code and people are saying how awesome the harness is, makes me wonder if Cursor has the same level of engineering.",
+   "author": "tony0525",
+   "created_at": "2026-04-07T09:24:16Z",
+   "score": 1,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "quality",
+   "strength": 2,
+   "replies": 0,
+   "themes": [
+    "harness"
+   ]
+  },
+  {
+   "id": "t1_oe07yhd",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/oe07yhd/",
+   "text": "Seems like the Claude folks are up in arms about the limits, have you been reaching limits in Claude Code?",
+   "author": "hopeful-tater",
+   "created_at": "2026-04-03T03:11:07Z",
+   "score": 7,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 5
+  },
+  {
+   "id": "t1_oe0rg3r",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/oe0rg3r/",
+   "text": "i had one day on my max plan the past week where the limits were burning crazy fast. yesterday felt normal again. i think they fixed the problem.",
+   "author": "evilbert79",
+   "created_at": "2026-04-03T05:30:21Z",
+   "score": 2,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 0
+  },
+  {
+   "id": "t1_oe3gsc5",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/oe3gsc5/",
+   "text": "I'm on the max x20 plan and this week is the only time I've even come close to the weekly limit and I've been cooking lol so it's not a big deal.",
+   "author": "andrew303710",
+   "created_at": "2026-04-03T16:16:15Z",
+   "score": 2,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 0
+  },
+  {
+   "id": "t1_oe3qe1t",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/oe3qe1t/",
+   "text": "Yeah, but from my experience Chatgpt is dumber to be honest.",
+   "author": "takuonline",
+   "created_at": "2026-04-03T17:00:51Z",
+   "score": 5,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 0
+  },
+  {
+   "id": "t1_oerr37i",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/oerr37i/",
+   "text": "I've used Codex client for a while. The first web UI it generated astonished me no kidding, it had good taste and was nothing like generic AI style websites that other models produce.",
+   "author": "tony0525",
+   "created_at": "2026-04-07T09:20:39Z",
+   "score": 2,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 0
+  },
+  {
+   "id": "t1_oe0eoov",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/oe0eoov/",
+   "text": "Not really. I like gpt 5.4 xhigh a little more than claude opus 4.6. It's slow but doesn't make as many mistakes.",
+   "author": "Wonderful_Echo_1724",
+   "created_at": "2026-04-03T03:55:22Z",
+   "score": 14,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 2
+  },
+  {
+   "id": "t1_oe88v82",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/oe88v82/",
+   "text": "Is that so? I thought claude code is god?",
+   "author": "sandieindie",
+   "created_at": "2026-04-04T09:47:41Z",
+   "score": 2,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 1
+  },
+  {
+   "id": "t1_oea7uce",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/oea7uce/",
+   "text": "It's not a huge gap, probably down to preference. Models come out frequently enough that it's rare for one model to stay at the top for very long.",
+   "author": "Wonderful_Echo_1724",
+   "created_at": "2026-04-04T16:55:10Z",
+   "score": 2,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 0
+  },
+  {
+   "id": "t1_oe0x1ks",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/oe0x1ks/",
+   "text": "I agree. I tried using the plugin but ended up just using the cli inside the vscode terminal. Much better experience",
+   "author": "aka-tpayne",
+   "created_at": "2026-04-03T06:16:29Z",
+   "score": 2,
+   "thread_title": "Anyone switched from Cursor to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1sb17do/anyone_switched_from_cursor_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 0
+  },
+  {
+   "id": "t1_pcgo4xg",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/pcgo4xg/",
+   "text": "You don't use Cursor for the models.  You use it for the integrated IDE. I use Opus 5.5 in Cursor.",
+   "author": "huuaaang",
+   "created_at": "2026-09-27T22:28:25Z",
+   "score": 54,
+   "thread_title": "1 year of cursor, switched to claude. Best decision ever.",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/",
+   "community": "r/cursor",
+   "label": "stayed",
+   "strength": 3,
+   "replies": 47,
+   "themes": [
+    "ide"
+   ]
+  },
+  {
+   "id": "t1_pcgqiul",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/pcgqiul/",
+   "text": "Right?! I’ll never understand these posts. Does Claude have an IDE I’m unaware of? Does Cursor not have Claude’s models??",
+   "author": "imderek",
+   "created_at": "2026-09-27T22:40:17Z",
+   "score": 29,
+   "thread_title": "1 year of cursor, switched to claude. Best decision ever.",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/",
+   "community": "r/cursor",
+   "label": "stayed",
+   "strength": 2,
+   "replies": 20,
+   "themes": [
+    "ide"
+   ]
+  },
+  {
+   "id": "t1_pcgt06p",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/pcgt06p/",
+   "text": "They have Claude models at way less usage. You would use all your api usage instantly on cursor ultra+ while having a hard time to hit your weekly limit on claude max 20x.",
+   "author": "Unfair_Suspect_7425",
+   "created_at": "2026-09-27T22:52:46Z",
+   "score": 15,
+   "thread_title": "1 year of cursor, switched to claude. Best decision ever.",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 8
+  },
+  {
+   "id": "t1_pcj0smp",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/pcj0smp/",
+   "text": "How about using Opus 5.5 for planning and Composer 2.5 for execution. You think that is not good enough? I am doing that now for my Flutter n Sveltekit projects, so far looks ok. \n\nI wish I could switch, but currently I am on my $20 plan, I am not sure if I can survive in claude $20 plan for even a week.",
+   "author": "adidaks",
+   "created_at": "2026-09-28T06:53:14Z",
+   "score": 5,
+   "thread_title": "1 year of cursor, switched to claude. Best decision ever.",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/",
+   "community": "r/cursor",
+   "label": "stayed",
+   "strength": 2,
+   "replies": 5,
+   "themes": [
+    "cc-limits"
+   ]
+  },
+  {
+   "id": "t1_pcki6nt",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/pcki6nt/",
+   "text": "Cursor uses api rates, much more expensive than using opus 5.5 in claude code\n\nIve been a diehard grok fan for productivity since it came out but 5.5 in CC is currently better value",
+   "author": "bonerfleximus",
+   "created_at": "2026-09-28T13:08:14Z",
+   "score": 2,
+   "thread_title": "1 year of cursor, switched to claude. Best decision ever.",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/",
+   "community": "r/cursor",
+   "label": "cost",
+   "strength": 3,
+   "replies": 4,
+   "themes": [
+    "max-plan"
+   ]
+  },
+  {
+   "id": "t1_pcl2bxg",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/pcl2bxg/",
+   "text": "I really like Cursor’s cloud agents. I can get so much done on the move from my phone. I am dreading using Claude code, but I will give it a try.",
+   "author": "chaos_chimp",
+   "created_at": "2026-09-28T14:36:49Z",
+   "score": 1,
+   "thread_title": "1 year of cursor, switched to claude. Best decision ever.",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 2
+  },
+  {
+   "id": "t1_pcloa7o",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/pcloa7o/",
+   "text": "If finding the cheapest path to a good outcome is important I think its best to not be married to one harness - they will continue competing with each other aggressively and its good to always be able to take advantage of whoever is most effective in the moment.",
+   "author": "bonerfleximus",
+   "created_at": "2026-09-28T16:06:01Z",
+   "score": 1,
+   "thread_title": "1 year of cursor, switched to claude. Best decision ever.",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 1
+  },
+  {
+   "id": "t1_pcxdsat",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/pcxdsat/",
+   "text": "That is a 100% accurate. Being harness agnostic is the way to go (at least for personal projects).",
+   "author": "chaos_chimp",
+   "created_at": "2026-09-30T03:00:40Z",
+   "score": 1,
+   "thread_title": "1 year of cursor, switched to claude. Best decision ever.",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1wrx24u/1_year_of_cursor_switched_to_claude_best_decision/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 0
+  },
+  {
+   "id": "t1_pfdweev",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/pfdweev/",
+   "text": "I am this close to cancel my sub to cursor for claude code, opus 5.5 is way better and grok 4.6/7 has become a pain more than something useful.\n\nI don’t use grok bots and don’t know how can that be used for real (not like comments here that told you that is basically AGI)",
+   "author": "nariver1",
+   "created_at": "2026-10-12T04:33:41Z",
+   "score": 18,
+   "thread_title": "Anyone still using Cursor next to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/",
+   "community": "r/cursor",
+   "label": "quality",
+   "strength": 3,
+   "replies": 8,
+   "themes": [
+    "cursor-models"
+   ]
+  },
+  {
+   "id": "t1_pffd9ad",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/pffd9ad/",
+   "text": "I just cancelled my cursor subscription.  Grok just produces slop.  It was useful for the basic coding related stuff like setting up environments and handling git.  That’s about it..",
+   "author": "e278e",
+   "created_at": "2026-10-12T11:28:13Z",
+   "score": 6,
+   "thread_title": "Anyone still using Cursor next to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/",
+   "community": "r/cursor",
+   "label": "quality",
+   "strength": 3,
+   "replies": 1,
+   "themes": [
+    "cursor-models"
+   ]
+  },
+  {
+   "id": "t1_pffdt4y",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/pffdt4y/",
+   "text": "i have the max 100 usd plan for claude code also and the quality is so good that makes me think why i’m paying for cursor",
+   "author": "nariver1",
+   "created_at": "2026-10-12T11:31:52Z",
+   "score": 2,
+   "thread_title": "Anyone still using Cursor next to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 0
+  },
+  {
+   "id": "t1_pffsbhm",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/pffsbhm/",
+   "text": "My work is still on cursor, so it’s what I’m primarily using. For tasks that aren’t high difficulty, just use Grok 4.5. 4.6/7 are just… bad.",
+   "author": "MurgyMurg",
+   "created_at": "2026-10-12T12:55:14Z",
+   "score": 3,
+   "thread_title": "Anyone still using Cursor next to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/",
+   "community": "r/cursor",
+   "label": "stayed",
+   "strength": 1,
+   "replies": 0
+  },
+  {
+   "id": "t1_pfg4wgw",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/pfg4wgw/",
+   "text": "I've been using Claude Pro with the Claude plugin inside Cursor.\n\nI'm usually a diehard Cursor defender but even I'm ready to drop down to the $20/mo plan.  I'm not even getting good results from Composer anymore, so I'm Claude about 90% of the time.",
+   "author": "mcdonaldsplayground",
+   "created_at": "2026-10-12T13:56:14Z",
+   "score": 2,
+   "thread_title": "Anyone still using Cursor next to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/",
+   "community": "r/cursor",
+   "label": "quality",
+   "strength": 2,
+   "replies": 3,
+   "themes": [
+    "cursor-models"
+   ]
+  },
+  {
+   "id": "t1_pgi3jvn",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/pgi3jvn/",
+   "text": "didn't the $20/month plan at cursor go away?  I think it was replaced by $30/month. the [cursor.com/pricing](http://cursor.com/pricing) no longer lists $20/month.",
+   "author": "industrypython",
+   "created_at": "2026-10-13T15:48:19Z",
+   "score": 1,
+   "thread_title": "Anyone still using Cursor next to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 2
+  },
+  {
+   "id": "t1_pginr6u",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/pginr6u/",
+   "text": "I pay $20 for Claude and it's been enough.\n\nCursor, my plan says Pro+.  $60 per month",
+   "author": "mcdonaldsplayground",
+   "created_at": "2026-10-13T17:10:49Z",
+   "score": 1,
+   "thread_title": "Anyone still using Cursor next to Claude Code?",
+   "thread_url": "https://www.reddit.com/r/cursor/comments/1x3r2hw/anyone_still_using_cursor_next_to_claude_code/",
+   "community": "r/cursor",
+   "label": "none",
+   "strength": 0,
+   "replies": 1
+  },
+  {
+   "id": "t1_p9hzv0g",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1wezxz7/cursor_vs_claudecode_which_are_you_using/p9hzv0g/",
+   "text": "People are still using cursor?",
+   "author": "SnooWoofers5297",
+   "created_at": "2026-09-13T06:32:20Z",
+   "score": 10,
+   "thread_title": "Cursor vs ClaudeCode: which are you using?",
+   "thread_url": "https://www.reddit.com/r/ClaudeCode/comments/1wezxz7/cursor_vs_claudecode_which_are_you_using/",
+   "community": "r/ClaudeCode",
+   "label": "none",
+   "strength": 0,
+   "replies": 17
+  },
+  {
+   "id": "t1_p9i0w53",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1wezxz7/cursor_vs_claudecode_which_are_you_using/p9i0w53/",
+   "text": "Yes. and it’s cheap and efficient and works better than anything else I’ve ever used.\n\nYou should see Claude try to on fable no less fumble through a very simple build curse knock that thing out in 60 seconds.",
+   "author": "qms2go",
+   "created_at": "2026-09-13T06:40:30Z",
+   "score": -7,
+   "thread_title": "Cursor vs ClaudeCode: which are you using?",
+   "thread_url": "https://www.reddit.com/r/ClaudeCode/comments/1wezxz7/cursor_vs_claudecode_which_are_you_using/",
+   "community": "r/ClaudeCode",
+   "label": "none",
+   "strength": 0,
+   "replies": 16
+  },
+  {
+   "id": "t1_p9i1chs",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1wezxz7/cursor_vs_claudecode_which_are_you_using/p9i1chs/",
+   "text": "I’m not gonna tell you it doesn’t code well, but it is significantly more expensive than other models that do a very similar effort",
+   "author": "qms2go",
+   "created_at": "2026-09-13T06:44:08Z",
+   "score": 2,
+   "thread_title": "Cursor vs ClaudeCode: which are you using?",
+   "thread_url": "https://www.reddit.com/r/ClaudeCode/comments/1wezxz7/cursor_vs_claudecode_which_are_you_using/",
+   "community": "r/ClaudeCode",
+   "label": "none",
+   "strength": 0,
+   "replies": 2
+  },
+  {
+   "id": "t1_p9judm4",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1wezxz7/cursor_vs_claudecode_which_are_you_using/p9judm4/",
+   "text": "It’s not just that, but you are making an insane amount of nonsensical claims.\n\n “At least for people that aren’t afraid of an IDE”. So you think if people don’t use cursor they don’t open an ide? I use Eclipse or VSCode (depends if I’m working on frontend or backend) and just have a terminal open next to it. What are you talking about…",
+   "author": "Asuppa180",
+   "created_at": "2026-09-13T14:14:41Z",
+   "score": 3,
+   "thread_title": "Cursor vs ClaudeCode: which are you using?",
+   "thread_url": "https://www.reddit.com/r/ClaudeCode/comments/1wezxz7/cursor_vs_claudecode_which_are_you_using/",
+   "community": "r/ClaudeCode",
+   "label": "no-ide",
+   "strength": 2,
+   "replies": 1,
+   "themes": [
+    "no-ide-needed"
+   ]
+  },
+  {
+   "id": "t1_p9k7mtn",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1wezxz7/cursor_vs_claudecode_which_are_you_using/p9k7mtn/",
+   "text": "I’m not making claims, if you’ve never opened IDE, Cursor might not make a lot of sense. Is that really so crazy?",
+   "author": "qms2go",
+   "created_at": "2026-09-13T15:14:18Z",
+   "score": 1,
+   "thread_title": "Cursor vs ClaudeCode: which are you using?",
+   "thread_url": "https://www.reddit.com/r/ClaudeCode/comments/1wezxz7/cursor_vs_claudecode_which_are_you_using/",
+   "community": "r/ClaudeCode",
+   "label": "none",
+   "strength": 0,
+   "replies": 0
+  },
+  {
+   "id": "t1_p9i2hi9",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1wezxz7/cursor_vs_claudecode_which_are_you_using/p9i2hi9/",
+   "text": "Correct me if I am wrong, but i thought Cursor was just a vscode with more AI features? \nCursor itself is not an LLM like Claude, but it uses LLMs including Claude with Fable.\nI also cannot imagine that you can use more Claude than with an anthropic subscription for the same price.",
+   "author": "SnooWoofers5297",
+   "created_at": "2026-09-13T06:53:12Z",
+   "score": 2,
+   "thread_title": "Cursor vs ClaudeCode: which are you using?",
+   "thread_url": "https://www.reddit.com/r/ClaudeCode/comments/1wezxz7/cursor_vs_claudecode_which_are_you_using/",
+   "community": "r/ClaudeCode",
+   "label": "cost",
+   "strength": 2,
+   "replies": 1,
+   "themes": [
+    "max-plan"
+   ]
+  },
+  {
+   "id": "t1_p567dv8",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/AI_Agents/comments/1vu476x/why_use_claude_code_when_cursor_already_gives_you/p567dv8/",
+   "text": "The Anthropic and OpenAI subscriptions are heavily subsidized, and the usage and value that you get from them is far more than any other service right now.",
+   "author": "evangelism2",
+   "created_at": "2026-08-22T06:06:55Z",
+   "score": 1,
+   "thread_title": "Why use Claude Code when Cursor already gives you Claude?",
+   "thread_url": "https://www.reddit.com/r/AI_Agents/comments/1vu476x/why_use_claude_code_when_cursor_already_gives_you/",
+   "community": "r/AI_Agents",
+   "label": "cost",
+   "strength": 3,
+   "replies": 0,
+   "themes": [
+    "max-plan"
+   ]
+  },
+  {
+   "id": "t1_p4zcxkt",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/AI_Agents/comments/1vu476x/why_use_claude_code_when_cursor_already_gives_you/p4zcxkt/",
+   "text": "Why use those when PI exists",
+   "author": "DoubleNothing",
+   "created_at": "2026-08-21T07:36:54Z",
+   "score": 0,
+   "thread_title": "Why use Claude Code when Cursor already gives you Claude?",
+   "thread_url": "https://www.reddit.com/r/AI_Agents/comments/1vu476x/why_use_claude_code_when_cursor_already_gives_you/",
+   "community": "r/AI_Agents",
+   "label": "none",
+   "strength": 0,
+   "replies": 5
+  },
+  {
+   "id": "t1_p4zgb6t",
+   "source": "reddit",
+   "kind": "comment",
+   "url": "https://www.reddit.com/r/AI_Agents/comments/1vu476x/why_use_claude_code_when_cursor_already_gives_you/p4zgb6t/",
+   "text": "I don't use subscriptions sorry...",
+   "author": "DoubleNothing",
+   "created_at": "2026-08-21T08:05:35Z",
+   "score": -2,
+   "thread_title": "Why use Claude Code when Cursor already gives you Claude?",
+   "thread_url": "https://www.reddit.com/r/AI_Agents/comments/1vu476x/why_use_claude_code_when_cursor_already_gives_you/",
+   "community": "r/AI_Agents",
+   "label": "none",
+   "strength": 0,
+   "replies": 3
+  },
+  {
+   "id": "x_2109903778547945813",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/Pauline_Cx/status/2109903778547945813",
+   "text": "First move: cancelled Cursor and ChatGPT. \n\nThat’s €150/month back.\n\nSecond move: finally trying Claude Code.\n\nYes, two years late. Better late than never :D",
+   "author": "Pauline_Cx",
+   "created_at": "2026-10-13T07:07:15Z",
+   "score": 42,
+   "label": "cost",
+   "strength": 2,
+   "replies": 13,
+   "themes": [
+    "saves-money"
+   ]
+  },
+  {
+   "id": "x_2109891693617279260",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/keysersoze_007/status/2109891693617279260",
+   "text": "Grok Bot is so fast, to be honest; it's my daily driver now.\n\nIt was working with Cursor to ship my website PRs, then Cursor hit its weekly limit.\n\nSo I switched it to Claude Code on my machine, and it just kept going.",
+   "author": "keysersoze_007",
+   "created_at": "2026-10-13T06:19:14Z",
+   "score": 1,
+   "label": "cost",
+   "strength": 2,
+   "replies": 2,
+   "themes": [
+    "limits"
+   ]
+  },
+  {
+   "id": "x_2109933232112201732",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/SKatalystAI/status/2109933232112201732",
+   "text": "I was paying $200/month for Cursor Ultra. Just switched to Pro+ at $60.\n\nUltra made sense when I needed higher limits, especially for Grok Bot but Grok Bot is now available on lower tiers, and Claude Code handles more of my coding work.\n\nI still value Cursor’s model routing, but $60 feels like the sweet spot for my current workflow.",
+   "author": "SKatalystAI",
+   "created_at": "2026-10-13T09:04:17Z",
+   "score": 39,
+   "label": "both",
+   "strength": 3,
+   "replies": 22,
+   "themes": [
+    "saves-money"
+   ]
+  },
+  {
+   "id": "x_2109596965927346378",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/AshBrownEmpiraa/status/2109596965927346378",
+   "text": "We dumped Replit.\n\nToo costly. Too inaccurate. Code reviews kept showing work it said was done that wasn't.\n\nMoved to Cursor and Claude Code. Tech costs down 90%. Shipping twice a week.",
+   "author": "AshBrownEmpiraa",
+   "created_at": "2026-10-12T10:48:05Z",
+   "score": 2,
+   "label": "none",
+   "strength": 0,
+   "replies": 2
+  },
+  {
+   "id": "x_2094056796927438897",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/fsgunpark/status/2094056796927438897",
+   "text": "Just cancelled Claude Code + Codex and bought Cursor annual.\n\nAll so I can use OpenAI models in peace. https://t.co/tgybW1z0KI",
+   "author": "fsgunpark",
+   "created_at": "2026-08-30T13:37:00Z",
+   "score": 4,
+   "label": "stayed",
+   "strength": 3,
+   "replies": 3
+  },
+  {
+   "id": "x_2088678904143700078",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/liambraus/status/2088678904143700078",
+   "text": "I CANCELED CURSOR AND CLAUDE CODE THIS MONTH\n\n→ freebuff does the same thing\n→ gpt 5.6 luna and deepseek v4 flash for free\n→ one command and it's installed",
+   "author": "liambraus",
+   "created_at": "2026-08-15T17:27:11Z",
+   "score": 140,
+   "label": "none",
+   "strength": 0,
+   "replies": 16
+  },
+  {
+   "id": "x_2042843949258412144",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/dhruvalgolakiya/status/2042843949258412144",
+   "text": "I canceled my claude code plan completely and got $100 codex plan and $60 cursor plan \n\nback to cursor",
+   "author": "dhruvalgolakiya",
+   "created_at": "2026-04-11T05:55:26Z",
+   "score": 126,
+   "label": "stayed",
+   "strength": 2,
+   "replies": 12
+  },
+  {
+   "id": "x_2081841086696177803",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/indiemark_/status/2081841086696177803",
+   "text": "Does anyone still use Cursor? It was so expensive I just switched directly to Claude Code and skipped the middle man.",
+   "author": "indiemark_",
+   "created_at": "2026-07-27T20:36:08Z",
+   "score": 9,
+   "label": "cost",
+   "strength": 3,
+   "replies": 13,
+   "themes": [
+    "saves-money",
+    "no-ide-needed"
+   ]
+  },
+  {
+   "id": "x_2057937239770857618",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/0xDesigner/status/2057937239770857618",
+   "text": "hit my limit on codex and switched to claude code.\n\nit really is completely useless. it's giving me flashbacks to 2024 gpt 4 in cursor.\n\nwtf happened?",
+   "author": "0xDesigner",
+   "created_at": "2026-05-22T21:30:47Z",
+   "score": 1260,
+   "label": "none",
+   "strength": 0,
+   "replies": 120
+  },
+  {
+   "id": "x_2014445067285508567",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/figurexyz/status/2014445067285508567",
+   "text": "i just canceled my cursor subscription after diving into claude code",
+   "author": "figurexyz",
+   "created_at": "2026-01-22T21:08:25Z",
+   "score": 23,
+   "label": "none",
+   "strength": 0,
+   "replies": 5
+  },
+  {
+   "id": "x_2102140308935123180",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/sattyyouneed/status/2102140308935123180",
+   "text": "what does Codex do well enough that you still haven’t moved to Claude Code or Cursor?",
+   "author": "sattyyouneed",
+   "created_at": "2026-09-21T20:58:00Z",
+   "score": 9,
+   "label": "none",
+   "strength": 0,
+   "replies": 16
+  },
+  {
+   "id": "x_2109910514721513482",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/Moretti_ale90/status/2109910514721513482",
+   "text": "The X Subscription puts Grok, Cursor and X Premium in one plan, from $8 to $200 a month.\n\nOn the new plans, third-party models in Cursor move to API pricing. So if you use Claude inside Cursor, you pay for it separately.\n\nI build with Claude Code, so I'm staying where I am. Would you switch?",
+   "author": "Moretti_ale90",
+   "created_at": "2026-10-13T07:34:01Z",
+   "score": 1,
+   "label": "cost",
+   "strength": 2,
+   "replies": 1,
+   "themes": [
+    "max-plan"
+   ]
+  },
+  {
+   "id": "x_2092665488652292400",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/abdobuild/status/2092665488652292400",
+   "text": "I keep hitting Claude Code rate limits way too fast on my current project, thinking of adding a Cursor or Codex subscription alongside it. If you’re using either how’s it working for you? https://t.co/aF8KyaZ9vv",
+   "author": "abdobuild",
+   "created_at": "2026-08-26T17:28:26Z",
+   "score": 4,
+   "label": "none",
+   "strength": 0,
+   "replies": 2
+  },
+  {
+   "id": "x_2026376932565414128",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/wholyv/status/2026376932565414128",
+   "text": "okay, confirmed it.\n\nfuck antigravity and cursor atp.\n\nBuy GitHub Copilot pro (most expensive pack) \n\nlogin via it in opencode\n\nenjoy far more claude code limits that you normally would for double the price.",
+   "author": "wholyv",
+   "created_at": "2026-02-24T19:21:23Z",
+   "score": 2237,
+   "label": "none",
+   "strength": 0,
+   "replies": 97
+  },
+  {
+   "id": "x_2056348101959381417",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/w1nklerr/status/2056348101959381417",
+   "text": "A free Anthropic plugin turned Claude Code into a setup that's saving devs around $2,000 a month",
+   "author": "w1nklerr",
+   "created_at": "2026-05-18T12:16:07Z",
+   "score": 61,
+   "label": "spam",
+   "strength": 0,
+   "replies": 18
+  },
+  {
+   "id": "x_2067594871632732513",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/marfinxx/status/2067594871632732513",
+   "text": "THIS PREMIUM WEBSITE BUILT WITH CLAUDE CODE IN 2 HOURS GENERATED $6,500 ON UPWORK",
+   "author": "marfinxx",
+   "created_at": "2026-06-18T13:06:46Z",
+   "score": 44,
+   "label": "spam",
+   "strength": 0,
+   "replies": 11
+  },
+  {
+   "id": "x_2073946281391894838",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/RoundtableSpace/status/2073946281391894838",
+   "text": "This GitHub repo is gold for anyone using AI without paying a dime.",
+   "author": "RoundtableSpace",
+   "created_at": "2026-07-06T01:45:00Z",
+   "score": 838,
+   "label": "spam",
+   "strength": 0,
+   "replies": 53
+  },
+  {
+   "id": "x_2109675385411838061",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/exlaai/status/2109675385411838061",
+   "text": "Know Before Your Customers Do: Introducing Exla AI",
+   "author": "exlaai",
+   "created_at": "2026-10-12T15:59:42Z",
+   "score": 0,
+   "label": "spam",
+   "strength": 0,
+   "replies": 0
+  },
+  {
+   "id": "x_2086125171723686102",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/slash1sol/status/2086125171723686102",
+   "text": "ONE OPEN-SOURCE SUPERVISOR JUST TURNED CLAUDE CODE, CODEX, CURSOR AND KIMI INTO A SINGLE CODING FLEET",
+   "author": "slash1sol",
+   "created_at": "2026-08-08T16:19:33Z",
+   "score": 92,
+   "label": "spam",
+   "strength": 0,
+   "replies": 26
+  },
+  {
+   "id": "x_2108096957415649315",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/Octoberry/status/2108096957415649315",
+   "text": "7.4B free AI tokens/month in one API 🫪",
+   "author": "Octoberry",
+   "created_at": "2026-10-08T07:27:35Z",
+   "score": 97,
+   "label": "spam",
+   "strength": 0,
+   "replies": 19
+  },
+  {
+   "id": "x_2082568767586894179",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/dr_cintas/status/2082568767586894179",
+   "text": "your ai agent doesn't need a single paid api to browse the internet anymore 🤯",
+   "author": "dr_cintas",
+   "created_at": "2026-07-29T20:47:41Z",
+   "score": 1047,
+   "label": "spam",
+   "strength": 0,
+   "replies": 41
+  },
+  {
+   "id": "x_2093057370041598080",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/LLMDevPass/status/2093057370041598080",
+   "text": "Unpopular opinion: \"unlimited\" coding plans are just rate limits you haven't hit yet.",
+   "author": "LLMDevPass",
+   "created_at": "2026-08-27T19:25:38Z",
+   "score": 3,
+   "label": "spam",
+   "strength": 0,
+   "replies": 1
+  },
+  {
+   "id": "x_2031405310938853479",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/alexcooldev/status/2031405310938853479",
+   "text": "A lot of people ask why I use Rork but still use Cursor or Claude Code.\n\nHonestly, it’s simple, I don’t like relying on just one AI tool.\n\n[…]\n\nPS: Rork sponsored me to build my app.",
+   "author": "alexcooldev",
+   "created_at": "2026-03-10T16:22:22Z",
+   "score": 82,
+   "label": "spam",
+   "strength": 0,
+   "replies": 15
+  },
+  {
+   "id": "x_1983504185782874558",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/VinodSharma10x/status/1983504185782874558",
+   "text": "Can someone remind me why people still use Cursor when we now have Claude Code CLI?\n\nNot trolling, genuinely trying to understand what I might be missing by not using Cursor. https://t.co/BR8Yh93wjQ",
+   "author": "VinodSharma10x",
+   "created_at": "2025-10-29T12:00:24Z",
+   "score": 16,
+   "label": "none",
+   "strength": 0,
+   "replies": 9
+  },
+  {
+   "id": "x_2080980990609002579",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/koslib/status/2080980990609002579",
+   "text": "For Claude Code subscribers:\n\nDo you still use Cursor? \n\nIf yes, why? \n\nExplain your workflow in short",
+   "author": "koslib",
+   "created_at": "2026-07-25T11:38:25Z",
+   "score": 2,
+   "label": "none",
+   "strength": 0,
+   "replies": 1
+  },
+  {
+   "id": "x_2087467403391414654",
+   "source": "x",
+   "kind": "reply",
+   "url": "https://x.com/tyleruenaka/status/2087467403391414654",
+   "text": "@cursor_ai Why isn’t there a $100/mo plan with 10x usage? I’d be willing to pay for that over the $200/mo… instead I’m using claude code $100/mo plan w/vs code extension but I’d much prefer Cursor.",
+   "author": "tyleruenaka",
+   "created_at": "2026-08-12T09:13:06Z",
+   "score": 3,
+   "label": "cost",
+   "strength": 3,
+   "replies": 1,
+   "themes": [
+    "max-plan"
+   ]
+  },
+  {
+   "id": "x_2044436379439096147",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/vericontext/status/2044436379439096147",
+   "text": "Is Claude Code just broken for me right now?\n\nMight be time to finally try Codex CLI…\nfor now I’m getting back to Cursor 😅 https://t.co/KIYFGlJFfe",
+   "author": "vericontext",
+   "created_at": "2026-04-15T15:23:11Z",
+   "score": 3,
+   "label": "stayed",
+   "strength": 2,
+   "replies": 1,
+   "themes": [
+    "cc-limits"
+   ]
+  },
+  {
+   "id": "x_2050564293054410989",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/wiranium/status/2050564293054410989",
+   "text": "What do you prefer? Cursor or Claude Code?",
+   "author": "wiranium",
+   "created_at": "2026-05-02T13:13:19Z",
+   "score": 3,
+   "label": "none",
+   "strength": 0,
+   "replies": 2
+  },
+  {
+   "id": "x_1981431513712644569",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/mattchamby9/status/1981431513712644569",
+   "text": "I hit my weekly limit on Claude code for the first time.. gone back to cursor with my tail between my legs",
+   "author": "mattchamby9",
+   "created_at": "2025-10-23T18:44:20Z",
+   "score": 5,
+   "label": "stayed",
+   "strength": 2,
+   "replies": 1,
+   "themes": [
+    "cc-limits"
+   ]
+  },
+  {
+   "id": "x_2017924032847597839",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/hany99dev/status/2017924032847597839",
+   "text": "A question has been on my mind:\n\nPeople use Cursor with the Claude model, but Claude Code offers more usage than Cursor.\n\nSo why do people still prefer Cursor? https://t.co/Q4a3tNlY90",
+   "author": "hany99dev",
+   "created_at": "2026-02-01T11:32:35Z",
+   "score": 2,
+   "label": "cost",
+   "strength": 1,
+   "replies": 2,
+   "themes": [
+    "max-plan"
+   ]
+  },
+  {
+   "id": "x_2063545224069275927",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/prasenx/status/2063545224069275927",
+   "text": "in the era of codex and claude code, i still use cursor",
+   "author": "prasenx",
+   "created_at": "2026-06-07T08:54:54Z",
+   "score": 118,
+   "label": "stayed",
+   "strength": 2,
+   "replies": 42
+  },
+  {
+   "id": "x_2081331491288600597",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/AzadNeenan/status/2081331491288600597",
+   "text": "Started using Cursor July 22\nClaude code 2025\nConductor last few months\nBack to cursor now and it's waaay better",
+   "author": "AzadNeenan",
+   "created_at": "2026-07-26T10:51:11Z",
+   "score": 2,
+   "label": "stayed",
+   "strength": 2,
+   "replies": 1
+  },
+  {
+   "id": "x_2025922019964121133",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/abhidoes/status/2025922019964121133",
+   "text": "I tried vibecoding a simple app using https://t.co/nEmZx6CjXU and yea i'm going back to cursor and claude code.",
+   "author": "abhidoes",
+   "created_at": "2026-02-23T13:13:44Z",
+   "score": 3,
+   "label": "none",
+   "strength": 0,
+   "replies": 2
+  },
+  {
+   "id": "x_2049160412609069258",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/jianna_liu/status/2049160412609069258",
+   "text": "switching back to cursor (from claude code) has been my saving grace the past week",
+   "author": "jianna_liu",
+   "created_at": "2026-04-28T16:14:48Z",
+   "score": 6,
+   "label": "stayed",
+   "strength": 2,
+   "replies": 2
+  },
+  {
+   "id": "x_2104939581770703049",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/jonathan_wilke/status/2104939581770703049",
+   "text": "Wanted to give Claude Code another chance a while and immediately running into this.\n\nWhat a fucking shit show. \n\nBack to Cursor. https://t.co/f2M6dSkcYO",
+   "author": "jonathan_wilke",
+   "created_at": "2026-09-29T14:21:18Z",
+   "score": 27,
+   "label": "stayed",
+   "strength": 2,
+   "replies": 15,
+   "themes": [
+    "cc-limits"
+   ]
+  },
+  {
+   "id": "x_2084331810964570189",
+   "source": "x",
+   "kind": "post",
+   "url": "https://x.com/SpikeCalls/status/2084331810964570189",
+   "text": "Opus 5 built a playable Call of Duty clone for 84 euros with 0 images given to it.",
+   "author": "SpikeCalls",
+   "created_at": "2026-08-03T17:33:23Z",
+   "score": 18,
+   "label": "none",
+   "strength": 0,
+   "replies": 0
+  },
+  {
+   "id": "x_2081915882817663061",
+   "source": "x",
+   "kind": "reply",
+   "url": "https://x.com/thesimaximalist/status/2081915882817663061",
+   "text": "@indiemark_ Cursor's pricing is a subscription. Claude Code is $20/month. you didn't switch tools. you just finally realized you don't need to pay for the IDE to call the API.",
+   "author": "thesimaximalist",
+   "created_at": "2026-07-28T01:33:21Z",
+   "score": 1,
+   "label": "no-ide",
+   "strength": 2,
+   "replies": 1,
+   "parent_text": "Does anyone still use Cursor? It was so expensive I just switched directly to Claude Code and skipped the middle man.",
+   "themes": [
+    "no-ide-needed"
+   ],
+   "thread_url": "https://x.com/indiemark_/status/2081841086696177803"
+  },
+  {
+   "id": "x_2081848245949456766",
+   "source": "x",
+   "kind": "reply",
+   "url": "https://x.com/ldo_dev/status/2081848245949456766",
+   "text": "@indiemark_ I've been using them for nearly two years. Never felt a need to switch. It's only $20/month",
+   "author": "ldo_dev",
+   "created_at": "2026-07-27T21:04:35Z",
+   "score": 1,
+   "label": "stayed",
+   "strength": 2,
+   "replies": 1,
+   "parent_text": "Does anyone still use Cursor? It was so expensive I just switched directly to Claude Code and skipped the middle man.",
+   "thread_url": "https://x.com/indiemark_/status/2081841086696177803"
+  },
+  {
+   "id": "x_2081848519124725952",
+   "source": "x",
+   "kind": "reply",
+   "url": "https://x.com/AtMemAi/status/2081848519124725952",
+   "text": "@indiemark_ I use VS Code  CLI inside terminal in VS Code,  I used Cursor but as soon as good VS Cide extensions for Claude and Codex appeared switched. I’m not fan of CoWork or  Work.",
+   "author": "AtMemAi",
+   "created_at": "2026-07-27T21:05:40Z",
+   "score": 1,
+   "label": "no-ide",
+   "strength": 3,
+   "replies": 1,
+   "parent_text": "Does anyone still use Cursor? It was so expensive I just switched directly to Claude Code and skipped the middle man.",
+   "themes": [
+    "no-ide-needed"
+   ],
+   "thread_url": "https://x.com/indiemark_/status/2081841086696177803"
+  },
+  {
+   "id": "x_2081908572150206597",
+   "source": "x",
+   "kind": "reply",
+   "url": "https://x.com/itsjaisrini/status/2081908572150206597",
+   "text": "@indiemark_ I'm just using Antigravity and Kiro, juggling between them. It's been months since I used Cursor.",
+   "author": "itsjaisrini",
+   "created_at": "2026-07-28T01:04:18Z",
+   "score": 1,
+   "label": "other",
+   "strength": 2,
+   "replies": 1,
+   "parent_text": "Does anyone still use Cursor? It was so expensive I just switched directly to Claude Code and skipped the middle man.",
+   "thread_url": "https://x.com/indiemark_/status/2081841086696177803"
+  },
+  {
+   "id": "x_2081977299012862432",
+   "source": "x",
+   "kind": "reply",
+   "url": "https://x.com/nemyrx/status/2081977299012862432",
+   "text": "@indiemark_ yeah cursor's pricing got wild. claude code is pretty solid though, how's the transition been for you?",
+   "author": "nemyrx",
+   "created_at": "2026-07-28T05:37:24Z",
+   "score": 1,
+   "label": "cost",
+   "strength": 2,
+   "replies": 1,
+   "parent_text": "Does anyone still use Cursor? It was so expensive I just switched directly to Claude Code and skipped the middle man.",
+   "themes": [
+    "saves-money"
+   ],
+   "thread_url": "https://x.com/indiemark_/status/2081841086696177803"
+  },
+  {
+   "id": "x_2081849744851124621",
+   "source": "x",
+   "kind": "reply",
+   "url": "https://x.com/LucaCaponeX/status/2081849744851124621",
+   "text": "@indiemark_ Same jump. Couldn't code before last year, and Claude Code just talks to me like a patient senior dev. Cursor assumed I already knew my way around. For a non tech builder, that gap is the whole game.",
+   "author": "LucaCaponeX",
+   "created_at": "2026-07-27T21:10:32Z",
+   "score": 1,
+   "label": "no-ide",
+   "strength": 3,
+   "replies": 1,
+   "parent_text": "Does anyone still use Cursor? It was so expensive I just switched directly to Claude Code and skipped the middle man.",
+   "themes": [
+    "no-ide-needed"
+   ],
+   "thread_url": "https://x.com/indiemark_/status/2081841086696177803"
+  },
+  {
+   "id": "x_2082005463084765688",
+   "source": "x",
+   "kind": "reply",
+   "url": "https://x.com/alexcloudstar/status/2082005463084765688",
+   "text": "@indiemark_ Yea. I use it now. With pro+ subscription",
+   "author": "alexcloudstar",
+   "created_at": "2026-07-28T07:29:18Z",
+   "score": 1,
+   "label": "stayed",
+   "strength": 1,
+   "replies": 0,
+   "parent_text": "Does anyone still use Cursor? It was so expensive I just switched directly to Claude Code and skipped the middle man.",
+   "thread_url": "https://x.com/indiemark_/status/2081841086696177803"
+  },
+  {
+   "id": "x_2082083509787623673",
+   "source": "x",
+   "kind": "reply",
+   "url": "https://x.com/richblumer/status/2082083509787623673",
+   "text": "@indiemark_ I use Cursor with Composer. I haven’t found a need to switch to XYZ tool.",
+   "author": "richblumer",
+   "created_at": "2026-07-28T12:39:26Z",
+   "score": 1,
+   "label": "stayed",
+   "strength": 2,
+   "replies": 0,
+   "parent_text": "Does anyone still use Cursor? It was so expensive I just switched directly to Claude Code and skipped the middle man.",
+   "thread_url": "https://x.com/indiemark_/status/2081841086696177803"
+  },
+  {
+   "id": "x_2082125070105780702",
+   "source": "x",
+   "kind": "reply",
+   "url": "https://x.com/m12o_ai/status/2082125070105780702",
+   "text": "@indiemark_ i used Cursor too and switched to Claude Code right after as well xD",
+   "author": "m12o_ai",
+   "created_at": "2026-07-28T15:24:35Z",
+   "score": 1,
+   "label": "none",
+   "strength": 0,
+   "replies": 0,
+   "parent_text": "Does anyone still use Cursor? It was so expensive I just switched directly to Claude Code and skipped the middle man.",
+   "thread_url": "https://x.com/indiemark_/status/2081841086696177803"
+  },
+  {
+   "id": "x_2081995372894060578",
+   "source": "x",
+   "kind": "reply",
+   "url": "https://x.com/zuess05/status/2081995372894060578",
+   "text": "@indiemark_ yes its just amazing \n\nclaude + cursor a deadly combo",
+   "author": "zuess05",
+   "created_at": "2026-07-28T06:49:13Z",
+   "score": 1,
+   "label": "both",
+   "strength": 2,
+   "replies": 0,
+   "parent_text": "Does anyone still use Cursor? It was so expensive I just switched directly to Claude Code and skipped the middle man.",
+   "thread_url": "https://x.com/indiemark_/status/2081841086696177803"
+  },
+  {
+   "id": "x_2081865182460940719",
+   "source": "x",
+   "kind": "reply",
+   "url": "https://x.com/blockchainutils/status/2081865182460940719",
+   "text": "@indiemark_ Few days ago, I colleague was asking “is cursor still a thing” 🤔",
+   "author": "blockchainutils",
+   "created_at": "2026-07-27T22:11:53Z",
+   "score": 1,
+   "label": "none",
+   "strength": 0,
+   "replies": 1,
+   "parent_text": "Does anyone still use Cursor? It was so expensive I just switched directly to Claude Code and skipped the middle man.",
+   "thread_url": "https://x.com/indiemark_/status/2081841086696177803"
+  },
+  {
+   "id": "x_2082016631874592838",
+   "source": "x",
+   "kind": "reply",
+   "url": "https://x.com/indiemark_/status/2082016631874592838",
+   "text": "@nemyrx It's been great, I like the integrated browser and simulator automation and I still open Cursor as an IDE to look at the changes",
+   "author": "indiemark_",
+   "created_at": "2026-07-28T08:13:41Z",
+   "score": 1,
+   "label": "none",
+   "strength": 0,
+   "replies": 0,
+   "parent_text": "Does anyone still use Cursor? It was so expensive I just switched directly to Claude Code and skipped the middle man.",
+   "thread_url": "https://x.com/indiemark_/status/2081841086696177803"
+  }
+ ],
+ "coverage": {
+  "posts_read": 143,
+  "reddit": {
+   "searches": 3,
+   "threads_found": 15,
+   "threads_read": 5,
+   "comment_pages": 6,
+   "comments_read": 48,
+   "comments_total": 411
+  },
+  "x": {
+   "searches": 4,
+   "pages": 4,
+   "posts_returned": 62,
+   "posts_kept": 27,
+   "reply_threads": 1,
+   "replies_read": 18
+  },
+  "notes": [
+   "Reddit: 48 of about 411 comments in 5 threads, top comments first (two pages of the busiest thread). Replies behind \"load more\" were not opened.",
+   "X: 4 Top-result pages (62 posts) and the replies under one question post (18). One search with an OR group of quoted phrases returned 20 posts and none contained those phrases.",
+   "Thread openers from the 15 threads Reddit search returned were read; 10 of those threads' comments were not.",
+   "Three requests ended with a network reset (ECONNRESET) at the client and were retried once; the retries succeeded.",
+   "Labels were revised once after an independent test of the skill tightened the rubric to one vote per author per thread; no new data was collected."
+  ],
+  "dropped_before_sorting": {
+   "count": 42,
+   "reasons": [
+    "20 X results from the quoted-phrase query, none on the question",
+    "6 more off-topic or promotional X results",
+    "10 Reddit comments: deleted or removed, AutoModerator, or under five words",
+    "6 X replies: the thread author's own follow-ups, or under five words"
+   ]
+  }
+ },
+ "usage": {
+  "requests": 14,
+  "failed": 3,
+  "credits_per_request": 1.5,
+  "budget": 14,
+  "truncated": 0,
+  "by_tool": {
+   "social__reddit_search": 3,
+   "social__reddit_post_comments": 6,
+   "social__x_search": 4,
+   "social__x_post_comments": 1
+  },
+  "failures": {
+   "ECONNRESET (client transport; charge status unknown)": 3
+  },
+  "unknown_charge": 3
+ },
+ "queries": [
+  {
+   "tool": "social__reddit_search",
+   "args": {
+    "query": "switched from Cursor to Claude Code",
+    "search_type": "post",
+    "sort": "RELEVANCE",
+    "time_range": "year",
+    "need_format": true
+   },
+   "result": "ok",
+   "items": 7
+  },
+  {
+   "tool": "social__reddit_search",
+   "args": {
+    "query": "Cursor or Claude Code",
+    "search_type": "post",
+    "sort": "RELEVANCE",
+    "time_range": "year",
+    "need_format": true
+   },
+   "result": "ok",
+   "items": 7
+  },
+  {
+   "tool": "social__reddit_search",
+   "args": {
+    "query": "why I left Cursor for Claude Code",
+    "search_type": "post",
+    "sort": "RELEVANCE",
+    "time_range": "year",
+    "need_format": true
+   },
+   "result": "ok",
+   "items": 7
+  },
+  {
+   "tool": "social__x_search",
+   "args": {
+    "keyword": "\"claude code\" cursor (\"switched\" OR \"moved to\" OR \"cancelled\" OR \"canceled\") lang:en -filter:retweets since:2025-10-14",
+    "search_type": "Top"
+   },
+   "result": "ok",
+   "items": 11
+  },
+  {
+   "tool": "social__x_search",
+   "args": {
+    "keyword": "\"claude code\" (\"better than cursor\" OR \"over cursor\" OR \"instead of cursor\" OR \"replaced cursor\") lang:en -filter:retweets since:2025-10-14",
+    "search_type": "Top"
+   },
+   "result": "ok, 0 of 20 contained a quoted phrase",
+   "items": 20
+  },
+  {
+   "tool": "social__x_search",
+   "args": {
+    "keyword": "\"claude code\" cursor (pricing OR cheaper OR \"rate limits\" OR \"max plan\" OR expensive) lang:en -filter:retweets since:2025-10-14",
+    "search_type": "Top"
+   },
+   "result": "ok",
+   "items": 17
+  },
+  {
+   "tool": "social__x_search",
+   "args": {
+    "keyword": "cursor \"claude code\" (\"back to cursor\" OR \"still prefer cursor\" OR \"still use cursor\" OR \"prefer cursor\") lang:en -filter:retweets since:2025-10-14",
+    "search_type": "Top"
+   },
+   "result": "ok",
+   "items": 14
+  },
+  {
+   "tool": "social__reddit_post_comments",
+   "args": {
+    "post_id": "t3_1sb17do",
+    "sort_type": "TOP",
+    "need_format": true
+   },
+   "result": "ok",
+   "items": 8
+  },
+  {
+   "tool": "social__reddit_post_comments",
+   "args": {
+    "post_id": "t3_1wrx24u",
+    "sort_type": "TOP",
+    "need_format": true
+   },
+   "result": "ok",
+   "items": 8
+  },
+  {
+   "tool": "social__reddit_post_comments",
+   "args": {
+    "post_id": "t3_1x3r2hw",
+    "sort_type": "TOP",
+    "need_format": true
+   },
+   "result": "ECONNRESET, retried: ok",
+   "items": 8
+  },
+  {
+   "tool": "social__reddit_post_comments",
+   "args": {
+    "post_id": "t3_1wezxz7",
+    "sort_type": "TOP",
+    "need_format": true
+   },
+   "result": "ok",
+   "items": 8
+  },
+  {
+   "tool": "social__reddit_post_comments",
+   "args": {
+    "post_id": "t3_1vu476x",
+    "sort_type": "TOP",
+    "need_format": true
+   },
+   "result": "ECONNRESET, retried: ok",
+   "items": 8
+  },
+  {
+   "tool": "social__x_post_comments",
+   "args": {
+    "tweet_id": "2081841086696177803"
+   },
+   "result": "ECONNRESET, retried: ok",
+   "items": 18
+  },
+  {
+   "tool": "social__reddit_post_comments",
+   "args": {
+    "post_id": "t3_1sb17do",
+    "sort_type": "TOP",
+    "need_format": true,
+    "after": "<depth-0 more cursor>"
+   },
+   "result": "ok",
+   "items": 8
+  }
+ ],
+ "analysis": {
+  "by": "the host agent (Claude Code in an Agent Ensemble session, following the Consensus skill)",
+  "model": "claude-opus-5-5"
+ },
+ "limits": [
+  "Search ranking chose what was read. This is not a random sample of developers, and people who post are not everyone.",
+  "Query design shapes the split: one X search looked for switchers and another looked for people staying with or going back to Cursor, so both sides are deliberately sampled.",
+  "English posts only; X Top results, not every post.",
+  "Authors who posted several times in one thread get one vote there; their other posts count as no answer.",
+  "Posts date from 2025-10-23 to 2026-10-13; plans and models changed during that time.",
+  "This run sent 17 requests against a budget of 14: 14 succeeded and 3 lost the connection (ECONNRESET) and were retried. The skill now counts retries against the budget. The 3 failed attempts may or may not have been charged, so the cost is 21 to 25.5 credits."
+ ]
+}

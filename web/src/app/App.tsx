@@ -1,292 +1,211 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
-import { BrowserRouter, Link, Route, Routes, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { Check, Download, Link2, MessageCircle, MoreHorizontal, Share } from 'lucide-react';
-import { faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { apiMode, type SearchParams } from './api';
-import { AccountDock, AuthProvider } from './auth';
-import { download, headline, num, optionColor, slug, sinceFor, toCsv } from './format';
+import { useEffect, useMemo, useState } from 'react';
+import { ArrowRight, Download, Languages } from 'lucide-react';
+import { toViewerState, validateResult } from '../../../skills/consensus/scripts/result.mjs';
+import { download, headline, slug, toCsv } from './format';
+import { I18nProvider, LanguageSelect, matchLocale, NATIVE_NAME, useI18n } from './i18n';
 import { LogoMark } from './icons';
-import { FeaturedFeed } from './Featured';
+import { Provenance, type Issue, type ResultFile } from './Provenance';
 import { Results } from './Results';
-import { SponsorStrip } from './Sponsor';
-import { useMedia } from './useMedia';
-import { parseSearch, SearchBar, searchHref, type SearchInput } from './SearchBar';
-import { ThemeProvider } from './theme';
-import { useSearch, type SearchState } from './useSearch';
+import { ThemeProvider, ThemeSwitch } from './theme';
+import type { SearchState } from './useSearch';
 import './app.css';
+import './viewer.css';
 
-function Wordmark() {
-  return (
-    <Link to="/" className="wordmark" aria-label="Consensus home">
-      <LogoMark className="wordmark-logo" size={24} />
-      <span className="wordmark-full">Consensus</span>
-    </Link>
-  );
+/*
+ * The Consensus results screen as a static viewer (CoreSpeed edition). A host agent collects posts through its
+ * CoreSpeed MCP connection, sorts them with its own model, and writes a result file; `consensus.mjs render` embeds
+ * that file in this page. Nothing here searches, calls a model, or fetches data in a built page.
+ */
+const REPO = 'https://github.com/corespeed-io/consensus';
+const CORESPEED = 'https://corespeed.io/?utm_source=consensus&utm_medium=viewer&utm_campaign=consensus_skill';
+
+type Loaded = { kind: 'none' } | { kind: 'invalid'; errors: string[] } | { kind: 'ok'; result: ResultFile; state: SearchState; issues: Issue[] };
+
+function readEmbedded(): unknown {
+  const el = document.getElementById('consensus-result');
+  if (!el) return null;
+  try {
+    return JSON.parse(el.textContent || 'null');
+  } catch {
+    return { __unreadable: true };
+  }
 }
 
-function MockBadge() {
-  if (apiMode() !== 'mock') return null;
-  return (
-    <span className="mock-badge" data-tip="Recorded demo data. Add ?mock=0 to go live.">
-      Demo data
-    </span>
-  );
+function load(raw: unknown): Loaded {
+  if (raw == null) return { kind: 'none' };
+  if ((raw as { __unreadable?: boolean }).__unreadable) return { kind: 'invalid', errors: ['The embedded result is not valid JSON.'] };
+  const v = validateResult(raw);
+  if (v.errors.length) return { kind: 'invalid', errors: v.errors };
+  const issues = v.issues.map((x, i) => ({ ...x, text: v.warnings[i] ?? '' }));
+  return { kind: 'ok', result: raw as ResultFile, state: toViewerState(raw) as unknown as SearchState, issues };
 }
 
-function Landing() {
-  const nav = useNavigate();
-  const initial = useMemo<SearchInput>(() => ({ q: '', range: 'any', sources: ['reddit', 'x'] }), []);
-  return (
-    <div className="landing">
-      <header className="topbar landing-top">
-        <span />
-        <span className="top-actions">
-          <MockBadge />
-          <AccountDock />
-        </span>
-      </header>
-      <main className="landing-main">
-        <div className="landing-hero">
-          <h1 className="landing-mark">
-            <LogoMark className="landing-logo" size={58} />
-            Consensus
-          </h1>
-          <SearchBar variant="hero" initial={initial} onSubmit={(s) => nav(searchHref(s))} autoFocus />
-          <div className="landing-art" aria-hidden="true" />
-        </div>
-        <FeaturedFeed />
-      </main>
-    </div>
-  );
-}
-
-function exportCsv(state: SearchState) {
-  const titles = Object.fromEntries((state.poll?.options ?? []).map((o) => [o.id, o.title]));
-  const rows = [['answer', 'source', 'author', 'community', 'text', 'score', 'replies', 'intent', 'url', 'created_at']];
-  for (const p of Object.values(state.posts))
-    rows.push([p.option ? titles[p.option] ?? p.option : '', p.source, p.author.handle, p.community ?? '', p.text, String(p.score), String(p.replies ?? 0), p.intent ?? '', p.url, p.created_at ?? '']);
-  download(`${slug(state.meta?.query ?? 'consensus')}.csv`, toCsv(rows));
-}
-
-function SharePanel({ id, state, onClose, anchor }: { id: string; state: SearchState; onClose: () => void; anchor: React.RefObject<HTMLDivElement> }) {
-  const url = `${location.origin}/search?id=${encodeURIComponent(id)}${state.meta?.query ? `&q=${encodeURIComponent(state.meta.query)}` : ''}`;
-  const title = headline(state.meta?.query ?? '');
-  const [copied, setCopied] = useState(false);
-  const t = useRef<ReturnType<typeof setTimeout>>();
-  const ref = useRef<HTMLDivElement>(null);
-  // Two columns: float beside the question tools, over the empty top of the posts column, so the title and donut stay visible.
-  // One column: a bottom sheet.
-  const side = useMedia('(min-width: 1100px)');
-  const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
-  useLayoutEffect(() => {
-    if (!side) return setPos(null);
-    const place = () => {
-      const tools = anchor.current?.closest('.q-tools') ?? anchor.current;
-      const r = tools?.getBoundingClientRect();
-      if (r) setPos({ top: Math.max(8, r.top - 4), left: Math.min(r.right + 16, window.innerWidth - 300) });
-    };
-    place();
-    window.addEventListener('resize', place);
-    window.addEventListener('scroll', place, true);
-    return () => {
-      window.removeEventListener('resize', place);
-      window.removeEventListener('scroll', place, true);
-    };
-  }, [side, anchor]);
+/** Dev only: `npm run viewer:dev` then /?data=/examples/<file>.json (same-origin paths only). */
+function useResult(): Loaded {
+  const embedded = useMemo(() => load(readEmbedded()), []);
+  const [dev, setDev] = useState<Loaded | null>(null);
   useEffect(() => {
-    const key = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
-    const down = (e: MouseEvent) => {
-      const n = e.target as Node;
-      if (!ref.current?.contains(n) && !anchor.current?.contains(n)) onClose();
-    };
-    document.addEventListener('keydown', key);
-    document.addEventListener('mousedown', down);
-    return () => {
-      document.removeEventListener('keydown', key);
-      document.removeEventListener('mousedown', down);
-      clearTimeout(t.current);
-    };
-  }, [onClose, anchor]);
-  const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(url);
-    } catch {
-      /* clipboard blocked */
-    }
-    setCopied(true);
-    clearTimeout(t.current);
-    t.current = setTimeout(() => setCopied(false), 1600);
-  };
-  const text = `What people think: ${title}`;
-  const opts = (state.poll?.options ?? []).filter((o) => o.count > 0);
-  const native = typeof navigator !== 'undefined' && typeof navigator.share === 'function';
-  const more = () => void navigator.share?.({ title: text, url }).catch(() => {});
-  if (side && !pos) return null;
-  const panel = (
-    <div className={`share-pop ${side ? 'side' : 'sheet'}`} role="dialog" aria-label="Share this poll" ref={ref} style={side && pos ? { top: pos.top, left: pos.left } : undefined}>
-      {!side && <span className="share-grab" aria-hidden="true" />}
-      <div className="share-card" aria-hidden="true">
-        <span className="share-card-brand">
-          <LogoMark size={14} /> Consensus
-        </span>
-        <span className="share-card-title">{title}</span>
-        <span className="share-card-bar">
-          {opts.map((o) => (
-            <span key={o.id} style={{ width: `${o.percent}%`, background: optionColor(o.is_other ? 'other' : o.id) }} />
-          ))}
-        </span>
-        <span className="share-card-foot">{num(state.poll?.total_opinions ?? 0)} opinions · useconsensus.io</span>
-      </div>
-      <div className="share-row">
-        <button className={`btn primary share-copy ${copied ? 'done' : ''}`} onClick={copy} aria-live="polite">
-          {copied ? <Check size={15} /> : <Link2 size={15} />}
-          {copied ? 'Copied' : 'Copy link'}
-        </button>
-        <span className="share-nets">
-          <a className="icon-btn" href={`https://x.com/intent/post?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on X" data-tip="Post on X">
-            <FontAwesomeIcon icon={faXTwitter} style={{ width: 15, height: 15 }} />
-          </a>
-          <a className="icon-btn" href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" data-tip="LinkedIn">
-            <FontAwesomeIcon icon={faLinkedin} style={{ width: 16, height: 16, color: '#0A66C2' }} />
-          </a>
-          <a className="icon-btn" href={`sms:&body=${encodeURIComponent(`${text} ${url}`)}`} aria-label="Send as a text message" data-tip="Message">
-            <MessageCircle size={16} style={{ color: '#34C759' }} />
-          </a>
-          {native && (
-            <button type="button" className="icon-btn" onClick={more} aria-label="More ways to share" data-tip="More">
-              <MoreHorizontal size={17} />
-            </button>
-          )}
-        </span>
+    if (!import.meta.env.DEV || embedded.kind !== 'none') return;
+    const path = new URLSearchParams(location.search).get('data');
+    if (!path || !/^\/[\w./-]+\.json$/.test(path) || path.includes('..')) return;
+    fetch(path)
+      .then((r) => r.json())
+      .then((j) => setDev(load(j)))
+      .catch(() => setDev({ kind: 'invalid', errors: [`Could not load ${path}`] }));
+  }, [embedded.kind]);
+  return dev ?? embedded;
+}
+
+/** CSV keeps the file's own labels and text: it is data for a spreadsheet, not interface text. */
+function exportCsv(r: ResultFile) {
+  const titles = Object.fromEntries(r.options.map((o) => [o.id, o.title]));
+  const rows = [['answer', 'label', 'strength', 'source', 'author', 'community', 'text', 'score', 'url', 'created_at']];
+  for (const p of r.posts) rows.push([titles[p.label] ?? p.label, p.label, String(p.strength), p.source, p.author, p.community ?? '', p.text, String(p.score ?? ''), p.url, p.created_at ?? '']);
+  download(`${slug(r.question)}.csv`, toCsv(rows));
+}
+
+/** Upstream's sponsor strip slot, now an honest attribution: what CoreSpeed did for this page. */
+function PoweredStrip() {
+  const { t } = useI18n();
+  return (
+    <a className="powered" href={CORESPEED} target="_blank" rel="noopener noreferrer" aria-label={t('strip_aria')}>
+      <span className="pw-by">
+        <span className="pw-pre">{t('strip_pre')}</span>
+        <b className="pw-name">CoreSpeed</b>
+      </span>
+      <span className="pw-mid">
+        <span className="pw-offer">{t('strip_offer')}</span>
+        <span className="pw-note">{t('strip_note')}</span>
+      </span>
+      <span className="pw-cta">
+        {t('strip_cta')} <ArrowRight size={14} aria-hidden="true" />
+      </span>
+    </a>
+  );
+}
+
+function Shell({ children, right }: { children: React.ReactNode; right?: React.ReactNode }) {
+  const { t, tx } = useI18n();
+  return (
+    <div className="canvas">
+      <div className="sky" aria-hidden="true" />
+      <PoweredStrip />
+      <div className="app">
+        <header className="topbar">
+          <div className="topbar-in">
+            <span className="wordmark" aria-label="Consensus">
+              <LogoMark className="wordmark-logo" size={22} />
+              <span className="wordmark-full">Consensus</span>
+            </span>
+            <span className="edition-tag">{t('edition')}</span>
+            <span className="top-actions">
+              {right}
+              <LanguageSelect />
+              <ThemeSwitch />
+            </span>
+          </div>
+        </header>
+        <main>{children}</main>
+        <footer className="viewer-foot">
+          <p>
+            {tx('foot_made', {
+              skill: <a href={REPO}>{t('foot_skill')}</a>,
+              consensus: <a href="https://github.com/Straitly-ai/consensus">Consensus</a>,
+            })}
+          </p>
+          <p>{tx('foot_run', { corespeed: <a href={CORESPEED}>CoreSpeed</a> })}</p>
+        </footer>
       </div>
     </div>
   );
-  return createPortal(
-    side ? (
-      panel
-    ) : (
-      <>
-        <div className="share-scrim" onClick={onClose} aria-hidden="true" />
-        {panel}
-      </>
-    ),
-    document.body,
+}
+
+/**
+ * The report is written once, in one language (result.language). The interface can be switched; when it differs
+ * from the report, say so plainly instead of pretending the page is translated.
+ */
+function ReportLanguageNote({ language }: { language?: string }) {
+  const i = useI18n();
+  if (language && matchLocale(language) === i.locale) return null;
+  return (
+    <p className="lang-note" role="note" aria-label={i.t('report_lang_aria')}>
+      <Languages size={15} aria-hidden="true" />
+      <span>{language ? i.t('report_lang_note', { language: i.language(language), ui: NATIVE_NAME[i.locale] }) : i.t('report_lang_unknown')}</span>
+    </p>
   );
 }
 
-function ShareButton({ id, state }: { id: string | undefined; state: SearchState }) {
-  const [open, setOpen] = useState(false);
-  const close = useCallback(() => setOpen(false), []);
-  const anchor = useRef<HTMLDivElement>(null);
-  return (
-    <div className="share-wrap" ref={anchor}>
-      <button className={`chip-btn share-btn ${open ? 'on' : ''}`} onClick={() => setOpen((o) => !o)} disabled={!id} aria-haspopup="dialog" aria-expanded={open}>
-        <Share size={14} />
-        <span>Share</span>
-      </button>
-      {open && id && <SharePanel id={id} state={state} onClose={close} anchor={anchor} />}
-    </div>
-  );
-}
-
-function SearchPage() {
-  const [sp] = useSearchParams();
-  const nav = useNavigate();
-  const input = parseSearch(sp);
-  const id = sp.get('id') ?? undefined;
-  const params = useMemo<SearchParams | null>(() => {
-    if (id) return { id, sources: ['reddit', 'x'] };
-    if (!input.q.trim()) return null;
-    const since = input.range === 'custom' ? input.since : sinceFor(input.range);
-    return { query: input.q.trim(), since, until: input.range === 'custom' ? input.until : undefined, sources: input.sources };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, input.q, input.range, input.since, input.until, input.sources.join()]);
-  const { state, retry } = useSearch(params);
-
+function App() {
+  const loaded = useResult();
+  const i = useI18n();
+  const { t, tp, tx } = i;
   useEffect(() => {
-    if (!params) nav('/', { replace: true });
-  }, [params, nav]);
+    if (loaded.kind === 'ok') document.title = `${headline(loaded.result.question)} · Consensus`;
+  }, [loaded]);
 
-  // A saved id that is gone (failed or never cached) falls back to a fresh run of the same question.
-  useEffect(() => {
-    if (id && state.phase === 'error' && state.error?.code === 'not_found' && input.q.trim()) nav(searchHref(input), { replace: true });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, state.phase, state.error?.code, input.q]);
-
-  const q = (id && input.q.trim()) || state.meta?.query || input.q;
-  useEffect(() => {
-    document.title = q ? `${headline(q)} · Consensus` : 'Consensus';
-    return () => {
-      document.title = 'Consensus';
-    };
-  }, [q]);
-
-  // Shared links open with the saved question in the bar.
-  const barInitial = useMemo<SearchInput>(() => {
-    if (!id || !state.meta) return input;
-    const m = state.meta;
-    return { q: m.query, range: m.since ? 'custom' : 'any', since: m.since ?? undefined, until: m.until ?? undefined, sources: m.sources };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, state.meta, input.q, input.range, input.since, input.until, input.sources.join()]);
-
-  return (
-    <div className="app">
-      <header className="topbar">
-        <div className="topbar-in">
-          <Wordmark />
-          <SearchBar variant="header" initial={barInitial} busy={state.phase === 'connecting' || state.phase === 'streaming'} onSubmit={(s) => nav(searchHref(s))} />
-          <span className="top-actions">
-            <MockBadge />
-            <AccountDock />
-          </span>
+  if (loaded.kind === 'none')
+    return (
+      <Shell>
+        <div className="state-panel">
+          <h2>{t('empty_title')}</h2>
+          <p>
+            {tx('empty_body', {
+              file: <code>consensus-result.json</code>,
+              command: <code>node scripts/consensus.mjs render consensus-result.json --open</code>,
+            })}
+          </p>
         </div>
-      </header>
-      <main>
-        {params && (
-          <Results
-            key={JSON.stringify(params)}
-            state={state}
-            query={q}
-            retry={retry}
-            tools={
-              <>
-                <ShareButton id={state.done ? state.meta?.id : undefined} state={state} />
-                <button className="icon-btn tool" onClick={() => exportCsv(state)} disabled={!state.done} data-tip="Download CSV" aria-label="Export CSV">
-                  <Download size={16} />
-                </button>
-              </>
-            }
-            onWiden={input.range !== 'any' && !id ? () => nav(searchHref({ ...input, range: 'any' })) : undefined}
-          />
-        )}
-      </main>
-    </div>
+      </Shell>
+    );
+  if (loaded.kind === 'invalid')
+    return (
+      <Shell>
+        <div className="state-panel invalid">
+          <h2>{t('invalid_title')}</h2>
+          <p>{t('invalid_body')}</p>
+          <p className="muted small">{t('invalid_details')}</p>
+          <ul className="error-list" lang="en">
+            {loaded.errors.slice(0, 30).map((e) => (
+              <li key={e}>{e}</li>
+            ))}
+          </ul>
+        </div>
+      </Shell>
+    );
+
+  const { result, state } = loaded;
+  const lang = result.language || undefined;
+  return (
+    <Shell right={<span className="snapshot-tag">{t('snapshot', { date: i.date(result.created_at) })}</span>}>
+      {result.summary && (
+        <section className="summary-band" aria-label={t('summary_aria')}>
+          <p lang={lang}>{result.summary}</p>
+          <span className="summary-meta">{tp('summary_meta', state.poll?.total_opinions ?? 0)}</span>
+          <ReportLanguageNote language={lang} />
+        </section>
+      )}
+      {!result.summary && <ReportLanguageNote language={lang} />}
+      <Results
+        state={state}
+        query={result.question}
+        reportLang={lang}
+        tools={
+          <button className="icon-btn tool" onClick={() => exportCsv(result)} data-tip={t('csv_tip')} aria-label={t('csv')}>
+            <Download size={16} />
+          </button>
+        }
+      />
+      <Provenance result={result} issues={loaded.issues} />
+    </Shell>
   );
 }
 
-function ScrollTop() {
-  const { pathname, search } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname, search]);
-  return null;
-}
-
-export default function App() {
+export default function Root() {
   return (
-    <ThemeProvider>
-      <AuthProvider>
-        <BrowserRouter>
-          <SponsorStrip />
-          <ScrollTop />
-          <Routes>
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="*" element={<Landing />} />
-          </Routes>
-        </BrowserRouter>
-      </AuthProvider>
-    </ThemeProvider>
+    <I18nProvider>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </I18nProvider>
   );
 }

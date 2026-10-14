@@ -2,35 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#FBF7EE" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet" />
-    <script>try{var t=localStorage.getItem('cs_theme');document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme: dark)').matches?'night':'day')}catch(e){}</script>
-    <meta name="description" content="Find out what people are thinking" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Consensus" />
-    <meta property="og:title" content="Consensus" />
-    <meta property="og:description" content="Find out what people are thinking" />
-    <meta property="og:url" content="https://useconsensus.io/" />
-    <meta property="og:image" content="https://useconsensus.io/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Consensus" />
-    <meta name="twitter:description" content="Find out what people are thinking" />
-    <meta name="twitter:image" content="https://useconsensus.io/og-image.png" />
-    <title>Consensus</title>
+    <meta name="theme-color" content="#e3f1fc" />
+    <meta name="referrer" content="no-referrer" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 4 24 24'%3E%3Cpath fill='%231d6bc9' d='M6 26h4V12H6v14zm8 0h4V6h-4v20zm8 0h4v-8h-4v8z'/%3E%3C/svg%3E" />
+    <script>(function(){var d=document.documentElement,t=null,l=null;try{t=localStorage.getItem('consensus.theme')||localStorage.getItem('cs_theme');l=localStorage.getItem('consensus.locale')}catch(e){}d.dataset.theme=t==='night'?'night':t==='day'||t==='sunset'?'day':window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'night':'day';try{var q=new URLSearchParams(location.search).get('lang');if(q)l=q}catch(e){}var c=[l].concat(navigator.languages||[navigator.language]);for(var i=0;i<c.length;i++){var b=String(c[i]||'').toLowerCase().split(/[-_]/)[0];if(b==='zh'){d.lang='zh-Hans';return}if(b==='ja'||b==='ko'||b==='en'){d.lang=b;return}}d.lang='en'})()</script>
+    <meta name="description" content="A Consensus result: what people say about a question on public Reddit and X posts, with a link to every source." />
+    <title>Consensus · CoreSpeed edition</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>This result viewer needs JavaScript.</noscript>
     <div id="root"></div>
+    <!-- consensus.mjs render puts the result file here, escaped so post text cannot end this element. -->
+    <script type="application/json" id="consensus-result">null</script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
