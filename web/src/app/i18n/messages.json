@@ -1,9 +1,6 @@
 {
   "en": {
     "strip_pre": "Posts read through",
-    "strip_offer": "Public social media posts through one MCP connection",
-    "strip_note": "No separate scraping keys or social accounts",
-    "strip_cta": "Get CoreSpeed",
     "strip_aria": "Posts read through CoreSpeed. Learn about CoreSpeed",
     "edition": "CoreSpeed edition",
     "snapshot": "Snapshot · {date}",
@@ -146,9 +143,6 @@
   },
   "zh": {
     "strip_pre": "帖子来源",
-    "strip_offer": "通过一个 MCP 连接读取公开的社交媒体帖子",
-    "strip_note": "无需另配抓取密钥或社交账号",
-    "strip_cta": "了解 CoreSpeed",
     "strip_aria": "帖子通过 CoreSpeed 读取。了解 CoreSpeed",
     "edition": "CoreSpeed 版",
     "snapshot": "快照 · {date}",
@@ -286,9 +280,6 @@
   },
   "ja": {
     "strip_pre": "投稿の取得元",
-    "strip_offer": "1 つの MCP 接続で SNS の公開投稿を取得",
-    "strip_note": "スクレイピングの鍵や SNS アカウントは別途不要",
-    "strip_cta": "CoreSpeed を見る",
     "strip_aria": "投稿は CoreSpeed 経由で取得しています。CoreSpeed について",
     "edition": "CoreSpeed 版",
     "snapshot": "スナップショット · {date}",
@@ -426,9 +417,6 @@
   },
   "ko": {
     "strip_pre": "게시물 수집 경로",
-    "strip_offer": "MCP 연결 하나로 소셜 미디어 공개 게시물 수집",
-    "strip_note": "별도의 스크래핑 키나 소셜 계정 불필요",
-    "strip_cta": "CoreSpeed 알아보기",
     "strip_aria": "게시물은 CoreSpeed를 통해 수집했습니다. CoreSpeed 알아보기",
     "edition": "CoreSpeed 에디션",
     "snapshot": "스냅샷 · {date}",

@@ -286,8 +286,8 @@ and a quote that is not in its post. These checks test form and consistency;
 they cannot prove that a post exists. Only your own reads in this run show
 that. Then it writes `consensus-<slug>.html` next to the JSON: one
 self-contained file with the original Consensus interface. That interface has
-the answer donut, the reasons and themes, and every post with a link to its
-source. It opens from disk, with no server and no login. If `--open` cannot
+the answers and their shares, counts by platform, the reasons and themes, and
+every post with a link to its source. It opens from disk, with no server and no login. If `--open` cannot
 launch a browser, give the user the file path. Fix every error `render`
 reports, then run it again.
 

@@ -1,19 +1,20 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { AlertCircle, ArrowUpDown, Check, ChevronDown, ChevronLeft, ChevronRight, SearchX, X as XIcon } from 'lucide-react';
 import { SOURCE_ORDER, type Post, type PollOption, type Source, type Theme } from './api';
-import { Donut } from './Donut';
 import { alpha, headline, MIN_FOR_SHARES, optionColor } from './format';
 import { useI18n } from './i18n';
 import { SourceIcon } from './icons';
 import { cleanPostText } from './postText';
 import { PostRow } from './Posts';
+import { SourceRing } from './SourceRing';
 import type { SearchState } from './useSearch';
 import { useMedia } from './useMedia';
 
 /*
- * The original Consensus results screen, kept for a finished snapshot: no live search, no leads tab. Interface text
- * comes from the static dictionaries; the question, answers, reasons and themes are the report's own words and carry
- * its language (`reportLang`) so screen readers and fonts treat them correctly.
+ * The original Consensus results screen, kept for a finished snapshot: the poll column (question, split, reasons,
+ * themes) beside the posts column, as upstream lays it out. No live search, no leads tab. Interface text comes from the
+ * static dictionaries; the question, answers, reasons and themes are the report's own words and carry its language
+ * (`reportLang`) so screen readers and fonts treat them correctly.
  */
 type Sort = 'relevance' | 'score' | 'new';
 /** `picked` value for the "All opinions" view: every counted opinion, across options. */
@@ -119,41 +120,48 @@ function SortMenu({ value, onChange }: { value: Sort; onChange: (s: Sort) => voi
   );
 }
 
-function Legend({ options, selected, onSelect, hovered, onHover, total, reportLang }: { options: PollOption[]; selected: string | null; onSelect: (id: string) => void; hovered: string | null; onHover: (id: string | null) => void; total: number; reportLang?: string }) {
+/**
+ * Where an answer's opinions came from: one thin bar per row, its length the answer's share of all counted opinions,
+ * split by platform in each platform's own colour. Exact numbers are in the per-source table.
+ */
+function SourceBar({ counts, total, sources }: { counts: Partial<Record<Source, number>>; total: number; sources: Source[] }) {
+  const { t, num } = useI18n();
+  return (
+    <span className="src-bar" aria-hidden="true">
+      {sources.map((s) =>
+        counts[s] ? (
+          <span key={s} className={`src-${s}`} style={{ width: `${((100 * (counts[s] ?? 0)) / Math.max(1, total)).toFixed(2)}%` }} title={`${t(`src_${s}`)} ${num(counts[s] ?? 0)}`} />
+        ) : null,
+      )}
+    </span>
+  );
+}
+
+/** The answers, as a list the reader picks from. Answers are told apart by their words, not by colour. */
+function Legend({ options, selected, onSelect, total, sources, perSource, reportLang }: { options: PollOption[]; selected: string | null; onSelect: (id: string) => void; total: number; sources: Source[]; perSource: Partial<Record<Source, number>>; reportLang?: string }) {
   const { t, num, pct } = useI18n();
   const text = useOptionText();
   const shares = total >= MIN_FOR_SHARES;
   return (
     <div className="legend" role="listbox" aria-label={t('answers')}>
       {options.map((o) => {
-        const c = optionColor(o.id);
         const on = o.id === selected;
         const { title, description, own } = text(o);
         return (
-          <button
-            key={o.id}
-            role="option"
-            aria-selected={on}
-            className={`legend-row ${on ? 'on' : ''} ${hovered === o.id ? 'hot' : ''}`}
-            style={{ ['--c' as string]: c, ['--ct' as string]: alpha(c, 0.14) }}
-            onClick={() => onSelect(o.id)}
-            onPointerEnter={(e) => e.pointerType === 'mouse' && onHover(o.id)}
-            onPointerLeave={(e) => e.pointerType === 'mouse' && onHover(null)}
-            title={description}
-          >
-            <span className="dot" />
+          <button key={o.id} role="option" aria-selected={on} className={`legend-row ${on ? 'on' : ''}`} onClick={() => onSelect(o.id)} title={description}>
             <span className="legend-title" lang={own ? reportLang : undefined}>
               {title}
             </span>
             <span className="legend-pct">{shares && o.count ? pct(o.count / Math.max(1, total)) : ''}</span>
             <span className="legend-count">{num(o.count)}</span>
+            <SourceBar counts={o.by_source} total={total} sources={sources} />
           </button>
         );
       })}
       <button type="button" role="option" aria-selected={!selected} className={`legend-row legend-all ${!selected ? 'on' : ''}`} onClick={() => onSelect(ALL)}>
-        <span className="dot" />
         <span className="legend-title">{t('all_opinions')}</span>
         <span className="legend-total">{num(total)}</span>
+        <SourceBar counts={perSource} total={total} sources={sources} />
       </button>
     </div>
   );
@@ -362,13 +370,12 @@ function Caption({ state, shown, sources }: { state: SearchState; shown: number;
   );
 }
 
-export function Results({ state, query, tools, reportLang }: { state: SearchState; query: string; tools?: React.ReactNode; reportLang?: string }) {
+export function Results({ state, query, tools, reportLang, finding }: { state: SearchState; query: string; tools?: React.ReactNode; reportLang?: string; finding?: React.ReactNode }) {
   const i = useI18n();
   const { t, num } = i;
   const optionText = useOptionText();
   const desktop = useMedia('(min-width: 1100px)');
   const [picked, setPicked] = useState<string | null>(null);
-  const [hovered, setHovered] = useState<string | null>(null);
   const collected = useMemo(() => SOURCE_ORDER.filter((x) => state.meta?.sources?.includes(x)), [state.meta?.sources]);
   const [active, setActive] = useState<Set<Source>>(() => new Set(collected));
   const [sort, setSort] = useState<Sort>('relevance');
@@ -399,8 +406,6 @@ export function Results({ state, query, tools, reportLang }: { state: SearchStat
   const option = options.find((o) => o.id === selected);
   const optionIds = useMemo(() => new Set(options.map((o) => o.id)), [options.map((o) => o.id).join()]); // eslint-disable-line react-hooks/exhaustive-deps
   const inView = (p: Post) => active.has(p.source) && (selected ? p.option === selected : !!p.option && optionIds.has(p.option));
-  const legendBox = useNoShrink<HTMLDivElement>(picked);
-  const whyBox = useNoShrink<HTMLDivElement>(picked);
 
   const allPosts = useMemo(() => Object.values(state.posts), [state.postsVersion]); // eslint-disable-line react-hooks/exhaustive-deps
   /** Posts from the selected sources only: what the themes count and the list shows. */
@@ -449,6 +454,18 @@ export function Results({ state, query, tools, reportLang }: { state: SearchStat
   const allTotal = options.reduce((a, o) => a + o.count, 0);
   const optText = optionText(option);
 
+  const sampleNote =
+    allTotal === 0
+      ? t('source_empty', { sources: activeNames })
+      : allTotal < MIN_FOR_SHARES
+        ? t('sample_thin', { count: allTotal })
+        : active.size > 1
+          ? t('sample_shares_multi', { count: allTotal, sources: activeNames })
+          : t('sample_shares', { count: allTotal });
+
+  const legendBox = useNoShrink<HTMLDivElement>(picked);
+  const whyBox = useNoShrink<HTMLDivElement>(picked);
+
   return (
     <div className="results">
       <aside className="poll-col">
@@ -463,21 +480,15 @@ export function Results({ state, query, tools, reportLang }: { state: SearchStat
         {collected.length > 1 && <SourceSwitch collected={collected} active={active} counts={perSource} onToggle={toggle} />}
         <div className="poll-viz">
           <div className="donut-wrap">
-            <Donut slices={options.map((o) => ({ id: o.id, title: optionText(o).title, count: o.count }))} total={allTotal} selected={selected} onSelect={select} hovered={hovered} onHover={setHovered} />
+            <SourceRing parts={collected.filter((x) => active.has(x)).map((x) => ({ source: x, count: perSource[x] ?? 0 }))} total={allTotal} />
+            {collected.length > 1 && <p className="ring-cap">{t('by_source_title')}</p>}
           </div>
           <div className="legend-box" ref={legendBox}>
-            <p className="sample-note">
-              {allTotal === 0
-                ? t('source_empty', { sources: activeNames })
-                : allTotal < MIN_FOR_SHARES
-                  ? t('sample_thin', { count: allTotal })
-                  : active.size > 1
-                    ? t('sample_shares_multi', { count: allTotal, sources: activeNames })
-                    : t('sample_shares', { count: allTotal })}
-            </p>
-            <Legend options={options} selected={selected} onSelect={select} hovered={hovered} onHover={setHovered} total={allTotal} reportLang={reportLang} />
+            <p className="sample-note">{sampleNote}</p>
+            <Legend options={options} selected={selected} onSelect={select} total={allTotal} sources={collected.filter((x) => active.has(x))} perSource={perSource} reportLang={reportLang} />
           </div>
         </div>
+        {finding}
         {!allView && (
           <div ref={whyBox}>
             <Why option={option} summary={selected ? state.reasons[selected]?.summary : undefined} reportLang={reportLang} />
