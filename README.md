@@ -148,39 +148,44 @@ separate and depends on your agent.
 
 ## The example
 
-[`skills/consensus/examples/`](skills/consensus/examples/) holds a real run
-from 2026-10-14 on Reddit and X. Its question was "Why do developers switch
-from Cursor to Claude Code?", over the last 12 months:
+[`skills/consensus/examples/`](skills/consensus/examples/) holds real runs. The
+main one asks **"Would you still buy the product if you knew the ad was
+AI-generated?"** (asked as 知道一条广告是 AI 做的，你还会买吗？), on Reddit, X and
+Rednote, for the 12 months to 2026-10-14:
 
-- 14 successful CoreSpeed requests (21 credits at the published rate). 3 more lost the connection and were retried; their charge is unknown, so the cost was 21 to 25.5 credits.
-- 143 posts read, 42 dropped before sorting, 101 sorted, 45 opinions counted.
-- The result file and the rendered page are both in that folder.
+- 37 successful CoreSpeed requests, none failed: Reddit 18 and X 14 at 1.5
+  credits, Rednote 5 at 15, so 123 credits at the stated rates.
+- 391 posts read, 30 dropped before sorting, 361 sorted, 33 opinions counted,
+  each from a different author.
 
-A second, smaller example reads Rednote only, in Chinese:
-`rednote-cursor-vs-claude-code.json` asks "小红书上，Cursor 和 Claude Code
-大家选哪个？". It made 3 Rednote requests (2 search pages and 1 comment page,
-45 credits at the stated rate), read 60 items, and counted 23 opinions: Cursor 8,
-Claude Code 8, both 7. Six of the Cursor votes come from one note's comments,
-and its limits say so.
+| Answer (of 33 opinions counted in this sample) | Reddit | X | Rednote | All |
+| --- | ---: | ---: | ---: | ---: |
+| Won't buy, or less likely to | 5 | 11 | 4 | 20 |
+| Not if AI shows the product itself | 2 | 2 | 5 | 9 |
+| Depends on honesty, not on AI | 1 | 1 | 0 | 2 |
+| Still buys; judges the product | 0 | 1 | 1 | 2 |
+
+Many objections are about AI standing in for the product itself (clothes on
+AI models, AI food photos, AI demos), not about AI in ads as such. Another 21
+posts spoke only of trust (Reddit 10, Rednote 11) and 140 X posts were sellers
+of AI ads; neither is counted as an answer, and the page says so. The searches
+and the Rednote notes read lean towards people who object, and the page lists
+that bias per source. It is one report, in English; the interface around it
+also comes in 简体中文, 日本語 and 한국어.
+
+Two earlier runs are kept as well:
+
+- "Why do developers switch from Cursor to Claude Code?" on Reddit and X: 14
+  successful requests (21 to 25.5 credits, since 3 lost the connection and
+  were retried), 45 opinions counted. Its labels were revised once, from the
+  same posts, when the rubric moved to one vote per author per thread (49 to
+  45); the page records this.
+- "小红书上，Cursor 和 Claude Code 大家选哪个？" on Rednote only, in Chinese: 3
+  requests (45 credits), 23 opinions counted.
 
 ![The Rednote example, in Chinese](docs/images/viewer-rednote-zh.png)
 
-Both are recorded snapshots, not live results. Ask your agent to run it again
-for current data. Its labels were revised once, from the same collected posts:
-an independent test of the skill tightened the rubric to one vote per author
-per thread, which moved the count from 49 to 45. The page records this.
-
-| Answer (of 45 opinions counted in this sample) | Opinions |
-| --- | ---: |
-| Stayed with or went back to Cursor | 16 |
-| More usage for the money | 14 |
-| Better results in Claude Code | 7 |
-| No need for Cursor's IDE | 4 |
-| Uses both | 3 |
-| Other | 1 |
-
-One X search deliberately looked for people staying with Cursor, so that
-answer is over-sampled by design. The page lists this and the other limits.
+All are recorded snapshots, not live results.
 
 ## What the viewer shows
 

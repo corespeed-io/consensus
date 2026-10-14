@@ -317,7 +317,7 @@ the change, and say what changed.
 | `references/report-template.md` | A fuller Markdown report |
 | `scripts/consensus.mjs` | Offline helper: `validate`, `render`, `stats`, `ingest` |
 | `viewer/consensus-viewer.html` | The built viewer `render` fills in |
-| `examples/` | A real run: result file and rendered page |
+| `examples/` | Real runs: result files and rendered pages (Reddit + X + Rednote in English; Reddit + X; Rednote in Chinese) |
 
 ## Rules
 
