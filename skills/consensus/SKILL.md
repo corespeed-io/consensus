@@ -1,8 +1,8 @@
 ---
 name: consensus
-description: Find out what people actually say about a question on public Reddit, X and (when asked) Rednote/Xiaohongshu, through the CoreSpeed MCP social tools, and turn it into a cited opinion breakdown shown in the Consensus viewer - the answers people give, how many posts in each source's sample give each, the reasons behind them, and a link to every source post. Use when the user asks what people think, say, prefer or recommend ("Cursor vs Claude Code?", "is X worth it", "best Y for Z", "why do people switch from A to B", "Reddit and Twitter opinions on...", "小红书上大家怎么说", social listening, public sentiment). Needs the CoreSpeed MCP server connected (tools social__x_search, social__reddit_search; social__xiaohongshu_search_notes for Rednote).
+description: Find out what people actually say about a question on public Reddit, X and (when asked) Rednote/Xiaohongshu, through the CoreSpeed MCP social tools, and turn it into a cited opinion breakdown shown in the Consensus viewer - the answers people give, how many posts in each source's sample give each, the reasons behind them, and a link to every source post. Use when the user asks what people think, say, prefer or recommend ("Cursor vs Claude Code?", "is X worth it", "best Y for Z", "why do people switch from A to B", "Reddit and Twitter opinions on...", "小红书上大家怎么说", social listening, public sentiment). Needs the CoreSpeed MCP server (tools social__x_search, social__reddit_search; social__xiaohongshu_search_notes for Rednote); if it is not connected yet, the skill connects it with CoreSpeed's official setup and the user signs in once.
 metadata:
-  version: "1"
+  version: "2"
   source: https://github.com/corespeed-io/consensus
   based-on: https://github.com/Straitly-ai/consensus (MIT)
 ---
@@ -43,12 +43,23 @@ or "market share".
    search for `corespeed social`.
 3. **If they are missing, find out why before you name a cause.** There are
    four common reasons, and each has its own fix:
-   - **No CoreSpeed server is configured** in this client. The user connects
-     it with the official setup. In most agents they paste
-     `set up https://corespeed.io/SKILL.md (read it raw, e.g. with curl)`. In
-     Claude Code, the direct command is
-     `claude mcp add corespeed https://api.corespeed.io/mcp --transport http --scope user`,
-     then `/mcp` to sign in.
+   - **No CoreSpeed server is configured** in this client. Connect it now with
+     CoreSpeed's official setup, so the user does not have to:
+     1. Tell the user, before you change anything, that Consensus reads posts
+        through CoreSpeed and that its setup will add the CoreSpeed server to
+        this agent's user-level settings, save CoreSpeed's own skill for
+        future sessions, and add a few standing CoreSpeed rules to this
+        agent's global instructions file. If they say no, stop and give them
+        the manual setup line from the README instead.
+     2. Download https://corespeed.io/SKILL.md raw, for example
+        `curl -fsSL https://corespeed.io/SKILL.md`, and follow its Setup
+        section. Use the file you just downloaded, never a summary or an old
+        copy: it is kept up to date and gives the right steps for each client.
+     3. The user's part is the browser sign-in. In Claude Code they run `/mcp`,
+        pick corespeed and authenticate. In the Claude app they add the
+        connector themselves from the link the setup gives. Many clients load
+        a new server only in a new session; if yours does, say so.
+     4. Once the `social__*` tools appear, start again from step 1 above.
    - **The sign-in is not finished**, or the key was refused. Other CoreSpeed
      tools are missing too, or every call answers 401. The user re-runs the
      client's sign-in step (`/mcp` in Claude Code).
@@ -60,7 +71,9 @@ or "market share".
      at https://app.corespeed.io/tools.
 
    Say what you checked and what you saw. Never ask for an API key in the
-   chat. Never change the user's CoreSpeed settings or connections yourself.
+   chat. Connecting this client through the official setup is the only change
+   you make. Never change the user's CoreSpeed account yourself: do not turn
+   capabilities on or off, connect or remove apps, or change permissions.
 
 ## Pick the sources
 
