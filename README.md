@@ -72,12 +72,39 @@ another provider or a signed-in browser.
 ## Install
 
 You need an agent that loads skills (Claude Code, Codex, Cursor, OpenClaw,
-Hermes, or the Claude app) and a CoreSpeed connection. Node.js 18+ is needed
+Hermes, or the Claude app) and a CoreSpeed account. Node.js 18+ is needed
 only for the viewer step.
 
-**1. Connect CoreSpeed** (skip this if your agent already lists `social__*`
-tools). This is the only sign-in: one CoreSpeed connection, no social media
-accounts. Give your agent the official setup line:
+**1. Add the skill.**
+
+```bash
+npx skills add corespeed-io/consensus
+```
+
+The skills CLI asks which agents to install it for; add `-g -y` to install it
+for your user without questions. Or copy the folder `skills/consensus` to your
+agent's user-level skills folder:
+
+| Agent | Folder |
+| --- | --- |
+| Claude Code | `~/.claude/skills/consensus/` |
+| Codex and most others | `~/.agents/skills/consensus/` |
+| Cursor | `~/.cursor/skills/consensus/` |
+| Claude app | Customize → Skills → Upload a ZIP whose root is the `consensus` folder |
+
+```bash
+git clone https://github.com/corespeed-io/consensus.git
+mkdir -p ~/.claude/skills && cp -R consensus/skills/consensus ~/.claude/skills/
+```
+
+**2. Sign in to CoreSpeed once.** You do not need to set it up yourself. The
+first time you ask, if your agent has no CoreSpeed connection, the skill has it
+run CoreSpeed's official setup (https://corespeed.io/SKILL.md). Your part is
+to sign in in the browser. In Claude Code, run `/mcp`, pick corespeed and
+authenticate. Some agents load the new tools only in a new session. This is the
+only sign-in: no social media accounts, no X, Reddit or Rednote keys.
+
+To connect it beforehand, give your agent the official setup line:
 
 ```text
 set up https://corespeed.io/SKILL.md (read it raw, e.g. with curl)
@@ -94,23 +121,6 @@ media research" must be on for you at https://app.corespeed.io/tools; if the
 `social__*` tools are missing while other CoreSpeed tools are there, that is
 the usual cause. Never paste an API key into a chat. Headless agents use a key
 in an environment variable, as the official setup describes.
-
-**2. Add the skill.**
-
-- With the skills CLI: `npx skills add corespeed-io/consensus --skill consensus -g -y`
-- Or copy the folder `skills/consensus` to your agent's user-level skills folder:
-
-| Agent | Folder |
-| --- | --- |
-| Claude Code | `~/.claude/skills/consensus/` |
-| Codex and most others | `~/.agents/skills/consensus/` |
-| Cursor | `~/.cursor/skills/consensus/` |
-| Claude app | Customize → Skills → Upload a ZIP whose root is the `consensus` folder |
-
-```bash
-git clone https://github.com/corespeed-io/consensus.git
-mkdir -p ~/.claude/skills && cp -R consensus/skills/consensus ~/.claude/skills/
-```
 
 **3. Ask.** For example: "Why do developers switch from Cursor to Claude
 Code?", "Is a standing desk worth it? Reddit only, last 6 months.", or
