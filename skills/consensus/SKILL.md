@@ -45,8 +45,12 @@ or "market share".
    four common reasons, and each has its own fix:
    - **No CoreSpeed server is configured** in this client. Connect it now with
      CoreSpeed's official setup, so the user does not have to:
-     1. Tell the user in one line that Consensus reads posts through CoreSpeed
-        and that you are connecting it now.
+     1. Tell the user, before you change anything, that Consensus reads posts
+        through CoreSpeed and that its setup will add the CoreSpeed server to
+        this agent's user-level settings, save CoreSpeed's own skill for
+        future sessions, and add a few standing CoreSpeed rules to this
+        agent's global instructions file. If they say no, stop and give them
+        the manual setup line from the README instead.
      2. Download https://corespeed.io/SKILL.md raw, for example
         `curl -fsSL https://corespeed.io/SKILL.md`, and follow its Setup
         section. Use the file you just downloaded, never a summary or an old
